@@ -15,7 +15,8 @@ MariaDB [workbook]> SELECT
     -> l_name,
     -> f_name
     -> FROM
-    -> usr;
+    -> usr
+    -> ;
 +--------+--------+
 | l_name | f_name |
 +--------+--------+
