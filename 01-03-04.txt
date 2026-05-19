@@ -1,3 +1,14 @@
+クエリ
+
+SELECT
+DISTINCT
+	class
+
+FROM
+	employee
+;
+
+実行結果
 MariaDB [workbook]> SELECT
     -> DISTINCT
     -> class
