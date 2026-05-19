@@ -1,0 +1,40 @@
+クエリ
+
+SELECT
+	user_id,
+        isbn,
+        rental_date
+FROM
+	rental
+WHERE
+        returned = 0
+ORDER BY
+        rental_date ASC
+LIMIT
+        5
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> user_id,
+    -> isbn,
+    -> rental_date
+    -> FROM
+    -> rental
+    -> WHERE
+    -> returned = 0
+    -> ORDER BY
+    -> rental_date ASC
+    -> LIMIT
+    -> 5
+    -> ;
++---------+---------------+-------------+
+| user_id | isbn          | rental_date |
++---------+---------------+-------------+
+| A200402 | 4-8833-0000-2 | 2012-02-22  |
+| B200504 | 4-0010-0000-0 | 2012-03-20  |
+| A200405 | 4-0010-0000-0 | 2012-06-14  |
+| B200404 | 4-8833-0000-2 | 2012-12-10  |
+| A200405 | 4-8833-0000-3 | 2012-12-22  |
++---------+---------------+-------------+
+5 rows in set (0.001 sec)
