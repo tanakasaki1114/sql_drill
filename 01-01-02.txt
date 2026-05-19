@@ -1,3 +1,12 @@
+クエリ
+
+SELECT
+	*
+FROM
+	author
+;
+
+実行結果
 MariaDB [workbook]> SELECT
     -> *
     -> FROM
