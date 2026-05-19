@@ -1,0 +1,15 @@
+MariaDB [workbook]> SELECT
+    -> DISTINCT
+    -> class
+    -> FROM
+    -> employee;
++--------------+
+| class        |
++--------------+
+| 部長         |
+| 担当         |
+| 主任         |
+| アシスタント |
+| 課長         |
++--------------+
+5 rows in set (0.001 sec)
