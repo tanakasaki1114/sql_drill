@@ -16,7 +16,8 @@ MariaDB [workbook]> SELECT
     -> FROM
     -> quest
     -> WHERE
-    -> name NOT LIKE '%子';
+    -> name NOT LIKE '%子'
+    -> ;
 +------------+
 | name       |
 +------------+
