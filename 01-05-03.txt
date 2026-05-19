@@ -1,0 +1,15 @@
+MariaDB [workbook]> SELECT
+    -> isbn
+    -> ,
+    -> title,
+    -> price
+    -> FROM
+    -> books
+    -> WHERE
+    -> title LIKE 'SQL__';
++---------------+---------+-------+
+| isbn          | title   | price |
++---------------+---------+-------+
+| 4-0010-0000-9 | SQL入門 |  5500 |
++---------------+---------+-------+
+1 row in set (0.001 sec)

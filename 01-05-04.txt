@@ -1,0 +1,14 @@
+MariaDB [workbook]> SELECT
+    -> l_name,
+    -> f_name
+    -> FROM
+    -> employee
+    -> WHERE
+    -> l_name_kana LIKE 'ア%'
+    -> ;
++--------+--------+
+| l_name | f_name |
++--------+--------+
+| 相沢   | 聡     |
++--------+--------+
+1 row in set (0.001 sec)
