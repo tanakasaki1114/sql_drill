@@ -16,7 +16,8 @@ MariaDB [workbook]> SELECT
     -> FROM
     -> author
     -> WHERE
-    -> name LIKE '山田%';
+    -> name LIKE '山田%'
+    -> ;
 +-----------+----------+----------------+------------+
 | author_id | name     | name_kana      | birth      |
 +-----------+----------+----------------+------------+
