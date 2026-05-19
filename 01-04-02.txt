@@ -1,3 +1,18 @@
+クエリ
+
+SELECT
+	isbn,
+    title,
+    publish
+
+FROM
+	books
+
+WHERE
+    publish in ('日経BP' , '翔泳社')
+;
+
+実行結果
 MariaDB [workbook]> SELECT
     -> isbn,
     -> title,
