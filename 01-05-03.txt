@@ -20,7 +20,8 @@ MariaDB [workbook]> SELECT
     -> FROM
     -> books
     -> WHERE
-    -> title LIKE 'SQL__';
+    -> title LIKE 'SQL__'
+    -> ;
 +---------------+---------+-------+
 | isbn          | title   | price |
 +---------------+---------+-------+
