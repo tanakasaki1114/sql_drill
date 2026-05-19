@@ -10,7 +10,8 @@ FROM
 MariaDB [workbook]> SELECT
     -> *
     -> FROM
-    -> sales;
+    -> sales
+    -> ;
 +-------+---------+---------+
 | s_id  | s_date  | s_value |
 +-------+---------+---------+
