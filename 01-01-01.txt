@@ -6,7 +6,11 @@ FROM
 ;
 
 実行結果
-MariaDB [workbook]> SELECT * FROM books;
+MariaDB [workbook]> SELECT
+-> * 
+-> FROM 
+-> books
+-> ;
 +---------------+------------------+-------+--------------+--------------+-------------+
 | isbn          | title            | price | publish      | publish_date | category_id |
 +---------------+------------------+-------+--------------+--------------+-------------+
