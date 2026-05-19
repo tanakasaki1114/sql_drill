@@ -12,7 +12,8 @@ MariaDB [workbook]> SELECT
     -> DISTINCT
     -> prefecture
     -> FROM
-    -> quest;
+    -> quest
+    -> ;
 +------------+
 | prefecture |
 +------------+
