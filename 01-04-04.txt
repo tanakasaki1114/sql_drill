@@ -1,3 +1,18 @@
+クエリ
+
+SELECT
+	name,
+    sex,
+    prefecture
+
+FROM
+	quest
+
+WHERE
+    age BETWEEN 30 AND 39
+;
+
+実行結果
 MariaDB [workbook]> SELECT
     -> name,
     -> sex,
