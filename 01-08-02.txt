@@ -1,0 +1,42 @@
+クエリ
+
+SELECT
+	name,
+        answer1,
+        answer2
+FROM
+	quest
+ORDER BY
+        answered DESC
+LIMIT
+        0,
+        10
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> name,
+    -> answer1,
+    -> answer2
+    -> FROM
+    -> quest
+    -> ORDER BY
+    -> answered DESC
+    -> LIMIT
+    -> 0,
+    -> 10
+    -> ;
++------------+---------+------------------+
+| name       | answer1 | answer2          |
++------------+---------+------------------+
+| 根岸亜由美 |       3 | 絵がかわいい。   |
+| 西島泰治   |       3 | 読みやすいです。 |
+| 森本雄二   |       1 | NULL             |
+| 村井聡     |       3 | 文字が小さい。   |
+| 南幸一     |       2 |                  |
+| 清水一郎   |       2 | NULL             |
+| 和田駿     |       1 | NULL             |
+| 吉岡毅     |       3 | NULL             |
+| 有木守     |       3 | 買ってよかった。 |
+| 矢口一樹   |       2 | NULL             |
++------------+---------+------
