@@ -12,7 +12,8 @@ MariaDB [workbook]> SELECT
     -> title,
     -> publish
     -> FROM
-    -> books;
+    -> books
+    -> ;
 +------------------+--------------+
 | title            | publish      |
 +------------------+--------------+
