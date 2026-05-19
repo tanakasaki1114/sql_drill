@@ -16,7 +16,8 @@ MariaDB [workbook]> SELECT
     -> FROM
     -> quest
     -> WHERE
-    -> answer2 IS NOT NULL;
+    -> answer2 IS NOT NULL
+    -> ;
 +--------------------------+
 | answer2                  |
 +--------------------------+
