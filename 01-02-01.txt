@@ -10,7 +10,8 @@ FROM
 MariaDB [workbook]> SELECT
     -> title
     -> FROM
-    -> books;
+    -> books
+    -> ;
 +------------------+
 | title            |
 +------------------+
