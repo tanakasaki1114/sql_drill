@@ -1,3 +1,15 @@
+クエリ
+
+SELECT
+DISTINCT
+	l_name,
+    f_name
+
+FROM
+	usr
+;
+
+実行結果
 MariaDB [workbook]> SELECT
     -> DISTINCT
     -> l_name,
