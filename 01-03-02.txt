@@ -13,7 +13,8 @@ MariaDB [workbook]> SELECT
     -> DISTINCT
     -> referer
     -> FROM
-    -> access_log;
+    -> access_log
+    -> ;
 +---------------------------+
 | referer                   |
 +---------------------------+
