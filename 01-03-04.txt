@@ -13,7 +13,8 @@ MariaDB [workbook]> SELECT
     -> DISTINCT
     -> class
     -> FROM
-    -> employee;
+    -> employee
+    -> ;
 +--------------+
 | class        |
 +--------------+
