@@ -1,4 +1,14 @@
-MariaDB [workbook]> SELECT
+クエリ
+
+SELECT
+	l_name,
+    f_name,
+    class
+FROM
+	employee
+;
+
+実行結果MariaDB [workbook]> SELECT
     -> l_name,
     -> f_name,
     -> class
