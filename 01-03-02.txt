@@ -1,3 +1,5 @@
+クエリ
+
 SELECT
 DISTINCT
 	referer
