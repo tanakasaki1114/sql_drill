@@ -1,3 +1,18 @@
+クエリ
+
+SELECT
+	title,
+    publish,
+    price
+
+FROM
+	books
+
+WHERE
+    price < 5000
+;
+
+実行結果
 MariaDB [workbook]> SELECT
     -> title,
     -> publish,
