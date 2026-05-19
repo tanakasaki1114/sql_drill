@@ -20,7 +20,8 @@ MariaDB [workbook]> SELECT
     -> FROM
     -> quest
     -> WHERE
-    -> answered >= '2013-01-01';
+    -> answered >= '2013-01-01'
+    -> ;
 +------------+---------+------------------+
 | name       | answer1 | answer2          |
 +------------+---------+------------------+
