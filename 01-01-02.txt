@@ -10,7 +10,8 @@ FROM
 MariaDB [workbook]> SELECT
     -> *
     -> FROM
-    -> author;
+    -> author
+    -> ;
 +-----------+----------+----------------+------------+
 | author_id | name     | name_kana      | birth      |
 +-----------+----------+----------------+------------+
