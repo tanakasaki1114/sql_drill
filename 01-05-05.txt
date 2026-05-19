@@ -16,7 +16,8 @@ MariaDB [workbook]> SELECT
     -> FROM
     -> books
     -> WHERE
-    -> publish LIKE '%社';
+    -> publish LIKE '%社'
+    -> ;
 +----------+
 | title    |
 +----------+
