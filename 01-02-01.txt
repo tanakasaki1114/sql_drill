@@ -1,7 +1,17 @@
+クエリ
+
+SELECT
+	title
+FROM
+	books
+;
+
+実行結果
 MariaDB [workbook]> SELECT
     -> title
     -> FROM
-    -> books;
+    -> books
+    -> ;
 +------------------+
 | title            |
 +------------------+

@@ -1,8 +1,19 @@
+クエリ
+
+SELECT
+	p_name,
+    price
+FROM
+	product
+;
+
+実行結果
 MariaDB [workbook]> SELECT
     -> p_name,
     -> price
     -> FROM
-    -> product;
+    -> product
+    -> ;
 +--------------+-------+
 | p_name       | price |
 +--------------+-------+
