@@ -7,10 +7,12 @@ SELECT
 FROM
 	rental
 WHERE
+	-- 未返却を表す0
         returned = 0
 ORDER BY
         rental_date ASC
 LIMIT
+	-- 先頭から5件目を取り出す
         5
 ;
 

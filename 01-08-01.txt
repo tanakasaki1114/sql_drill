@@ -8,7 +8,9 @@ FROM
 ORDER BY
         publish_date DESC
 LIMIT
-        3,
+	-- 3件目から
+        2,
+	-- 5件目を取り出す
         5
 ;
 

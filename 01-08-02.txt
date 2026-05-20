@@ -9,7 +9,9 @@ FROM
 ORDER BY
         answered DESC
 LIMIT
+	-- 先頭から
         0,
+	-- 10件目を取り出す
         10
 ;
 
