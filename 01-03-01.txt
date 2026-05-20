@@ -1,8 +1,19 @@
+クエリ
+SELECT
+DISTINCT
+	prefecture
+   
+FROM
+	quest
+;
+
+実行結果
 MariaDB [workbook]> SELECT
     -> DISTINCT
     -> prefecture
     -> FROM
-    -> quest;
+    -> quest
+    -> ;
 +------------+
 | prefecture |
 +------------+

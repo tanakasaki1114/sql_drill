@@ -1,8 +1,20 @@
+クエリ
+
+SELECT
+DISTINCT
+	referer
+   
+FROM
+	access_log
+;
+
+実行結果
 MariaDB [workbook]> SELECT
     -> DISTINCT
     -> referer
     -> FROM
-    -> access_log;
+    -> access_log
+    -> ;
 +---------------------------+
 | referer                   |
 +---------------------------+
