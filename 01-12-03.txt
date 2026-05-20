@@ -1,0 +1,30 @@
+クエリ
+
+SELECT
+	author_id,
+	COUNT(isbn)
+FROM
+	author_books
+GROUP BY
+	author_id
+HAVING
+	COUNT(isbn) >= 3
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> author_id,
+    -> COUNT(isbn)
+    -> FROM
+    -> author_books
+    -> GROUP BY
+    -> author_id
+    -> HAVING
+    -> COUNT(isbn) >= 3
+    -> ;
++-----------+-------------+
+| author_id | COUNT(isbn) |
++-----------+-------------+
+| Y0002     |           4 |
++-----------+-------------+
+1 row in set (0.001 sec)
