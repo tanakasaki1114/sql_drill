@@ -9,6 +9,7 @@ FROM
 	quest
 
 WHERE
+    -- 回答日時が2023年1月1日以降
     answered >= '2013-01-01'
 ;
 
@@ -20,8 +21,7 @@ MariaDB [workbook]> SELECT
     -> FROM
     -> quest
     -> WHERE
-    -> answered >= '2013-01-01'
-    -> ;
+    -> answered >= '2013-01-01';
 +------------+---------+------------------+
 | name       | answer1 | answer2          |
 +------------+---------+------------------+

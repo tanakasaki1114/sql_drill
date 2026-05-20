@@ -1,13 +1,14 @@
 クエリ
 
 SELECT
-	user_id,
+    user_id,
     isbn
 
 FROM
 	rental
 
 WHERE
+    -- 未返却の0
     returned = 0
 ;
 
@@ -18,8 +19,7 @@ MariaDB [workbook]> SELECT
     -> FROM
     -> rental
     -> WHERE
-    -> returned = 0
-    -> ;
+    -> returned = 0;
 +---------+---------------+
 | user_id | isbn          |
 +---------+---------------+

@@ -8,6 +8,7 @@ FROM
 	quest
 
 WHERE
+    -- 20歳以上
     age >= 20
 ;
 
@@ -18,8 +19,7 @@ MariaDB [workbook]> SELECT
     -> FROM
     -> quest
     -> WHERE
-    -> age >= 20
-    -> ;
+    -> age >= 20;
 +---------+--------------------------+
 | answer1 | answer2                  |
 +---------+--------------------------+

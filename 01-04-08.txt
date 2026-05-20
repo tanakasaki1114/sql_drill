@@ -1,7 +1,8 @@
 クエリ
+SELECT文のなかに複数の列を指定するときにカンマが必要だがカンマがなかった。「5000円未満」なのに演算子の式が「5000円以上」のものになっていた。
 
 SELECT
-	title,
+    title,
     publish,
     price
 
@@ -9,6 +10,7 @@ FROM
 	books
 
 WHERE
+    -- 5000円未満
     price < 5000
 ;
 
