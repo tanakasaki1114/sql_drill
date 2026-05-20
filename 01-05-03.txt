@@ -1,12 +1,27 @@
+クエリ
+
+SELECT
+	isbn,
+    title,
+    price
+
+FROM
+	books
+
+WHERE
+    title LIKE 'SQL__'
+;
+
+実行結果
 MariaDB [workbook]> SELECT
-    -> isbn
-    -> ,
+    -> isbn,
     -> title,
     -> price
     -> FROM
     -> books
     -> WHERE
-    -> title LIKE 'SQL__';
+    -> title LIKE 'SQL__'
+    -> ;
 +---------------+---------+-------+
 | isbn          | title   | price |
 +---------------+---------+-------+

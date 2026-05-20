@@ -1,9 +1,23 @@
+クエリ
+
+SELECT
+	name
+
+FROM
+	quest
+
+WHERE
+    name NOT LIKE '%子'
+;
+
+実行結果
 MariaDB [workbook]> SELECT
     -> name
     -> FROM
     -> quest
     -> WHERE
-    -> name NOT LIKE '%子';
+    -> name NOT LIKE '%子'
+    -> ;
 +------------+
 | name       |
 +------------+
