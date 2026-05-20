@@ -1,0 +1,42 @@
+クエリ
+間違い：
+1.SUM(*)ではなくSUM(page_id)
+2.ORDER BYではなくGROUP BY
+
+SELECT
+	page_id,
+	SUM(page_id)
+FROM
+	access_log
+GROUP BY
+	page_id
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> page_id,
+    -> SUM(page_id)
+    -> FROM
+    -> access_log
+    -> GROUP BY
+    -> page_id
+    -> ;
++---------+--------------+
+| page_id | SUM(page_id) |
++---------+--------------+
+| A0001   |            0 |
+| B0001   |            0 |
+| B0002   |            0 |
+| B0003   |            0 |
+| B0004   |            0 |
+| C0001   |            0 |
+| C0002   |            0 |
+| C0003   |            0 |
+| C0004   |            0 |
+| C0005   |            0 |
+| D0001   |            0 |
+| D0002   |            0 |
+| D0003   |            0 |
+| D0004   |            0 |
++---------+--------------+
+14 rows in set, 126 warnings (0.013 sec)
