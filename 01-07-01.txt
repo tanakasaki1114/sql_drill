@@ -6,6 +6,7 @@ SELECT
 FROM
 	books
 WHERE
+	-- 2500円以上3500円未満
         price BETWEEN 2500 AND 3500
 ORDER BY
         price ASC

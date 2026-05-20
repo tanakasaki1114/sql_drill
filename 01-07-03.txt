@@ -5,8 +5,10 @@ SELECT
 FROM
 	rental
 WHERE
+	-- 未返却のものを0とする
         returned = 0
 AND
+	-- 貸出日が2012円12月1日より前
         rental_date < '2012-12-01'
 ORDER BY
         rental_date ASC
