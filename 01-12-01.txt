@@ -8,6 +8,7 @@ FROM
 GROUP BY
 	prefecture
 HAVING
+	-- 35歳以上49歳以下
 	AVG(age) BETWEEN 35 AND 49
 ;
 
