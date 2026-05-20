@@ -1,0 +1,30 @@
+クエリ
+
+SELECT
+	prefecture,
+	FLOOR(AVG(answer1)) AS 評価平均
+FROM
+	quest
+GROUP BY
+	prefecture
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> prefecture,
+    -> FLOOR(AVG(answer1)) AS 評価平均
+    -> FROM
+    -> quest
+    -> GROUP BY
+    -> prefecture
+    -> ;
++------------+----------+
+| prefecture | 評価平均 |
++------------+----------+
+| 茨城県     |        2 |
+| 埼玉県     |        3 |
+| 神奈川県   |        2 |
+| 千葉県     |        3 |
+| 東京都     |        1 |
++------------+----------+
+5 rows in set (0.002 sec)
