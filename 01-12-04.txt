@@ -1,0 +1,43 @@
+クエリ
+
+SELECT
+	publish,
+	category_id,
+	COUNT(isbn)
+FROM
+	books
+GROUP BY
+	publish,
+	category_id
+HAVING
+	COUNT(isbn) < 3
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> publish,
+    -> category_id,
+    -> COUNT(isbn)
+    -> FROM
+    -> books
+    -> GROUP BY
+    -> publish,
+    -> category_id
+    -> HAVING
+    -> COUNT(isbn) < 3
+    -> ;
++--------------+-------------+-------------+
+| publish      | category_id | COUNT(isbn) |
++--------------+-------------+-------------+
+| 山田出版     | A9999       |           1 |
+| 山田出版     | H9999       |           1 |
+| 山田出版     | P1111       |           1 |
+| 山田出版     | S2222       |           1 |
+| 秀和システム | J4444       |           1 |
+| 秀和システム | P1111       |           1 |
+| 日経BP       | S2222       |           2 |
+| 日経BP       | X3333       |           1 |
+| 翔泳社       | P1111       |           1 |
+| 翔泳社       | X3333       |           1 |
++--------------+-------------+-------------+
+10 rows in set (0.002 sec)
