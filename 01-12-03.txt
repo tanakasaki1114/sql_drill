@@ -8,6 +8,7 @@ FROM
 GROUP BY
 	author_id
 HAVING
+	-- 3冊以上
 	COUNT(isbn) >= 3
 ;
 
