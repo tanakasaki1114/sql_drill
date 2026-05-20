@@ -1,3 +1,18 @@
+クエリ
+
+SELECT
+	l_name,
+    f_name,
+    email
+
+FROM
+	usr
+
+WHERE
+    prefecture <> '東京都'
+;
+
+実行結果
 MariaDB [workbook]> SELECT
     -> l_name,
     -> f_name,
@@ -5,7 +20,8 @@ MariaDB [workbook]> SELECT
     -> FROM
     -> usr
     -> WHERE
-    -> prefecture <> '東京都';
+    -> prefecture <> '東京都'
+    -> ;
 +--------+--------+----------------------+
 | l_name | f_name | email                |
 +--------+--------+----------------------+

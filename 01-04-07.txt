@@ -1,9 +1,23 @@
+クエリ
+
+SELECT
+	answer2
+
+FROM
+	quest
+
+WHERE
+    answer2 IS NOT NULL
+;
+
+実行結果
 MariaDB [workbook]> SELECT
     -> answer2
     -> FROM
     -> quest
     -> WHERE
-    -> answer2 IS NOT NULL;
+    -> answer2 IS NOT NULL
+    -> ;
 +--------------------------+
 | answer2                  |
 +--------------------------+

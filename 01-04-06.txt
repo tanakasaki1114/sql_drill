@@ -1,10 +1,25 @@
+クエリ
+
+SELECT
+	user_id,
+    isbn
+
+FROM
+	rental
+
+WHERE
+    returned = 0
+;
+
+実行結果
 MariaDB [workbook]> SELECT
     -> user_id,
     -> isbn
     -> FROM
     -> rental
     -> WHERE
-    -> returned = 0;
+    -> returned = 0
+    -> ;
 +---------+---------------+
 | user_id | isbn          |
 +---------+---------------+
