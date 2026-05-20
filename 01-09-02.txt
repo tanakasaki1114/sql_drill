@@ -1,0 +1,34 @@
+クエリ
+
+SELECT
+	AVG(answer1)
+FROM
+	quest
+GROUP BY
+	prefecture,
+	sex
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> AVG(answer1)
+    -> FROM
+    -> quest
+    -> GROUP BY
+    -> prefecture,
+    -> sex
+    -> ;
++--------------+
+| AVG(answer1) |
++--------------+
+|       1.0000 |
+|       2.5000 |
+|       3.0000 |
+|       2.0000 |
+|       2.5000 |
+|       3.0000 |
+|       3.0000 |
+|       3.0000 |
+|       1.6000 |
++--------------+
+9 rows in set (0.001 sec)
