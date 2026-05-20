@@ -10,6 +10,7 @@ GROUP BY
 	publish,
 	category_id
 HAVING
+	-- 3冊未満
 	COUNT(isbn) < 3
 ;
 
