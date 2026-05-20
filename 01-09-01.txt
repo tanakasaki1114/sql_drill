@@ -1,0 +1,27 @@
+クエリ
+
+SELECT
+	MAX(age)_
+	MIN(age)
+FROM
+	quest
+GROUP BY
+	sex
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> MAX(age),
+    -> MIN(age)
+    -> FROM
+    -> quest
+    -> GROUP BY
+    -> sex
+    -> ;
++----------+----------+
+| MAX(age) | MIN(age) |
++----------+----------+
+|       40 |       25 |
+|       64 |       18 |
++----------+----------+
+2 rows in set (0.015 sec)
