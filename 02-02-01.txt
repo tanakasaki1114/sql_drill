@@ -1,0 +1,61 @@
+クエリ
+
+SELECT
+	u.l_name,
+	u.f_name,
+	COUNT(r.id)
+FROM
+	rental AS r
+RIGHT JOIN
+	usr AS u
+ON
+	r.user_id = u.user_id
+GROUP BY
+	u.l_name,
+	u.f_name
+ORDER BY
+	COUNT(r.id) DESC,
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> u.l_name,
+    -> u.f_name,
+    -> COUNT(r.id)
+    -> FROM
+    -> rental AS r
+    -> RIGHT JOIN
+    -> usr AS u
+    -> ON
+    -> r.user_id = u.user_id
+    -> GROUP BY
+    -> u.l_name,
+    -> u.f_name
+    -> ORDER BY
+    -> COUNT(r.id) DESC
+    -> ;
++--------+--------+-------------+
+| l_name | f_name | COUNT(r.id) |
++--------+--------+-------------+
+| 河合   | 泰治   |           3 |
+| 松本   | 博美   |           2 |
+| 西島   | 文子   |           2 |
+| 南     | 沙恵   |           2 |
+| 木下   | 一樹   |           2 |
+| 井上   | 一郎   |           2 |
+| 吉岡   | 遥     |           2 |
+| 森本   | 絵里   |           2 |
+| 有木   | 茉莉   |           1 |
+| 江本   | 聡     |           1 |
+| 坂口   | 駿     |           1 |
+| 上原   | 幸一   |           1 |
+| 和田   | 修子   |           1 |
+| 小野   | 雄二   |           1 |
+| 山田   | 太郎   |           1 |
+| 根岸   | 裕子   |           1 |
+| 矢口   | 亜由美 |           0 |
+| 久保田 | 守     |           0 |
+| 村井   | 佐知子 |           0 |
+| 児玉   | 毅     |           0 |
++--------+--------+-------------+
+20 rows in set (0.012 sec)
