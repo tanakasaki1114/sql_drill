@@ -1,0 +1,65 @@
+クエリ
+間違い：
+・重複を含まないため、ALLはいらない
+・CONCAT(u.l_name_kana, u.f_name)にする
+
+SELECT
+	a.name_kana
+FROM
+	author AS a
+UNION
+SELECT
+	CONCAT(u.l_name_kana, u.f_name)
+FROM
+	usr AS u
+WHERE
+	u.prefecture = '千葉県'
+ORDER BY
+	-- 命令1を表す
+	1 DESC
+;
+実行結果
+MariaDB [workbook]> SELECT
+    -> a.name_kana
+    -> FROM
+    -> author AS a
+    -> UNION
+    -> SELECT
+    -> CONCAT(u.l_name_kana, u.f_name)
+    -> FROM
+    -> usr AS u
+    -> ORDER BY
+    -> 1 DESC
+    -> ;
++----------------+
+| name_kana      |
++----------------+
+| ワダ修子       |
+| ヨシオカ遥     |
+| ヤマダ太郎     |
+| ヤマダヨシヒロ |
+| ヤマダアイコ   |
+| ヤグチ亜由美   |
+| モリモト絵里   |
+| モリグチヤスオ |
+| ムライ佐知子   |
+| ミナミ沙恵     |
+| マツモト博美   |
+| ネギシ裕子     |
+| ニシジマ文子   |
+| タナカタロウ   |
+| サトウイチロウ |
+| サカグチ駿     |
+| コダマ毅       |
+| クボタ守       |
+| キノシタ一樹   |
+| カワナカトモキ |
+| カワイ泰治     |
+| オノ雄二       |
+| エモト聡       |
+| ウエハラ幸一   |
+| イノウエ一郎   |
+| アリヨシハルミ |
+| アリキ茉莉     |
++----------------+
+27 rows in set (0.036 sec)
