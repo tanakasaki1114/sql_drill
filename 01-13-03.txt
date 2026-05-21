@@ -1,0 +1,39 @@
+クエリ
+
+SELECT
+	referer,
+	COUNT(*),
+CASE
+	-- アクセス数が50以上
+	WHEN COUNT(*) >= 50 THEN 'A'
+	-- アクセス数が10以上49以下
+	WHEN COUNT(*) BETWEEN 10 AND 49 THEN 'B'
+	ELSE 'C'
+	END AS ランク
+FROM
+	access_log
+GROUP BY
+	referer
+HAVING
+	-- アクセス数が3件以上
+	COUNT(*) >= 3
+ORDER BY
+	COUNT(*) DESC;
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    ->     referer,
+    ->     COUNT(*),
+    ->         WHEN COUNT(*) >= 50 THEN 'A'
+    ->         WHEN COUNT(*) BETWEEN 10 AND 49 THEN 'B'
+    ->         ELSE 'C'
+    ->     END AS ランク
+    -> FROM
+    ->     access_log
+    -> GROUP BY
+    ->     referer
+    -> HAVING
+    ->     COUNT(*) >= 3
+    -> ORDER BY
+    ->     COUNT(*) DESC;
