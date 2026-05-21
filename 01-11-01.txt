@@ -2,7 +2,7 @@
 
 SELECT
 	prefecture,
-	FLOOR(AVG(answer1)) AS 評価平均
+	ROUND(AVG(answer1)) AS 評価平均
 FROM
 	quest
 GROUP BY
@@ -12,7 +12,7 @@ GROUP BY
 実行結果
 MariaDB [workbook]> SELECT
     -> prefecture,
-    -> FLOOR(AVG(answer1)) AS 評価平均
+    -> ROUND(AVG(answer1)) AS 評価平均
     -> FROM
     -> quest
     -> GROUP BY
@@ -25,6 +25,6 @@ MariaDB [workbook]> SELECT
 | 埼玉県     |        3 |
 | 神奈川県   |        2 |
 | 千葉県     |        3 |
-| 東京都     |        1 |
+| 東京都     |        2 |
 +------------+----------+
-5 rows in set (0.002 sec)
+5 rows in set (0.001 sec)
