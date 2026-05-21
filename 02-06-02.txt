@@ -1,0 +1,48 @@
+クエリ
+
+SELECT
+	CONCAT(u.l_name,u.f_name)
+FROM
+	usr AS u
+EXCEPT
+SELECT
+	q.name
+FROM
+	quest AS q
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> CONCAT(u.l_name,u.f_name)
+    -> FROM
+    -> usr AS u
+    -> EXCEPT
+    -> SELECT
+    -> q.name
+    -> FROM
+    -> quest AS q
+    -> ;
++---------------------------+
+| CONCAT(u.l_name,u.f_name) |
++---------------------------+
+| 井上一郎                  |
+| 上原幸一                  |
+| 江本聡                    |
+| 小野雄二                  |
+| 河合泰治                  |
+| 木下一樹                  |
+| 久保田守                  |
+| 児玉毅                    |
+| 坂口駿                    |
+| 矢口亜由美                |
+| 有木茉莉                  |
+| 吉岡遥                    |
+| 和田修子                  |
+| 松本博美                  |
+| 南沙恵                    |
+| 村井佐知子                |
+| 森本絵里                  |
+| 西島文子                  |
+| 根岸裕子                  |
++---------------------------+
+19 rows in set (0.001 sec)
