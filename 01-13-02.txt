@@ -16,7 +16,8 @@ GROUP BY
 	isbn
 ;
 
-実行結果MariaDB [workbook]> SELECT
+実行結果
+MariaDB [workbook]> SELECT
     -> isbn,
     -> COUNT(*) AS 貸出数,
     -> CASE
