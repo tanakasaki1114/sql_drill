@@ -1,0 +1,50 @@
+クエリ
+
+SELECT
+	b.title,
+	COUNT(r.isbn)
+FROM
+	books AS b
+LEFT JOIN
+	rental AS r
+ON
+	b.isbn = r.isbn
+GROUP BY
+	b.title
+ORDER BY
+	r.isbn DESC
+;
+実行結果
+MariaDB [workbook]> SELECT
+    -> b.title,
+    -> COUNT(r.isbn)
+    -> FROM
+    -> books AS b
+    -> LEFT JOIN
+    -> rental AS r
+    -> ON
+    -> b.isbn = r.isbn
+    -> GROUP BY
+    -> b.title
+    -> ORDER BY
+    -> r.isbn DESC
+    -> ;
++------------------+---------------+
+| title            | COUNT(r.isbn) |
++------------------+---------------+
+| XMLリファレンス  |             1 |
+| SQLプチブック    |            12 |
+| SQLリファレンス  |             1 |
+| PEAR入門         |             1 |
+| XML辞典          |             1 |
+| PHP5サンプル集   |             1 |
+| JSPリファレンス  |             1 |
+| SQL入門          |             1 |
+| PHPドリル        |             1 |
+| ハムスターの観察 |             5 |
+| フェレットの観察 |             0 |
+| らくだの観察日記 |             0 |
+| あひるの観察日記 |             0 |
+| かえるの観察日記 |             0 |
++------------------+---------------+
+14 rows in set (0.001 sec)
