@@ -1,0 +1,45 @@
+クエリ
+間違い：
+・VALUESではなく「VALUE」になっていた
+・カンマがなかった
+
+INSERT INTO
+	employee
+	(
+		s_id,
+		l_name,
+		depart_id,
+		last_update
+	)
+VALUES
+	 (
+		-- 利用者コード
+		'WA00001',
+		-- ISBNコード
+		'和田',
+		-- 貸出日
+		'J01'
+		-- 最終更新日
+		CURRENT_DATE
+	)
+
+;
+
+実行結果
+MariaDB [workbook]> INSERT INTO
+    -> employee
+    -> (
+    -> s_id,
+    -> l_name,
+    -> depart_id,
+    -> last_update
+    -> )
+    -> VALUES
+    -> (
+    -> 'WA00001',
+    -> '和田',
+    -> 'J01',
+    -> CURRENT_DATE
+    -> )
+    -> ;
+Query OK, 1 row affected (0.014 sec)
