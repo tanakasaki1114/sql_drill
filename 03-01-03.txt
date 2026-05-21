@@ -12,7 +12,8 @@ VALUES
 
 ;
 
-実行結果MariaDB [workbook]> INSERT INTO
+実行結果
+MariaDB [workbook]> INSERT INTO
     -> depart
     -> VALUES
     -> (
