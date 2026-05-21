@@ -1,0 +1,75 @@
+クエリ
+
+SELECT
+	o.order_date AS 発注日,
+	od.p_id AS 注文コード,
+	CONCAT(u.l_name,u.f_name) AS 利用者氏名,
+	p.p_name AS 商品名,
+	p.price AS 商品単価,
+	od.quantity AS 購入数
+FROM
+	(
+	(
+	order_main AS o
+INNER JOIN
+	order_desc AS od
+ON
+	o.po_id = od.po_id
+	)
+INNER JOIN
+	product AS p
+ON
+	p.p_id = od.p_id
+	)
+INNER JOIN
+	usr AS u
+ON
+	o.user_id = u.user_id
+WHERE
+	o.delivery_date IS NULL
+ORDER BY
+	o.order_date ASC,
+	o.po_id ASC,
+	od.p_id ASC
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> o.order_date AS 発注日,
+    -> od.p_id AS 注文コード,
+    -> CONCAT(u.l_name,u.f_name) AS 利用者氏名,
+    -> p.p_name AS 商品名,
+    -> p.price AS 商品単価,
+    -> od.quantity AS 購入数
+    -> FROM
+    -> (
+    -> (
+    -> order_main AS o
+    -> INNER JOIN
+    -> order_desc AS od
+    -> ON
+    -> o.po_id = od.po_id
+    -> )
+    -> INNER JOIN
+    -> product AS p
+    -> ON
+    -> p.p_id = od.p_id
+    -> )
+    -> INNER JOIN
+    -> usr AS u
+    -> ON
+    -> o.user_id = u.user_id
+    -> WHERE
+    -> o.delivery_date IS NULL
+    -> ORDER BY
+    -> o.order_date ASC,
+    -> o.po_id ASC,
+    -> od.p_id ASC
+    -> ;
++------------+------------+------------+--------------+----------+--------+
+| 発注日     | 注文コード | 利用者氏名 | 商品名       | 商品単価 | 購入数 |
++------------+------------+------------+--------------+----------+--------+
+| 2012-12-22 | PB00000002 | 森本絵里   | 赤ボールペン |      100 |    100 |
+| 2012-12-25 | DE00000001 | 西島文子   | 電卓         |      600 |     10 |
++------------+------------+------------+--------------+----------+--------+
+2 rows in set (0.001 sec)
