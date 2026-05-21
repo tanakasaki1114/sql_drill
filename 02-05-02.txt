@@ -1,3 +1,4 @@
+クエリ
 SELECT
 	depart_id,
 	depart_name
