@@ -1,0 +1,23 @@
+クエリ
+
+INSERT INTO
+	depart
+VALUES
+	 (
+		-- 所属部署コード
+		'E03'
+		-- 所属部署名
+		'第三営業部',
+	)
+
+;
+
+実行結果MariaDB [workbook]> INSERT INTO
+    -> depart
+    -> VALUES
+    -> (
+    -> 'E03',
+    -> '第三営業部'
+    -> )
+    -> ;
+Query OK, 1 row affected (0.015 sec)
