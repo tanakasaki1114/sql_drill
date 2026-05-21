@@ -1,0 +1,62 @@
+クエリ
+
+SELECT
+	CONCAT(e.l_name,e.f_name) AS 社員氏名,
+	AVG(t.work_time) AS 勤務平均時間
+FROM
+	employee AS e
+LEFT JOIN
+	time_card AS t
+ON
+	e.s_id = t.s_id
+GROUP BY
+	CONCAT(e.l_name,e.f_name)
+ORDER BY
+	AVG(t.work_time) DESC
+;
+実行結果
+MariaDB [workbook]> SELECT
+    -> CONCAT(e.l_name,e.f_name) AS 社員氏名,
+    -> AVG(t.work_time) AS 勤務平均時間
+    -> FROM
+    -> employee AS e
+    -> LEFT JOIN
+    -> time_card AS t
+    -> ON
+    -> e.s_id = t.s_id
+    -> GROUP BY
+    -> CONCAT(e.l_name,e.f_name)
+    -> ORDER BY
+    -> AVG(t.work_time) DESC
+    -> ;
++------------+--------------+
+| 社員氏名   | 勤務平均時間 |
++------------+--------------+
+| 川口裕子   |       8.5476 |
+| 神田佐知子 |       8.5476 |
+| 葉山俊輔   |       8.5238 |
+| 野上利江   |       8.5238 |
+| 田中真由子 |       8.5238 |
+| 中澤康代   |       8.5000 |
+| 大門一郎   |       8.5000 |
+| 藤岡幸太郎 |       8.5000 |
+| 木村一郎   |       8.5000 |
+| 清水春子   |       8.4762 |
+| 田辺正一   |       8.4762 |
+| 戸川よしみ |       8.4762 |
+| 加藤昭雄   |       8.4762 |
+| 藤井雄太   |       8.4762 |
+| 津村知美   |       8.4762 |
+| 山田奈美   |         NULL |
+| 新渡戸康治 |         NULL |
+| 佐藤智子   |         NULL |
+| 近田晃子   |         NULL |
+| 上田一也   |         NULL |
+| 西雄一     |         NULL |
+| 妹尾春樹   |         NULL |
+| 相沢聡     |         NULL |
+| 寺岡陽一   |         NULL |
+| 速水和幸   |         NULL |
+| 遠山真一   |         NULL |
++------------+--------------+
+26 rows in set (0.002 sec)
