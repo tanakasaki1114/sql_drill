@@ -1,0 +1,57 @@
+クエリ
+
+INSERT INTO
+	quest
+	(
+		name,
+		name_kana,
+		sex,
+		prefecture,
+		answer1,
+		answer2,
+		answered
+	)
+VALUES
+	 (
+		-- 回答者名
+		'佐々木三郎',
+		-- 回答者名（カナ）
+		'ササキサブロウ',
+		-- 性別
+		'男',
+		-- 都道府県
+		 '東京都',
+		-- 本書の評価
+		'3',
+		-- 本書の感想
+		'興味深い内容です。'
+		-- 回答日時
+		NOW()
+	)
+
+;
+
+実行結果
+MariaDB [workbook]> INSERT INTO
+    -> quest
+    -> (
+    -> name,
+    -> name_kana,
+    -> sex,
+    -> prefecture,
+    -> answer1,
+    -> answer2,
+    -> answered
+    -> )
+    -> VALUES
+    -> (
+    -> '佐々木三郎',
+    -> 'ササキサブロウ',
+    -> '男',
+    -> '東京都',
+    -> '3',
+    -> '興味深い内容です。',
+    -> NOW()
+    -> )
+    -> ;
+Query OK, 1 row affected (0.014 sec)
