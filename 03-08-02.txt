@@ -1,0 +1,31 @@
+クエリ
+
+DELETE FROM
+	employee
+WHERE
+NOT EXISTS
+	(
+		SELECT
+		 depart.depart_id
+		FROM
+		 depart
+		WHERE
+		 employee.depart_id = depart.depart_id
+	)	
+;
+
+実行結果
+MariaDB [workbook]> DELETE FROM
+    -> employee
+    -> WHERE
+    -> NOT EXISTS
+    -> (
+    -> SELECT
+    -> depart.depart_id
+    -> FROM
+    -> depart
+    -> WHERE
+    -> employee.depart_id = depart.depart_id
+    -> )
+    -> ;
+Query OK, 0 rows affected (0.001 sec)
