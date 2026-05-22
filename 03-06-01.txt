@@ -1,0 +1,36 @@
+クエリ
+
+UPDATE
+	employee
+SET
+	depart_id = 'Z99(未登録)'
+WHERE
+	depart_id
+NOT IN
+	(
+		SELECT
+			depart_id
+
+		FROM
+			depart
+	)
+
+;
+
+実行結果
+MariaDB [workbook] UPDATE
+    - employee
+    - SET
+    - depart_id = 'Z99(未登録)'
+    - WHERE
+    - depart_id
+    - NOT IN
+    - (
+    - SELECT
+    - depart_id
+    - FROM
+    - depart
+    - )
+    - ;
+Query OK, 0 rows affected, 26 warnings (0.001 sec)
+Rows matched 26  Changed 0  Warnings 26
