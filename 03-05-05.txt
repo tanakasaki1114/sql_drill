@@ -1,0 +1,29 @@
+クエリ
+間違い：
+・SETの中身が「=」でつながっていなかった
+・ORではなくAND
+
+UPDATE
+	rental
+SET
+	rental_date = CURRENT_DATE
+WHERE
+	-- 利用者コード
+	user_id = 'B200205'
+AND
+	-- ISBNコード
+	isbn = '4-0010-0000-1'
+;
+
+実行結果
+MariaDB [workbook]> UPDATE
+    -> rental
+    -> SET
+    -> rental_date = CURRENT_DATE
+    -> WHERE
+    -> user_id = 'B200205'
+    -> AND
+    -> isbn = '4-0010-0000-1'
+    -> ;
+Query OK, 0 rows affected (0.001 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
