@@ -1,0 +1,17 @@
+クエリ
+
+UPDATE
+	product
+SET
+	-- 10%値上げ
+	price = price * 1.1
+;
+
+実行結果
+MariaDB [workbook]> UPDATE
+    -> product
+    -> SET
+    -> price = price * 1.1
+    -> ;
+Query OK, 8 rows affected (0.012 sec)
+Rows matched: 8  Changed: 8  Warnings: 0
