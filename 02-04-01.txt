@@ -7,15 +7,15 @@ SELECT
 FROM
 	(
 	employee AS e
-INNER JOIN
-	depart AS d
-ON
-	e.depart_id = d.depart_id
+		INNER JOIN
+			depart AS d
+		ON
+			e.depart_id = d.depart_id
 	)
 INNER JOIN
 	time_card AS t
 ON
-	e.depart_id = d.depart_id
+	e.s_id = t.s_id
 WHERE
 	e.s_id = 'DA00001'
 AND
