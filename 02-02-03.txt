@@ -12,7 +12,7 @@ ON
 GROUP BY
 	b.title
 ORDER BY
-	r.isbn DESC
+	COUNT(r.isbn) DESC
 ;
 実行結果
 MariaDB [workbook]> SELECT
@@ -27,24 +27,24 @@ MariaDB [workbook]> SELECT
     -> GROUP BY
     -> b.title
     -> ORDER BY
-    -> r.isbn DESC
+    -> COUNT(r.isbn) DESC
     -> ;
 +------------------+---------------+
 | title            | COUNT(r.isbn) |
 +------------------+---------------+
-| XMLリファレンス  |             1 |
 | SQLプチブック    |            12 |
-| SQLリファレンス  |             1 |
-| PEAR入門         |             1 |
-| XML辞典          |             1 |
-| PHP5サンプル集   |             1 |
-| JSPリファレンス  |             1 |
+| ハムスターの観察 |             5 |
 | SQL入門          |             1 |
 | PHPドリル        |             1 |
-| ハムスターの観察 |             5 |
+| JSPリファレンス  |             1 |
+| XML辞典          |             1 |
+| SQLリファレンス  |             1 |
+| PHP5サンプル集   |             1 |
+| PEAR入門         |             1 |
+| XMLリファレンス  |             1 |
 | フェレットの観察 |             0 |
 | らくだの観察日記 |             0 |
 | あひるの観察日記 |             0 |
 | かえるの観察日記 |             0 |
 +------------------+---------------+
-14 rows in set (0.001 sec)
+14 rows in set (0.019 sec)
