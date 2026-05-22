@@ -1,0 +1,16 @@
+クエリ
+
+UPDATE
+	usr
+SET
+	email = email IS NULL
+;
+
+実行結果
+MariaDB [workbook]> UPDATE
+    -> usr
+    -> SET
+    -> email = email IS NULL
+    -> ;
+Query OK, 21 rows affected (0.015 sec)
+Rows matched: 21  Changed: 21  Warnings: 0
