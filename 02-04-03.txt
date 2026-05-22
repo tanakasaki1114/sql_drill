@@ -11,15 +11,15 @@ FROM
 	(
 	(
 	order_main AS o
-INNER JOIN
-	order_desc AS od
-ON
-	o.po_id = od.po_id
+		INNER JOIN
+			order_desc AS od
+		ON
+			o.po_id = od.po_id
 	)
-INNER JOIN
-	product AS p
-ON
-	p.p_id = od.p_id
+		INNER JOIN
+			product AS p
+		ON
+			p.p_id = od.p_id
 	)
 INNER JOIN
 	usr AS u
