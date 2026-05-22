@@ -7,10 +7,10 @@ SELECT
 FROM
 	(
 	contents AS cp
-INNER JOIN
-	contents AS cc
-ON
-	cp.next_id = cc.c_id
+		INNER JOIN
+			contents AS cc
+		ON
+			cp.next_id = cc.c_id
 	)
 INNER JOIN
 	contents AS cn
