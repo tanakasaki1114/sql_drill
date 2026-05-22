@@ -1,5 +1,6 @@
 SELECT
-	CONCAT(u.l_name,u.f_name),
+	u.l_name,
+	u.f_name,
 	COUNT(r.id)
 FROM
 	usr AS u
@@ -7,18 +8,22 @@ INNER JOIN
 	rental AS r
 ON
 	u.user_id = r.user_id
+WHERE
+	r.returned = 0
 GROUP BY
-	CONCAT(u.l_name,u.f_name)
+	r.user_id,
+	u.l_name,
+	u.f_name
 HAVING
 	-- レンタル数が0のものは出力しない
-	COUNT(r.id) <> 0'
+	COUNT(r.id) > 0'
 ORDER BY
 	COUNT(r.id) DESC
 ;
 
-実行結果
 MariaDB [workbook]> SELECT
-    -> CONCAT(u.l_name,u.f_name),
+    -> u.l_name,
+    -> u.f_name,
     -> COUNT(r.id)
     -> FROM
     -> usr AS u
@@ -26,31 +31,26 @@ MariaDB [workbook]> SELECT
     -> rental AS r
     -> ON
     -> u.user_id = r.user_id
+    -> WHERE
+    -> r.returned = 0
     -> GROUP BY
-    -> CONCAT(u.l_name,u.f_name)
+    -> r.user_id,
+    -> u.l_name,
+    -> u.f_name
     -> HAVING
-    -> COUNT(r.id) <> 0
+    -> COUNT(r.id) > 0
     -> ORDER BY
     -> COUNT(r.id) DESC
     -> ;
-+---------------------------+-------------+
-| CONCAT(u.l_name,u.f_name) | COUNT(r.id) |
-+---------------------------+-------------+
-| 河合泰治                  |           3 |
-| 吉岡遥                    |           2 |
-| 井上一郎                  |           2 |
-| 森本絵里                  |           2 |
-| 松本博美                  |           2 |
-| 西島文子                  |           2 |
-| 南沙恵                    |           2 |
-| 木下一樹                  |           2 |
-| 江本聡                    |           1 |
-| 根岸裕子                  |           1 |
-| 坂口駿                    |           1 |
-| 有木茉莉                  |           1 |
-| 上原幸一                  |           1 |
-| 山田太郎                  |           1 |
-| 和田修子                  |           1 |
-| 小野雄二                  |           1 |
-+---------------------------+-------------+
-16 rows in set (0.001 sec)
++--------+--------+-------------+
+| l_name | f_name | COUNT(r.id) |
++--------+--------+-------------+
+| 河合   | 泰治   |           2 |
+| 森本   | 絵里   |           1 |
+| 根岸   | 裕子   |           1 |
+| 松本   | 博美   |           1 |
+| 和田   | 修子   |           1 |
+| 西島   | 文子   |           1 |
+| 吉岡   | 遥     |           1 |
++--------+--------+-------------+
+7 rows in set (0.001 sec)
