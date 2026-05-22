@@ -1,0 +1,38 @@
+クエリ
+UPDATE
+	books
+SET
+	category_id = 'XXXXX(その他)'
+WHERE
+	isbn
+IN
+	(
+	SELECT
+		isbn
+	FROM
+		rental
+	WHERE
+		-- 紛失を表す
+		returned = 9
+	)
+;
+
+実行結果
+MariaDB [workbook]> UPDATE
+    -> books
+    -> SET
+    -> category_id = 'XXXXX(その他)'
+    -> WHERE
+    -> isbn
+    -> IN
+    -> (
+    -> SELECT
+    -> isbn
+    -> FROM
+    -> rental
+    -> WHERE
+    -> returned = 9
+    -> )
+    -> ;
+Query OK, 2 rows affected, 2 warnings (0.013 sec)
+Rows matched: 2  Changed: 2  Warnings: 2
