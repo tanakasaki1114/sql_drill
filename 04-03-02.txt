@@ -1,0 +1,37 @@
+クエリ
+
+CREATE TABLE
+	sales
+	(
+	s_id CHAR(5),
+	s_date DATE NOT NULL,
+	-- デフォルト値の0
+	s_value INT DEFAULT 0
+	)
+;
+
+
+ALTER TABLE
+	sales
+ADD
+	PRIMARY KEY(s_id)
+;
+
+実行結果
+MariaDB [workbook]> CREATE TABLE
+    -> sales
+    -> (
+    ->  s_id CHAR(5),
+    -> s_date DATE NOT NULL,
+    -> s_value INT DEFAULT 0
+    -> )
+    -> ;
+Query OK, 0 rows affected (0.011 sec)
+
+MariaDB [workbook]> ALTER TABLE
+    -> sales
+    -> ADD
+    -> PRIMARY KEY(s_id)
+    -> ;
+Query OK, 0 rows affected (0.035 sec)
+Records: 0  Duplicates: 0  Warnings: 0
