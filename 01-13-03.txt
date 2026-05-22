@@ -1,0 +1,51 @@
+クエリ
+
+SELECT
+	referer,
+	COUNT(*),
+CASE
+	-- アクセス数が50以上
+	WHEN COUNT(*) >= 50 THEN 'A'
+	-- アクセス数が10以上49以下
+	WHEN COUNT(*) BETWEEN 10 AND 49 THEN 'B'
+	ELSE 'C'
+	END AS ランク
+FROM
+	access_log
+GROUP BY
+	referer
+HAVING
+	-- アクセス数が3件以上
+	COUNT(*) >= 3
+ORDER BY
+	COUNT(*) DESC;
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    ->     referer,
+    ->     COUNT(*),
+    ->         WHEN COUNT(*) >= 50 THEN 'A'
+    ->         WHEN COUNT(*) BETWEEN 10 AND 49 THEN 'B'
+    ->         ELSE 'C'
+    ->     END AS ランク
+    -> FROM
+    ->     access_log
+    -> GROUP BY
+    ->     referer
+    -> HAVING
+    ->     COUNT(*) >= 3
+    -> ORDER BY
+    ->     COUNT(*) DESC;
+
++---------------------------+----------+--------+
+| referer                   | COUNT(*) | ランク |
++---------------------------+----------+--------+
+| http://wings.msn.to/hamu/ |      100 | A      |
+| http://wings.msn.to/neko/ |       11 | B      |
+| http://wings.msn.to/saru/ |        4 | NULL   |
+| http://wings.msn.to/kame/ |        3 | NULL   |
+| http://wings.msn.to/inu/  |        3 | NULL   |
+| http://wings.msn.to/tori/ |        3 | NULL   |
++---------------------------+----------+--------+
+6 rows in set (0.084 sec)
