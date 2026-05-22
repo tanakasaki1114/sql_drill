@@ -4,6 +4,7 @@ UPDATE
 	books
 SET
 	isbn = CONCAT('ISBN', isbn),
+	-- 税抜き価格
 	price = price/1.05
 ;
 
