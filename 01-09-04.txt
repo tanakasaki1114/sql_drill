@@ -1,0 +1,29 @@
+クエリ
+
+SELECT
+	publish,
+	MAX(price)
+FROM
+	books
+GROUP BY
+	publish
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> publish,
+    -> MAX(price)
+    -> FROM
+    -> books
+    -> GROUP BY
+    -> publish
+    -> ;
++--------------+------------+
+| publish      | MAX(price) |
++--------------+------------+
+| 山田出版     |       5500 |
+| 秀和システム |       3000 |
+| 日経BP       |       3200 |
+| 翔泳社       |       3300 |
++--------------+------------+
+4 rows in set (0.056 sec)
