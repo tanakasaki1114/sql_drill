@@ -1,21 +1,33 @@
-﻿1.使用しているDBMSのバージョン、およびそのDBMSの最新バージョン
+﻿    DBMSの情報確認
+                       田中沙樹
+                      2026.05.25.
+                    システム開発部
+
+
+1.使用しているDBMSのバージョン、およびそのDBMSの最新バージョン
 
 
 DBMS：MariaDB
 使用しているDBMSのバージョン：10.4.28
 最新バージョン：11.8
-エディション: Community Server (無料配布のオープンソース版) 
-マニュアルの所在: MariaDB公式のナレッジベース (https://mariadb.com/kb/) 
+エディション: Community Server (無料配布のオープンソース版)
+マニュアルの所在: MariaDB公式のナレッジベース (https://mariadb.com/kb/)
 
 
 参考文献：endoflife.date「MariaDB」
 https://endoflife.date/mariadb  （2025.05.25）
 
 
-根拠：Welcome to the MariaDB monitor.  Commands end with ; or \g.
-Your MariaDB connection id is 21
+根拠：staff@LAPTOP-RLIHG4FF c:\xampp
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 10
 Server version: 10.4.28-MariaDB mariadb.org binary distribution
 
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
 
