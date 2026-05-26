@@ -8,14 +8,15 @@ INSERT INTO
 	)
 SELECT
 	s_id,
-	CURRENT_DATE,
+	DATE_FORMAT(CURRENT_DATE,'%Y-%m'),
 	0
 FROM
 	shop
 ;
 
 
-実行結果MariaDB [workbook]> INSERT INTO
+実行結果
+MariaDB [workbook]> INSERT INTO
     -> sales
     -> (
     -> s_id,
@@ -24,10 +25,10 @@ FROM
     -> )
     -> SELECT
     -> s_id,
-    -> CURRENT_DATE,
+    -> DATE_FORMAT(CURRENT_DATE,'%Y-%m'),
     -> 0
     -> FROM
     -> shop
     -> ;
-Query OK, 5 rows affected, 5 warnings (0.007 sec)
-Records: 5  Duplicates: 0  Warnings: 5
+Query OK, 5 rows affected (0.015 sec)
+Records: 5  Duplicates: 0  Warnings: 0
