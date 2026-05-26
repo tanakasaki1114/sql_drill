@@ -1,0 +1,21 @@
+クエリ
+
+DELETE FROM
+	rental
+WHERE
+	-- 2011年12月31日以前
+	rental_date <= '2011-12-31'
+AND
+	-- 返却済みの1
+	returned = 1
+;
+
+実行結果
+MariaDB [workbook]> DELETE FROM
+    -> rental
+    -> WHERE
+    -> rental_date <= '2011-12-31'
+    -> AND
+    -> returned = 1
+    -> ;
+Query OK, 8 rows affected (0.012 sec)
