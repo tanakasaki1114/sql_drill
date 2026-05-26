@@ -3,14 +3,14 @@
 UPDATE
 	usr
 SET
-	email = email IS NULL
+	email = NULL
 ;
 
 実行結果
 MariaDB [workbook]> UPDATE
     -> usr
     -> SET
-    -> email = email IS NULL
+    -> email = NULL
     -> ;
-Query OK, 21 rows affected (0.015 sec)
+Query OK, 21 rows affected (0.014 sec)
 Rows matched: 21  Changed: 21  Warnings: 0
