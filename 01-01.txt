@@ -18,21 +18,13 @@ DBMS：MariaDB
 https://endoflife.date/mariadb  （2025.05.25）
 
 
-根拠：staff@LAPTOP-RLIHG4FF c:\xampp
-# mysql -u root -p
-Enter password:
-Welcome to the MariaDB monitor.  Commands end with ; or \g.
-Your MariaDB connection id is 10
-Server version: 10.4.28-MariaDB mariadb.org binary distribution
-
-Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
-
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+根拠：MariaDB [workbook]> SELECT VERSION();
++-----------------+
+| VERSION()       |
++-----------------+
+| 10.4.28-MariaDB |
++-----------------+
+1 row in set (0.001 sec)
 
 
 MariaDB [(none)]> SHOW DATABASES;
