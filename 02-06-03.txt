@@ -1,0 +1,52 @@
+クエリ
+
+SELECT
+	q.name,
+	q.prefecture
+FROM
+	quest AS q
+WHERE
+	prefecture = '千葉県'
+UNION
+SELECT
+	CONCAT(u.l_name,u.f_name),
+	u.prefecture
+FROM
+	usr AS u
+WHERE
+	u.prefecture = '千葉県'
+ORDER BY
+	-- 命令1を表す
+	1 DESC
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> q.name,
+    -> q.prefecture
+    -> FROM
+    -> quest AS q
+    -> WHERE
+    -> prefecture = '千葉県'
+    -> UNION
+    -> SELECT
+    -> CONCAT(u.l_name,u.f_name),
+    -> u.prefecture
+    -> FROM
+    -> usr AS u
+    -> WHERE
+    -> u.prefecture = '千葉県'
+    -> ORDER BY
+    -> 1 DESC
+    -> ;
++------------+------------+
+| name       | prefecture |
++------------+------------+
+| 有木守     | 千葉県     |
+| 矢口亜由美 | 千葉県     |
+| 村井佐知子 | 千葉県     |
+| 根岸亜由美 | 千葉県     |
+| 久保田守   | 千葉県     |
+| 井上一郎   | 千葉県     |
++------------+------------+
+6 rows in set (0.001 sec)
