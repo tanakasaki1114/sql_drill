@@ -4,17 +4,24 @@ DELETE FROM
 	access_log
 WHERE
 	-- 2012年6月1日以前
-	rental_date <= '2012-06-01'
+	accese_date < '2012-06-01'
 OR
+	(
 	referer IS NULL
+	OR
+	referer = ' '
+	)
 ;
 
-実行結果
 MariaDB [workbook]> DELETE FROM
     -> access_log
     -> WHERE
-    -> access_date <= '2012-06-01'
+    -> access_date < '2012-06-01'
     -> OR
+    -> (
     -> referer IS NULL
+    -> OR
+    -> referer = ' '
+    -> )
     -> ;
 Query OK, 15 rows affected (0.015 sec)
