@@ -1,0 +1,16 @@
+クエリ
+
+ALTER TABLE
+	books
+MODIFY
+	publish VARCHAR(100) NULL
+;
+
+実行結果
+MariaDB [workbook]> ALTER TABLE
+    -> books
+    -> MODIFY
+    -> publish VARCHAR(100) NULL
+    -> ;
+Query OK, 0 rows affected (0.008 sec)
+Records: 0  Duplicates: 0  Warnings: 0
