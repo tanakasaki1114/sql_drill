@@ -1,0 +1,33 @@
+クエリ
+SELECT
+	P1.name AS name_1,
+	P2.name AS name_2
+FROM
+	Product P1
+INNER JOIN
+	Product P2
+;
+
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> P1.name AS name_1,
+    -> P2.name AS name_2
+    -> FROM
+    -> Product P1
+    -> INNER JOIN
+    -> Product P2;
++--------+--------+
+| name_1 | name_2 |
++--------+--------+
+| りんご | りんご |
+| みかん | りんご |
+| バナナ | りんご |
+| りんご | みかん |
+| みかん | みかん |
+| バナナ | みかん |
+| りんご | バナナ |
+| みかん | バナナ |
+| バナナ | バナナ |
++--------+--------+
+9 rows in set (0.001 sec)
