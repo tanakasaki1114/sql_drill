@@ -1,0 +1,27 @@
+クエリ
+
+SELECT
+	title
+
+FROM
+	books
+
+WHERE
+    publish LIKE '%社'
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> title
+    -> FROM
+    -> books
+    -> WHERE
+    -> publish LIKE '%社'
+    -> ;
++----------+
+| title    |
++----------+
+| XML辞典  |
+| PEAR入門 |
++----------+
+2 rows in set (0.001 sec)

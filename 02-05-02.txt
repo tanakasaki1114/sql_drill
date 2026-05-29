@@ -1,0 +1,41 @@
+クエリ
+SELECT
+	depart_id,
+	depart_name
+FROM
+	depart
+WHERE
+NOT EXISTS
+	(
+SELECT
+	*
+FROM
+	employee
+WHERE
+	employee.depart_id = depart.depart_id
+	)
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> depart_id,
+    -> depart_name
+    -> FROM
+    -> depart
+    -> WHERE
+    -> NOT EXISTS
+    -> (
+    -> SELECT
+    -> *
+    -> FROM
+    -> employee
+    -> WHERE
+    -> employee.depart_id = depart.depart_id
+    -> )
+    -> ;
++-----------+-------------+
+| depart_id | depart_name |
++-----------+-------------+
+| E02       | 第二営業部  |
++-----------+-------------+
+1 row in set (0.001 sec)

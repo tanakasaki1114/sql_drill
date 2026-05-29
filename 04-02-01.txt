@@ -1,0 +1,21 @@
+クエリ
+CREATE TABLE
+	ind_rental
+ON
+	rental
+	(
+	rental_date
+	)	
+;
+
+実行結果
+MariaDB [workbook]> CREATE INDEX
+    -> ind_rental
+    -> ON
+    -> rental
+    -> (
+    -> rental_date
+    -> )
+    -> ;
+Query OK, 0 rows affected (0.070 sec)
+Records: 0  Duplicates: 0  Warnings: 0

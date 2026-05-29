@@ -1,0 +1,40 @@
+クエリ
+
+SELECT
+	referer,_
+	COUNT(log_id)
+FROM
+	access_log
+WHERE
+	access_date >= '2013-01-01'
+GROUP BY
+	referer
+HAVING
+	COUNT(log_id) < 5
+ORDER BY
+	referer DESC
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> referer,
+    -> COUNT(log_id)
+    -> FROM
+    -> access_log
+    -> WHERE
+    -> access_date >= '2013-01-01'
+    -> GROUP BY
+    -> referer
+    -> HAVING
+    -> COUNT(log_id) < 5
+    -> ORDER BY
+    -> referer DESC
+    -> ;
++---------------------------+---------------+
+| referer                   | COUNT(log_id) |
++---------------------------+---------------+
+| http://wings.msn.to/tori/ |             1 |
+| http://wings.msn.to/saru/ |             1 |
+| http://wings.msn.to/neko/ |             3 |
+| http://wings.msn.to/kame/ |             1 |
++---------------------------

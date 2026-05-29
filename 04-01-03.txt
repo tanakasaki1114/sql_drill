@@ -1,0 +1,22 @@
+クエリ
+CREATE TABLE
+	sales
+	(
+	s_id CHAR(5) NOT NULL,
+	s_date CHAR(7) NOT NULL,
+	s_value INT,
+	PRIMARY KEY(s_id,s_date)
+	)
+;
+
+実行結果
+MariaDB [workbook]> CREATE TABLE
+    -> sales
+    -> (
+    -> s_id CHAR(5) NOT NULL,
+    -> s_date CHAR(7) NOT NULL,
+    -> s_value INT,
+    -> PRIMARY KEY(s_id,s_date)
+    -> )
+    -> ;
+Query OK, 0 rows affected (0.020 sec)

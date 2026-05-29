@@ -1,0 +1,53 @@
+演習9-2
+
+・Oracle
+NUMBER型
+CREATE TABLE nested_intervals (
+    node_id     NUMBER PRIMARY KEY,
+    left_value  NUMBER NOT NULL,
+    right_value NUMBER NOT NULL
+);
+
+・SQLServer
+①INT型
+lft INT NOT NULL,
+rgt INT NOT NULL
+
+②BIGINT型
+CREATE TABLE nested_nodes (
+    node_id     BIGINT PRIMARY KEY,
+    lft         BIGINT NOT NULL,
+    rgt         BIGINT NOT NULL
+);
+
+・DB2
+BIGINT型
+CREATE TABLE nested_nodes (
+    node_id BIGINT NOT NULL PRIMARY KEY,
+    lft     BIGINT NOT NULL,
+    rgt     BIGINT NOT NULL
+);
+
+・PostgreSQL
+①BIGINT型
+CREATE TABLE nested_nodes (
+    node_id BIGINT PRIMARY KEY,
+    lft     BIGINT NOT NULL,
+    rgt     BIGINT NOT NULL
+);
+
+②INTEGER型（小～中規模）
+lft INTEGER,
+rgt INTEGER
+
+・MySQL
+①BIGINT型
+CREATE TABLE nested_nodes (
+    node_id BIGINT PRIMARY KEY,
+    lft     BIGINT NOT NULL,
+    rgt     BIGINT NOT NULL
+);
+
+②INTEGER型（小～中規模）
+lft INTEGER,
+rgt INTEGER
