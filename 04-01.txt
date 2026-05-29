@@ -1,0 +1,8 @@
+演習4-1
+
+MySQLでは昇順ならNULLが先頭、降順なら最後になる。
+
+ORDER BY カラム名 IS NULL ASC/DESC, カラム名 ASC/DESC;
+
+上記の記述でASCなら最後に、DESCなら先頭に持ってくることができる。
+
