@@ -1,46 +1,83 @@
-﻿    DBMSの情報確認
-                       田中沙樹
-                      2026.05.25.
-                    システム開発部
+クエリ
+SELECT
+	`key`,
+CASE
+	WHEN x > y THEN x
+	ELSE y
+	END AS greatest
+FROM
+	Greatests
+;
 
+実行結果
+MariaDB [workbook]> SELECT
+    -> `key`,
+    -> CASE
+    -> WHEN x > y THEN x
+    -> ELSE y
+    -> END AS greatest
+    -> FROM
+    -> Greatests
+    -> ;
++-----+----------+
+| key | greatest |
++-----+----------+
+| A   |        2 |
+| B   |        5 |
+| C   |        7 |
+| D   |        3 |
++-----+----------+
+4 rows in set (0.001 sec)
 
-1.使用しているDBMSのバージョン、およびそのDBMSの最新バージョン
+クエリ
+SELECT
+    `key`,
+    CASE
+        WHEN z > (
+            CASE
+                WHEN x > y THEN x
+                ELSE y
+            END
+        ) THEN z
+        ELSE (
+            CASE
+                WHEN x > y THEN x
+                ELSE y
+            END
+        )
+    END AS greatest
+FROM
+    Greatests;
 
-
-DBMS：MariaDB
-使用しているDBMSのバージョン：10.4.28
-最新バージョン：11.8
-エディション: Community Server (無料配布のオープンソース版)
-マニュアルの所在: MariaDB公式のナレッジベース (https://mariadb.com/kb/)
-
-
-参考文献：endoflife.date「MariaDB」
-https://endoflife.date/mariadb  （2025.05.25）
-
-
-根拠：MariaDB [workbook]> SELECT VERSION();
-+-----------------+
-| VERSION()       |
-+-----------------+
-| 10.4.28-MariaDB |
-+-----------------+
-1 row in set (0.001 sec)
-
-
-MariaDB [(none)]> SHOW DATABASES;
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| mysql              |
-| performance_schema |
-| phpmyadmin         |
-| test               |
-| workbook           |
-| workbook-sql4      |
-| workbooksql4       |
-+--------------------+
-8 rows in set (0.047 sec)
-
-
-以上
+実行結果
+MariaDB [workbook]> SELECT
+    -> `key`,
+    -> CASE
+    -> WHEN
+    -> z >
+    -> (
+    -> CASE
+    -> WHEN x > y THEN x
+    -> ELSE y
+    -> END
+    -> )
+    -> THEN z
+    -> ELSE (
+    -> CASE
+    -> WHEN x > y THEN x
+    -> ELSE y
+    -> END
+    -> )
+    -> END AS greatest
+    -> FROM
+    -> Greatests
+    -> ;
++-----+----------+
+| key | greatest |
++-----+----------+
+| A   |        3 |
+| B   |        5 |
+| C   |        7 |
+| D   |        8 |
++-----+----------+
+4 rows in set (0.001 sec)
