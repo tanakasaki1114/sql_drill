@@ -1,0 +1,26 @@
+クエリ
+SELECT
+	`key`,
+FROM
+	Greatests
+ORDER BY
+RAND()
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> `key`
+    -> FROM
+    -> Greatests
+    -> ORDER BY
+    -> RAND()
+    ->;
++-----+
+| key |
++-----+
+| C   |
+| D   |
+| A   |
+| B   |
++-----+
+4 rows in set (0.001 sec)
