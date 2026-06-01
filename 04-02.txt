@@ -1,3 +1,30 @@
 演習4-2
 
 MySQLではNULLと文字列を連結したら、結果がNULLになる。
+
+クエリ
+
+SELECT
+	CONCAT(sbmt_date,'A')
+FROM
+	Students
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> CONCAT(sbmt_date,'A')
+    -> FROM
+    -> Students
+    -> ;
++-----------------------+
+| CONCAT(sbmt_date,'A') |
++-----------------------+
+| 2018-10-10A           |
+| 2018-09-22A           |
+| NULL                  |
+| 2018-09-10A           |
+| 2018-09-22A           |
+| NULL                  |
+| 2018-09-25A           |
++-----------------------+
+7 rows in set (0.001 sec)
