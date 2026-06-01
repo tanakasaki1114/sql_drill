@@ -6,6 +6,8 @@ FROM
 	Product P1
 INNER JOIN
 	Product P2
+ON
+	P1.name >= P2.name
 ;
 
 
@@ -16,18 +18,19 @@ MariaDB [workbook]> SELECT
     -> FROM
     -> Product P1
     -> INNER JOIN
-    -> Product P2;
+    -> Product P2
+    -> ON
+    -> P1.name >= P2.name
+    -> ;
 +--------+--------+
 | name_1 | name_2 |
 +--------+--------+
-| りんご | りんご |
-| みかん | りんご |
-| バナナ | りんご |
+| みかん | みかん |
+| みかん | みかん |
 | りんご | みかん |
 | みかん | みかん |
-| バナナ | みかん |
-| りんご | バナナ |
-| みかん | バナナ |
-| バナナ | バナナ |
+| みかん | みかん |
+| りんご | みかん |
+| りんご | りんご |
 +--------+--------+
-9 rows in set (0.001 sec)
+7 rows in set (0.001 sec)
