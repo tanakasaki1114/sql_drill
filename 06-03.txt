@@ -1,0 +1,52 @@
+演習6-3
+クエリ
+SELECT
+	SI.shop,
+	COUNT(SI.item) AS my_item_cnt,
+	CASE
+		--ビールと紙おむつ、自転車の3つすべて置いてあったら、0
+		WHEN (SELECT COUNT(item) FROM Items) - COUNT(SI.item) = 0 THEN '0'
+		--ビールと紙おむつ、自転車の3つのうち2つ置いてあったら、1
+		WHEN (SELECT COUNT(item) FROM Items) - COUNT(SI.item) = 1 THEN '1'
+		--ビールと紙おむつ、自転車の3つのうち1つ置いてあったら、2
+		WHEN (SELECT COUNT(item) FROM Items) - COUNT(SI.item) = 2 THEN '2'
+	-- すべて置いてなかったら3
+	ELSE '3'
+	END AS diff_cnt
+FROM
+	Shopitems SI
+INNER JOIN
+	Items I
+ON
+	SI.item = I.item
+GROUP BY
+	SI.shop
+;
+
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> SI.shop,
+    -> COUNT(SI.item) AS my_item_cnt,
+    -> CASE
+    -> WHEN (SELECT COUNT(item) FROM Items) - COUNT(SI.item) = 0 THEN '0'
+    -> WHEN (SELECT COUNT(item) FROM Items) - COUNT(SI.item) = 1 THEN '1'
+    -> WHEN (SELECT COUNT(item) FROM Items) - COUNT(SI.item) = 2 THEN '2'
+    -> ELSE '3'
+    -> END AS diff_cnt
+    -> FROM
+    -> Shopitems SI
+    -> INNER JOIN
+    -> Items I
+    -> ON
+    -> SI.item = I.item
+    -> GROUP BY
+    -> SI.shop;
++------+-------------+----------+
+| shop | my_item_cnt | diff_cnt |
++------+-------------+----------+
+| 仙台 |           3 | 0        |
+| 大阪 |           2 | 1        |
+| 東京 |           3 | 0        |
++------+-------------+----------+
+3 rows in set (0.002 sec)
