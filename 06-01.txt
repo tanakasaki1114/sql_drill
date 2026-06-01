@@ -1,0 +1,25 @@
+演習6-1
+クエリ
+SELECT
+	CASE
+	WHEN COUNT(*) <> MAX(seq) THEN '歯抜けあり'
+	ELSE '歯抜けなし'
+FROM
+	SeqTbl
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> CASE 
+    -> WHEN COUNT(*) <> MAX(seq) THEN '歯抜けあり'
+    -> ELSE '歯抜けなし'
+    -> END AS gap
+    -> FROM
+    -> SeqTbl
+    -> ;
++------------+
+| gap        |
++------------+
+| 歯抜けあり |
++------------+
+1 row in set (0.001 sec)
