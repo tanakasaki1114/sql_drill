@@ -1,0 +1,34 @@
+演習9-2
+クエリ
+SELECT
+	ES.emp
+FROM
+	EmpSkills ES
+LEFT OUTER JOIN
+	Skills S
+ON
+	ES.skill = S.skill
+GROUP BY
+	ES.emp
+HAVING
+	COUNT(ES.skill) = (SELECT COUNT(skill) FROM skills)
+AND
+	COUNT(S.skill) =  (SELECT COUNT(skill) FROM skills)
+;
+
+実行結果	
+MariaDB [workbook]> SELECT ES.emp
+    -> FROM EmpSkills ES
+    -> LEFT OUTER JOIN Skills S
+    -> ON
+    -> ES.skill = S.skill
+    -> GROUP BY
+    -> ES.emp
+    -> HAVING COUNT(ES.skill) = (SELECT COUNT(skill) FROM skills)
+    -> AND COUNT(S.skill) =  (SELECT COUNT(skill) FROM skills);
++------+
+| emp  |
++------+
+| 神崎 |
++------+
+1 row in set (0.001 sec)
