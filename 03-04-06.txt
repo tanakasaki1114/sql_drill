@@ -1,0 +1,33 @@
+クエリ
+
+UPDATE
+	employee
+SET
+	class =
+		(
+			CASE
+				class
+					WHEN '部長' THEN 'リーダ'
+					WHEN '課長' THEN 'マネージャ'
+					ELSE class
+			END
+		)
+
+;
+
+実行結果
+MariaDB [workbook]> UPDATE
+    -> employee
+    -> SET
+    -> class =
+    -> (
+    -> CASE
+    -> class
+    -> WHEN '部長' THEN 'リーダ'
+    -> WHEN '課長' THEN 'マネージャ'
+    -> ELSE class
+    -> END
+    -> )
+    -> ;
+Query OK, 9 rows affected (0.012 sec)
+Rows matched: 26  Changed: 9  Warnings: 0

@@ -1,0 +1,22 @@
+クエリ
+CREATE TABLE
+	author
+	(
+	author_id CHAR(5) PRIMARY KEY,
+	name VARCHAR(30),
+	name_kana VARCHAR(100),
+	birth DATE
+	)
+;
+
+実行結果
+MariaDB [workbook]> CREATE TABLE
+    -> author
+    -> (
+    -> author_id CHAR(5) PRIMARY KEY,
+    -> name VARCHAR(30),
+    -> name_kana VARCHAR(100),
+    -> birth DATE
+    -> )
+    -> ;
+Query OK, 0 rows affected (0.024 sec)

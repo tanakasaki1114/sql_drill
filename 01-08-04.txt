@@ -1,0 +1,42 @@
+クエリ
+間違い：新しい順であるため降順でならべないといけないのに昇順で並べている。先頭から10件目を取り出すのに対し、10件目から0件目を取りだそうとしている。
+
+SELECT
+	page_id,
+        referer,
+        ip_address
+FROM
+	access_log
+ORDER BY
+        access_date DESC
+LIMIT
+	-- 先頭から10件目を取り出す
+        10
+;
+
+MariaDB [workbook]> SELECT
+    -> page_id,
+    -> referer,
+    -> ip_address
+    -> FROM
+    -> access_log
+    -> ORDER BY
+    -> access_date DESC
+    -> LIMIT
+    -> 10
+    -> ;
++---------+---------------------------+-----------------+
+| page_id | referer                   | ip_address      |
++---------+---------------------------+-----------------+
+| C0001   | http://wings.msn.to/hamu/ | 192.168.165.19  |
+| C0005   | http://wings.msn.to/neko/ | 192.168.211.109 |
+| C0004   | http://wings.msn.to/kame/ | 192.168.206.132 |
+| A0001   | http://wings.msn.to/hamu/ | 192.168.16.198  |
+| C0003   | http://wings.msn.to/saru/ | 192.168.209.236 |
+| A0001   | http://wings.msn.to/hamu/ | 192.168.195.112 |
+| C0002   | http://wings.msn.to/neko/ | 192.168.30.206  |
+| A0001   | http://wings.msn.to/hamu/ | 192.168.16.115  |
+| C0001   | http://wings.msn.to/hamu/ | 192.168.32.14   |
+| A0001   | http://wings.msn.to/hamu/ | 192.168.13.16   |
++---------+---------------------------+-----------------+
+10 rows in set (0.001 sec)

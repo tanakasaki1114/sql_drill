@@ -1,0 +1,19 @@
+クエリ
+間違い：
+・UPDATE INTOではなく、「UPDATE」
+・VALUESではなく、「SET」
+
+UPDATE
+	quest
+SET
+	sex = REPLACE(sex, '性', '')
+;
+
+実行結果
+MariaDB [workbook]> UPDATE
+    -> quest
+    -> SET
+    -> sex = REPLACE(sex, '性', '')
+    -> ;
+Query OK, 0 rows affected (0.011 sec)
+Rows matched: 16  Changed: 0  Warnings: 0

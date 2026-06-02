@@ -1,0 +1,30 @@
+クエリ
+
+SELECT
+	q.name
+FROM
+	quest AS q
+INTERSECT
+SELECT
+	CONCAT(u.l_name,u.f_name)
+FROM
+	usr AS u
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> q.name
+    -> FROM
+    -> quest AS q
+    -> INTERSECT
+    -> SELECT
+    -> CONCAT(u.l_name,u.f_name)
+    -> FROM
+    -> usr AS u
+    -> ;
++----------+
+| name     |
++----------+
+| 山田太郎 |
++----------+
+1 row in set (0.001 sec)

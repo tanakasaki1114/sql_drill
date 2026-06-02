@@ -1,0 +1,31 @@
+クエリ
+
+SELECT
+	prefecture,_
+	AVG(age)
+FROM
+	quest
+GROUP BY
+	prefecture
+HAVING
+	-- 35歳以上49歳以下
+	AVG(age) BETWEEN 35 AND 49
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> prefecture,
+    -> AVG(age)
+    -> FROM
+    -> quest
+    -> GROUP BY
+    -> prefecture
+    -> HAVING
+    -> AVG(age) BETWEEN 35 AND 49
+    -> ;
++------------+----------+
+| prefecture | AVG(age) |
++------------+----------+
+| 茨城県     |  38.6667 |
++------------+----------+
+1 row in set (0.002 sec)

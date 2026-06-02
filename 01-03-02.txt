@@ -1,0 +1,29 @@
+クエリ
+
+SELECT
+DISTINCT
+	referer
+   
+FROM
+	access_log
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> DISTINCT
+    -> referer
+    -> FROM
+    -> access_log
+    -> ;
++---------------------------+
+| referer                   |
++---------------------------+
+| http://wings.msn.to/hamu/ |
+| http://wings.msn.to/neko/ |
+| http://wings.msn.to/inu/  |
+| http://wings.msn.to/saru/ |
+| http://wings.msn.to/tori/ |
+| http://wings.msn.to/kame/ |
+| NULL                      |
++---------------------------+
+7 rows in set (0.002 sec)

@@ -1,0 +1,109 @@
+演習5-3
+
+クエリ
+
+SELECT
+	*
+FROM
+	Numbers N1
+WHERE NOT EXISTS
+	(
+	SELECT
+		num
+	FROM
+		Numbers N2
+	WHERE
+		N1.num = N2.num
+	AND
+		(
+			-- 1以下
+			num <= 1
+		OR
+			-- 2より大きい数
+			num > 2
+		AND
+			-- 偶数のとき
+			( num % 2 = 0 )
+		OR
+			-- 3より大きい数
+			num > 3
+		AND
+			-- 3で割り切れるとき
+			( num % 3 = 0 )
+		OR
+			-- 5より大きい数
+			num > 5
+		AND
+			-- 5で割り切れるとき
+			( num % 5 = 0 )
+		OR
+			-- 7より大きい数
+			num > 7
+		AND
+			-- 7で割り切れるとき
+			( num % 7 = 0 )
+		)
+	)
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> *
+    -> FROM
+    -> Numbers N1
+    -> WHERE NOT EXISTS
+    -> (
+    -> SELECT
+    -> num
+    -> FROM
+    -> Numbers N2
+    -> WHERE
+    -> N1.num = N2.num
+    -> AND
+    -> (
+    -> num <= 1
+    -> OR
+    -> num > 2
+    -> AND(num % 2 = 0)
+    -> OR
+    -> num > 3
+    -> AND(num % 3 = 0)
+    -> OR
+    -> num > 5
+    -> AND(num % 5 = 0)
+    -> OR
+    -> num > 7
+    -> AND(num % 7 = 0)
+    -> )
+    -> )
+    -> ;
++-----+
+| num |
++-----+
+|   2 |
+|   3 |
+|   5 |
+|   7 |
+|  11 |
+|  13 |
+|  17 |
+|  19 |
+|  23 |
+|  29 |
+|  31 |
+|  37 |
+|  41 |
+|  43 |
+|  47 |
+|  53 |
+|  59 |
+|  61 |
+|  67 |
+|  71 |
+|  73 |
+|  79 |
+|  83 |
+|  89 |
+|  97 |
++-----+
+25 rows in set (0.001 sec)
