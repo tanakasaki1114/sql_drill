@@ -1,0 +1,95 @@
+演習5-1
+
+クエリ
+
+SELECT
+	*
+FROM
+	ArrayTbl2 A
+WHERE NOT EXISTS(
+	SELECT
+	-- 1だけを表示
+		1
+	FROM
+		ArrayTbl2
+	WHERE
+		A.key = B.key
+	AND
+	-- 1以外のデータが存在しないものを選択
+		A.val <> 1
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> *
+    -> FROM
+    -> ArrayTbl2 A
+    -> WHERE NOT EXISTS(
+    -> SELECT
+    -> 1
+    -> FROM
+    -> ArrayTbl2 B
+    -> WHERE A.key = B.key
+    -> AND A.val <> 1
+    -> )
+    -> ;
++------+----+------+
+| key  | i  | val  |
++------+----+------+
+| C    |  1 |    1 |
+| C    |  2 |    1 |
+| C    |  3 |    1 |
+| C    |  4 |    1 |
+| C    |  5 |    1 |
+| C    |  6 |    1 |
+| C    |  7 |    1 |
+| C    |  8 |    1 |
+| C    |  9 |    1 |
+| C    | 10 |    1 |
++------+----+------+
+10 rows in set (0.003 sec)
+
+別解：
+クエリ
+SELECT
+	*
+FROM
+	ArrayTbl2
+EXCEPT
+	SELECT
+		*
+	FROM
+		ArrayTbl2
+	WHERE
+		-- 1以外のデータが存在しないものを選択
+		val <> 1
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> *
+    -> FROM
+    -> ArrayTbl2
+    -> EXCEPT
+    -> SELECT
+    -> *
+    -> FROM
+    -> ArrayTbl2
+    -> WHERE
+    -> val <> 1
+    -> ;
++------+----+------+
+| key  | i  | val  |
++------+----+------+
+| C    |  1 |    1 |
+| C    |  2 |    1 |
+| C    |  3 |    1 |
+| C    |  4 |    1 |
+| C    |  5 |    1 |
+| C    |  6 |    1 |
+| C    |  7 |    1 |
+| C    |  8 |    1 |
+| C    |  9 |    1 |
+| C    | 10 |    1 |
++------+----+------+
+10 rows in set (0.001 sec)
