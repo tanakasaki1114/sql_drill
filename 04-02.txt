@@ -2,6 +2,7 @@
 
 MySQLではNULLと文字列を連結したら、結果がNULLになる。
 
+<第1引数がNULLの場合>
 クエリ
 
 SELECT
@@ -28,3 +29,31 @@ MariaDB [workbook]> SELECT
 | 2018-09-25A           |
 +-----------------------+
 7 rows in set (0.001 sec)
+
+<第2引数がNULLの場合>
+クエリ
+
+SELECT
+	CONCAT('A',sbmt_date)
+FROM
+	Students
+;
+
+実行結果
+
+MariaDB [workbook]> SELECT
+    -> CONCAT('A',sbmt_date)
+    -> FROM
+    -> Students;
++-----------------------+
+| CONCAT('A',sbmt_date) |
++-----------------------+
+| A2018-10-10           |
+| A2018-09-22           |
+| NULL                  |
+| A2018-09-10           |
+| A2018-09-22           |
+| NULL                  |
+| A2018-09-25           |
++-----------------------+
+7 rows in set (0.007 sec)
