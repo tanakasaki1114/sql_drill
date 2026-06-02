@@ -9,6 +9,8 @@ FROM
 	Personnel
 GROUP BY
 	employee
+ORDER BY
+	child_cnt DESC
 ;
 
 実行結果
@@ -20,13 +22,15 @@ MariaDB [workbook]> SELECT
     -> FROM
     -> Personnel
     -> GROUP BY
-    -> employee;
+    -> employee
+    -> ORDER BY
+    -> child_cnt DESC;
 +----------+-----------+
 | employee | child_cnt |
 +----------+-----------+
-| 吉田     |         0 |
-| 工藤     |         2 |
 | 赤井     |         3 |
+| 工藤     |         2 |
 | 鈴木     |         1 |
+| 吉田     |         0 |
 +----------+-----------+
 4 rows in set (0.001 sec)
