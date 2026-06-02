@@ -1,0 +1,35 @@
+クエリ
+
+SELECT
+	title,
+        price
+FROM
+	books
+WHERE
+	-- 2500円以上3500円未満
+        price BETWEEN 2500 AND 3500
+ORDER BY
+        price ASC
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> title,
+    -> price
+    -> FROM
+    -> books
+    -> WHERE
+    -> price BETWEEN 2500 AND 3500
+    -> ORDER BY
+    -> price ASC
+    -> ;
++-----------------+-------+
+| title           | price |
++-----------------+-------+
+| SQLリファレンス |  2500 |
+| PHP5サンプル集  |  3000 |
+| PEAR入門        |  3000 |
+| XMLリファレンス |  3200 |
+| XML辞典         |  3300 |
++-----------------+-------+
+5 rows in set (0.001 sec)

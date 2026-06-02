@@ -1,0 +1,58 @@
+クエリ
+
+SELECT
+	q.name_kana
+FROM
+	quest AS q
+WHERE
+	q.sex = '女'
+UNION
+SELECT
+	CONCAT(e.l_name_kana,e.f_name_kana)
+FROM
+	employee AS e
+WHERE
+	-- 女性を表す2
+	e.sex = 2
+ORDER BY
+	-- 命令1を表す
+	1 ASC
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> q.name_kana
+    -> FROM
+    -> quest AS q
+    -> WHERE
+    -> q.sex = '女'
+    -> UNION
+    -> SELECT
+    -> CONCAT(e.l_name_kana,e.f_name_kana)
+    -> FROM
+    -> employee AS e
+    -> WHERE
+    -> e.sex = 2
+    -> ORDER BY
+    -> 1 ASC
+    -> ;
++----------------+
+| name_kana      |
++----------------+
+| イノウエマリ   |
+| ウエハラハルカ |
+| エモトシュウコ |
+| オノヒロミ     |
+| カワグチユウコ |
+| サトウトモコ   |
+| シミズハルコ   |
+| タナカマユコ   |
+| チカダアキコ   |
+| ツムラカズミ   |
+| トガワヨシミ   |
+| ナカザワヤスヨ |
+| ネギシアユミ   |
+| ノガミリエ     |
+| ヤマダナミ     |
++----------------+
+15 rows in set (0.002 sec)

@@ -1,0 +1,29 @@
+クエリ
+間違い：
+・INではなく、ON
+・カンマがない
+
+CREATE TABLE
+	ind_usr
+ON
+	 usr
+	(
+	prefecture,
+	city,
+	o_address
+	)	
+;
+
+実行結果
+MariaDB [workbook]> CREATE INDEX
+    -> ind_usr
+    -> ON
+    -> usr
+    -> (
+    -> prefecture,
+    -> city,
+    -> o_address
+    -> )
+    -> ;
+Query OK, 0 rows affected (0.023 sec)
+Records: 0  Duplicates: 0  Warnings: 0

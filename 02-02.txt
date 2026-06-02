@@ -1,0 +1,43 @@
+演習2-2
+
+予想：sum_loadにserverの種類ごと(A,B,C)に計算され、表示される。
+
+理由：PARTITION BYによって指定された範囲でFROMによる結果のセットを分割するため。
+
+結果：
+クエリ
+SELECT
+	server,
+	sample_date,
+	SUM(load_val) OVER (PARTITION BY server) AS sum_load
+FROM
+	LoadSample
+;
+
+MariaDB [workbook]> SELECT
+    -> server,
+    -> sample_date,
+    -> SUM(load_val) OVER (PARTITION BY server) AS sum_load
+    -> FROM
+    -> LoadSample
+    -> ;
++--------+-------------+----------+
+| server | sample_date | sum_load |
++--------+-------------+----------+
+| A      | 2018-02-08  |     8521 |
+| A      | 2018-02-12  |     8521 |
+| A      | 2018-02-01  |     8521 |
+| A      | 2018-02-02  |     8521 |
+| A      | 2018-02-05  |     8521 |
+| A      | 2018-02-07  |     8521 |
+| B      | 2018-02-05  |    62427 |
+| B      | 2018-02-06  |    62427 |
+| B      | 2018-02-01  |    62427 |
+| B      | 2018-02-02  |    62427 |
+| B      | 2018-02-05  |    62427 |
+| B      | 2018-02-04  |    62427 |
+| C      | 2018-02-01  |     3500 |
+| C      | 2018-02-07  |     3500 |
+| C      | 2018-02-16  |     3500 |
++--------+-------------+----------+
+15 rows in set (0.001 sec)

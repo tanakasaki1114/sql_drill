@@ -1,0 +1,16 @@
+クエリ
+
+ALTER TABLE
+	author
+MODIFY
+	name VARCHAR(100) DEFAULT ''
+;
+
+実行結果
+MariaDB [workbook]> ALTER TABLE
+    -> author
+    -> MODIFY
+    -> name VARCHAR(100) DEFAULT ''
+    -> ;
+Query OK, 0 rows affected (0.009 sec)
+Records: 0  Duplicates: 0  Warnings: 0

@@ -1,0 +1,46 @@
+クエリ
+
+SELECT
+	mc.title AS メニュー名,
+	mn.title AS 親メニュー名
+FROM
+	menu AS mc
+INNER JOIN
+	menu AS mn
+ON
+	mc.parent = mn.page_id
+ORDER BY
+	mc.page_id ASC
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> mc.title AS メニュー名,
+    -> mn.title AS 親メニュー名
+    -> FROM
+    -> menu AS mc
+    -> INNER JOIN
+    -> menu AS mn
+    -> ON
+    -> mc.parent = mn.page_id
+    -> ORDER BY
+    -> mc.page_id ASC
+    -> ;
++------------------------+------------------------+
+| メニュー名             | 親メニュー名           |
++------------------------+------------------------+
+| WINGSについて          | ホーム                 |
+| WINGSの歴史            | WINGSについて          |
+| WINGSメンバー紹介      | WINGSについて          |
+| WINGSメンバ募集        | WINGSについて          |
+| 技術記事オンライン公開 | ホーム                 |
+| 最新インターネット記事 | 技術記事オンライン公開 |
+| PHP関連記事            | 技術記事オンライン公開 |
+| Java関連記事           | 技術記事オンライン公開 |
+| ASP.NET関連記事        | 技術記事オンライン公開 |
+| 新刊案内               | ホーム                 |
+| PHP関連新刊            | 新刊案内               |
+| Java関連新刊           | 新刊案内               |
+| ASP.NET関連新刊        | 新刊案内               |
++------------------------+------------------------+
+13 rows in set (0.001 sec)

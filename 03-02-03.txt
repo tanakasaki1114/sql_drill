@@ -1,0 +1,40 @@
+INSERT INTO
+	author
+	(
+		author_id,
+		name,
+		name_kana,
+		birth
+	)
+VALUES
+	 (
+		-- 著者ID
+		'U0001',
+		-- 著者名
+		'内田幸子',
+		-- 著者名（カナ）
+		'ウチダサチコ',
+		-- 生年月日
+		'1973-04-10'
+	)
+
+;
+
+実行結果
+MariaDB [workbook]> INSERT INTO
+    -> author
+    -> (
+    -> author_id,
+    -> name,
+    -> name_kana,
+    -> birth
+    -> )
+    -> VALUES
+    -> (
+    -> 'U0001',
+    -> '内田幸子',
+    -> 'ウチダサチコ',
+    -> '1973-04-10'
+    -> )
+    -> ;
+Query OK, 1 row affected (0.057 sec)

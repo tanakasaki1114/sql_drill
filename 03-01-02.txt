@@ -1,0 +1,30 @@
+クエリ
+
+INSERT INTO
+	author
+VALUES
+	 (
+		-- 著者IDの値
+		'l0001',
+		-- 著者名の値
+		'井田健二',
+		-- 著者名（カナ）の値
+		 'イダケンジ',
+		-- 生年月日
+		'NULL'
+	)
+
+;
+
+実行結果
+MariaDB [workbook]> INSERT INTO
+    -> author
+    -> VALUES
+    -> (
+    -> 'l0001',
+    -> '井田健二',
+    -> 'イダケンジ',
+    -> 'NULL'
+    -> )
+    -> ;
+Query OK, 1 row affected, 1 warning (0.013 sec)
