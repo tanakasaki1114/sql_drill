@@ -1,0 +1,38 @@
+クエリ
+INSERT INTO
+	time_card
+	(
+		s_id,
+		r_date,
+		work_time
+	)
+SELECT
+	s_id,
+	CURRENT_DATE,
+	0
+FROM
+	employee
+WHERE
+	class IN ('主任','担当','アシスタント')
+;
+
+
+実行結果
+MariaDB [workbook]> INSERT INTO
+    -> time_card
+    -> (
+    -> s_id,
+    -> r_date,
+    -> work_time
+    -> )
+    -> SELECT
+    -> s_id,
+    -> CURRENT_DATE,
+    -> 0
+    -> FROM
+    -> employee
+    -> WHERE
+    ->  class IN ('主任','担当','アシスタント')
+    -> ;
+Query OK, 17 rows affected (0.003 sec)
+Records: 17  Duplicates: 0  Warnings: 0

@@ -1,0 +1,29 @@
+クエリ
+
+SELECT
+	publish,
+	FLOOR(AVG(price))
+FROM
+	books
+GROUP BY
+	publish
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> publish,
+    -> FLOOR(AVG(price))
+    -> FROM
+    -> books
+    -> GROUP BY
+    -> publish
+    -> ;
++--------------+-------------------+
+| publish      | FLOOR(AVG(price)) |
++--------------+-------------------+
+| 山田出版     |              2157 |
+| 秀和システム |              2400 |
+| 日経BP       |              2433 |
+| 翔泳社       |              3150 |
++--------------+-------------------+
+4 rows in set (0.001 sec)

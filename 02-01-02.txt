@@ -1,0 +1,40 @@
+SELECT
+	sh.s_name,
+	sl.s_value
+FROM
+	shop AS sh
+INNER JOIN
+	sales AS sl
+ON
+	sh.s_id = sl.s_id
+WHERE
+	-- 2012年12月を含むもの
+	sl.s_date = '2012-12'
+ORDER BY
+	sl.s_value DESC
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> sh.s_name,
+    -> sl.s_value
+    -> FROM
+    -> shop AS sh
+    -> INNER JOIN
+    -> sales AS sl
+    -> ON
+    -> sh.s_id = sl.s_id
+    -> WHERE
+    -> sl.s_date = '2012-12'
+    -> ORDER BY
+    -> sl.s_value DESC
+    -> ;
++--------------+---------+
+| s_name       | s_value |
++--------------+---------+
+| 北花町駅前店 |   11234 |
+| 三吉町店     |   11145 |
+| 北花町東店   |   10456 |
+| 東桜町店     |    9861 |
++--------------+---------+
+4 rows in set (0.001 sec)

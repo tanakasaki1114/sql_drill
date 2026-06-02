@@ -1,0 +1,22 @@
+クエリ
+間違い：
+・DELETEだけになっていた
+・どちらかで一方でという条件なのに、ANOを使用していた
+
+DELETE FROM
+	books
+WHERE
+	category_id = 'Z9999(未分類)'
+OR
+	category_id IS NULL
+;
+
+実行結果
+MariaDB [workbook]> DELETE FROM
+    -> books
+    -> WHERE
+    -> category_id = 'Z9999(未分類)'
+    -> OR
+    -> category_id IS NULL
+    -> ;
+Query OK, 0 rows affected (0.001 sec)

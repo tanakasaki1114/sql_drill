@@ -1,0 +1,83 @@
+クエリ
+SELECT
+	`key`,
+CASE
+	WHEN x > y THEN x
+	ELSE y
+	END AS greatest
+FROM
+	Greatests
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> `key`,
+    -> CASE
+    -> WHEN x > y THEN x
+    -> ELSE y
+    -> END AS greatest
+    -> FROM
+    -> Greatests
+    -> ;
++-----+----------+
+| key | greatest |
++-----+----------+
+| A   |        2 |
+| B   |        5 |
+| C   |        7 |
+| D   |        3 |
++-----+----------+
+4 rows in set (0.001 sec)
+
+クエリ
+SELECT
+    `key`,
+    CASE
+        WHEN z > (
+            CASE
+                WHEN x > y THEN x
+                ELSE y
+            END
+        ) THEN z
+        ELSE (
+            CASE
+                WHEN x > y THEN x
+                ELSE y
+            END
+        )
+    END AS greatest
+FROM
+    Greatests;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> `key`,
+    -> CASE
+    -> WHEN
+    -> z >
+    -> (
+    -> CASE
+    -> WHEN x > y THEN x
+    -> ELSE y
+    -> END
+    -> )
+    -> THEN z
+    -> ELSE (
+    -> CASE
+    -> WHEN x > y THEN x
+    -> ELSE y
+    -> END
+    -> )
+    -> END AS greatest
+    -> FROM
+    -> Greatests
+    -> ;
++-----+----------+
+| key | greatest |
++-----+----------+
+| A   |        3 |
+| B   |        5 |
+| C   |        7 |
+| D   |        8 |
++-----+----------+
+4 rows in set (0.001 sec)

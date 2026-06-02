@@ -1,0 +1,23 @@
+クエリ
+間違い：
+・ADD TOのTOがいらない
+・BEFOREではなくAFTER
+
+ALTER TABLE
+	employee
+ADD
+	email VARCHAR(255) NOT NULL
+AFTER
+	depart_id
+;
+
+実行結果
+MariaDB [workbook]> ALTER TABLE
+    -> employee
+    -> ADD
+    -> email VARCHAR(255) NOT NULL
+    -> AFTER
+    -> depart_id
+    -> ;
+Query OK, 0 rows affected (0.021 sec)
+Records: 0  Duplicates: 0  Warnings: 0

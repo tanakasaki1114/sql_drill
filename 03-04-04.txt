@@ -1,0 +1,16 @@
+クエリ
+
+UPDATE
+	books
+SET
+	isbn = REPLACE(isbn, 'ISBN', '')
+;
+
+実行結果
+MariaDB [workbook]> UPDATE
+    -> books
+    -> SET
+    -> isbn = REPLACE(isbn, 'ISBN', '')
+    -> ;
+Query OK, 14 rows affected (0.013 sec)
+Rows matched: 14  Changed: 14  Warnings: 0

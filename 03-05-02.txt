@@ -1,0 +1,27 @@
+クエリ
+
+UPDATE
+	employee
+SET
+	class = '主任',
+	last_update = CURRENT_DATE
+WHERE
+	l_name = '山田'
+AND
+	 f_name = '奈美'
+
+;
+
+実行結果
+MariaDB [workbook]> UPDATE
+    -> employee
+    -> SET
+    -> class = '主任',
+    -> last_update = CURRENT_DATE
+    -> WHERE
+    -> l_name = '山田'
+    -> AND
+    -> f_name = '奈美'
+    -> ;
+Query OK, 1 row affected (0.013 sec)
+Rows matched: 1  Changed: 1  Warnings: 0

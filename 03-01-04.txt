@@ -1,0 +1,30 @@
+クエリ
+間違い：
+・INSERTのあとに「INTO」がない
+・VALUESの中の1250にアポストロフィーがない
+
+INSERT INTO
+	product
+VALUES
+	 (
+		-- 商品コード
+		'SB00000001',
+		-- 商品名
+		'黒スタンプ',
+		-- 単価
+		'1250'
+	)
+
+;
+
+実行結果
+MariaDB [workbook]> INSERT INTO
+    -> product
+    -> VALUES
+    -> (
+    -> 'SB00000001',
+    -> '黒スタンプ',
+    -> '1250'
+    -> )
+    -> ;
+Query OK, 1 row affected (0.013 sec)

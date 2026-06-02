@@ -1,0 +1,21 @@
+クエリ
+
+DELETE FROM
+	employee
+WHERE
+	-- 退職済みを表す
+	retired = 1
+AND
+	-- 2007年3月31日以前
+	last_update <= '2007-03-31'
+;
+
+実行結果
+MariaDB [workbook]> DELETE FROM
+    -> employee
+    -> WHERE
+    -> retired = 1
+    -> AND
+    -> last_update <= '2007-03-31'
+    -> ;
+Query OK, 1 row affected (0.012 sec)
