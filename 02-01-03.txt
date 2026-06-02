@@ -1,0 +1,47 @@
+SELECT
+	sh.s_name,
+	SUM(sl.s_value)
+FROM
+	shop AS sh
+INNER JOIN
+	sales AS sl
+ON
+	sh.s_id = sl.s_id
+WHERE
+	-- 2012年12月1日から2012年12月31日の間
+	sl.s_date BETWEEN '2012-01-01' AND '2012-12-31'
+GROUP BY
+	sh.s_id,
+	sh.s_name
+ORDER BY
+	sl.s_value ASC
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> sh.s_name,
+    -> SUM(sl.s_value)
+    -> FROM
+    -> shop AS sh
+    -> INNER JOIN
+    -> sales AS sl
+    -> ON
+    -> sh.s_id = sl.s_id
+    -> WHERE
+    -> sl.s_date BETWEEN '2012-01-01' AND '2012-12-31'
+    -> GROUP BY
+    -> sh.s_id,
+    -> sh.s_name
+    -> ORDER BY
+    -> SUM(sl.s_value) ASC
+    -> ;
++--------------+-----------------+
+| s_name       | SUM(sl.s_value) |
++--------------+-----------------+
+| 三吉町南店   |           12032 |
+| 東桜町店     |           19836 |
+| 北花町東店   |           20580 |
+| 北花町駅前店 |           21376 |
+| 三吉町店     |           21929 |
++--------------+-----------------+
+5 rows in set (0.001 sec)

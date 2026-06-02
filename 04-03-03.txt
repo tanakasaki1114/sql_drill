@@ -1,0 +1,20 @@
+クエリ
+
+ALTER TABLE
+	books
+ADD
+	sales INT NOT NULL
+AFTER
+	category_id
+;
+
+実行結果
+MariaDB [workbook]> ALTER TABLE
+    -> books
+    -> ADD
+    -> sales INT NOT NULL
+    -> AFTER
+    -> category_id
+    -> ;
+Query OK, 0 rows affected (0.020 sec)
+Records: 0  Duplicates: 0  Warnings: 0

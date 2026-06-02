@@ -1,0 +1,41 @@
+クエリ
+間違い：
+・問題文の条件でageがいらない
+・AVE(answer1) IS のISは本来ならAS
+
+SELECT
+	prefecture,
+	sex,
+	AVG(answer1) AS 評価平均
+FROM
+	questl
+GROUP BY
+	prefecture,
+	sex
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> prefecture,
+    -> sex,
+    -> AVG(answer1) AS 評価平均
+    -> FROM
+    -> quest
+    -> GROUP BY
+    -> prefecture,
+    -> sex
+    -> ;
++------------+-----+----------+
+| prefecture | sex | 評価平均 |
++------------+-----+----------+
+| 茨城県     | 女  |   1.0000 |
+| 茨城県     | 男  |   2.5000 |
+| 埼玉県     | 男  |   3.0000 |
+| 神奈川県   | 女  |   2.0000 |
+| 神奈川県   | 男  |   2.5000 |
+| 千葉県     | 女  |   3.0000 |
+| 千葉県     | 男  |   3.0000 |
+| 東京都     | 女  |   3.0000 |
+| 東京都     | 男  |   1.6000 |
++------------+-----+----------+
+9 rows in set (0.001 sec)

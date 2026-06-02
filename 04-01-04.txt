@@ -1,0 +1,28 @@
+クエリ
+CREATE TABLE
+	books
+	(
+	isbn CHAR(17) NOT NULL,
+	title VARCHAR(255),
+	price INT NOT NULL,
+	publish VARCHAR(30),
+	publish_date DATE,
+	category_id CHAR(5) NOT NULL,
+	PRIMARY KEY(isbn)	
+	)
+;
+
+実行結果
+MariaDB [workbook]> CREATE TABLE
+    -> books
+    -> (
+    -> isbn CHAR(17) NOT NULL,
+    -> title VARCHAR(255),
+    -> price INT NOT NULL,
+    -> publish VARCHAR(30),
+    -> publish_date DATE,
+    -> category_id CHAR(5) NOT NULL,
+    -> PRIMARY KEY(isbn)
+    -> )
+    -> ;
+Query OK, 0 rows affected (0.020 sec)

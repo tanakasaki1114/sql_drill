@@ -1,0 +1,19 @@
+クエリ
+間違い：
+・MODIFY WITHではなくMODIFY
+・referer VARCHAR(200) NULLにカンマはいらない
+
+ALTER TABLE
+	access_log
+MODIFY
+	referer VARCHAR(200) NULL
+;
+
+実行結果
+MariaDB [workbook]> ALTER TABLE
+    -> access_log
+    -> MODIFY
+    -> referer VARCHAR(200) NULL
+    -> ;
+Query OK, 126 rows affected (0.114 sec)
+Records: 126  Duplicates: 0  Warnings: 0

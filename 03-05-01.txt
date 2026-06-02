@@ -1,0 +1,20 @@
+クエリ
+
+UPDATE
+	books
+SET
+	publish = 'WINGS出版'
+WHERE
+	publish = '山田出版'
+;
+
+実行結果
+MariaDB [workbook]> UPDATE
+    -> books
+    -> SET
+    -> publish = 'WINGS出版'
+    -> WHERE
+    -> publish = '山田出版'
+    -> ;
+Query OK, 7 rows affected (0.012 sec)
+Rows matched: 7  Changed: 7  Warnings: 0

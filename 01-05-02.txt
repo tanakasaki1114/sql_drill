@@ -1,0 +1,40 @@
+クエリ
+
+SELECT
+	name
+
+FROM
+	quest
+
+WHERE
+    name NOT LIKE '%子'
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> name
+    -> FROM
+    -> quest
+    -> WHERE
+    -> name NOT LIKE '%子'
+    -> ;
++------------+
+| name       |
++------------+
+| 山田太郎   |
+| 井上茉莉   |
+| 上原遥     |
+| 小野博美   |
+| 河合太郎   |
+| 矢口一樹   |
+| 有木守     |
+| 吉岡毅     |
+| 和田駿     |
+| 清水一郎   |
+| 南幸一     |
+| 村井聡     |
+| 森本雄二   |
+| 西島泰治   |
+| 根岸亜由美 |
++------------+
+15 rows in set (0.001 sec)

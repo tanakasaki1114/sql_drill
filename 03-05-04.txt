@@ -1,0 +1,27 @@
+クエリ
+
+UPDATE
+	rental
+SET
+	-- 紛失を表す9
+	returned = 9
+WHERE
+	-- 2012年3月31日より前
+	rental_date < '2012-03-31'
+AND
+	-- 未返却を表す0
+	returned = 0
+;
+
+実行結果
+MariaDB [workbook]> UPDATE
+    -> rental
+    -> SET
+    -> returned = 9
+    -> WHERE
+    -> rental_date < '2012-03-31'
+    -> AND
+    -> returned = 0
+    -> ;
+Query OK, 2 rows affected (0.014 sec)
+Rows matched: 2  Changed: 2  Warnings: 0

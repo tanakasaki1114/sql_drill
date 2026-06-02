@@ -1,0 +1,21 @@
+クエリ
+
+UPDATE
+	books
+SET
+	-- 10%オフ
+	price = price * 0.9
+WHERE
+	publish = '日経BP'
+;
+
+実行結果
+MariaDB [workbook]> UPDATE
+    -> books
+    -> SET
+    -> price = price * 0.9
+    -> WHERE
+    -> publish = '日経BP'
+    -> ;
+Query OK, 3 rows affected (0.013 sec)
+Rows matched: 3  Changed: 3  Warnings: 0

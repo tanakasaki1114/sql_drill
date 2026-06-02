@@ -1,0 +1,21 @@
+クエリ
+
+ALTER TABLE
+	employee
+MODIFY
+	l_name VARCHAR(50) NOT NULL,
+MODIFY
+	fname VARCHAR(50) NOT NULL
+
+;
+
+実行結果
+MariaDB [workbook]> ALTER TABLE
+    -> employee
+    -> MODIFY
+    -> l_name VARCHAR(50) NOT NULL,
+    -> MODIFY
+    -> f_name VARCHAR(50) NOT NULL
+    -> ;
+Query OK, 0 rows affected (0.102 sec)
+Records: 0  Duplicates: 0  Warnings: 0

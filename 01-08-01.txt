@@ -1,0 +1,38 @@
+クエリ
+
+SELECT
+	title,
+        publish_date
+FROM
+	books 
+ORDER BY
+        publish_date DESC
+LIMIT
+	-- 3件目から
+        2,
+	-- 5件目を取り出す
+        5
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> title,
+    -> publish_date
+    -> FROM
+    -> books
+    -> ORDER BY
+    -> publish_date DESC
+    -> LIMIT
+    -> 3,
+    -> 5
+    -> ;
++------------------+--------------+
+| title            | publish_date |
++------------------+--------------+
+| らくだの観察日記 | 2012-12-24   |
+| XMLリファレンス  | 2012-11-24   |
+| あひるの観察日記 | 2012-11-15   |
+| PHP5サンプル集   | 2012-11-01   |
+| SQL入門          | 2012-10-30   |
++------------------+--------------+
+5 rows in set (0.001 sec)

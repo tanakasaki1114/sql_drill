@@ -1,0 +1,42 @@
+クエリ
+間違い：
+1.SUM(*)ではなくCOUNT(*)
+2.ORDER BYではなくGROUP BY
+
+SELECT
+	page_id,
+	COUNT(*)
+FROM
+	access_log
+GROUP BY
+	page_id
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> page_id,
+    -> COUNT(*)
+    -> FROM
+    -> access_log
+    -> GROUP BY
+    -> page_id
+    -> ;
++---------+----------+
+| page_id | COUNT(*) |
++---------+----------+
+| A0001   |       77 |
+| B0001   |        6 |
+| B0002   |        2 |
+| B0003   |        2 |
+| B0004   |        2 |
+| C0001   |       14 |
+| C0002   |        2 |
+| C0003   |        2 |
+| C0004   |        2 |
+| C0005   |        2 |
+| D0001   |       12 |
+| D0002   |        1 |
+| D0003   |        1 |
+| D0004   |        1 |
++---------+----------+
+14 rows in set (0.001 sec)

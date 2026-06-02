@@ -1,0 +1,42 @@
+クエリ
+SELECT
+	`key`,
+FROM
+	Greatests
+ORDER BY
+	CASE
+	`key`
+	-- 順番を表す1
+	WHEN 'B' THEN 1
+	-- 順番を表す2
+	WHEN 'A' THEN 2
+	-- 順番を表す3
+	WHEN 'D' THEN 3
+	-- 順番を表す4
+	ELSE 4
+	END
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> `key`
+    -> FROM
+    -> Greatests
+    -> ORDER BY
+    -> CASE
+    -> `key`
+    -> WHEN 'B' THEN 1
+    -> WHEN 'A' THEN 2
+    -> WHEN 'D' THEN 3
+    -> ELSE 4
+    -> END
+    -> ;
++-----+
+| key |
++-----+
+| B   |
+| A   |
+| D   |
+| C   |
++-----+
+4 rows in set (0.001 sec)

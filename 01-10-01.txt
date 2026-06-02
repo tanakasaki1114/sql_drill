@@ -1,0 +1,33 @@
+クエリ
+
+SELECT
+	p_name AS 商品名,
+	price AS 価格
+FROM
+	product
+ORDER BY
+	price ASC
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> p_name AS 商品名,
+    -> price AS 価格
+    -> FROM
+    -> product
+    -> ORDER BY
+    -> price ASC
+    -> ;
++--------------+-------+
+| 商品名       | 価格  |
++--------------+-------+
+| 黒ボールペン |   100 |
+| 赤ボールペン |   100 |
+| 電卓         |   600 |
+| トナー黒     |  1000 |
+| トナー赤     |  1000 |
+| マウスパッド |  1500 |
+| 椅子         | 10000 |
+| 机           | 15000 |
++--------------+-------+
+8 rows in set (0.003 sec)

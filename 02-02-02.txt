@@ -1,0 +1,34 @@
+クエリ
+
+SELECT
+	d.depart_id,
+	d.depart_name
+FROM
+	depart AS d
+LEFT JOIN
+	employee AS e
+ON
+	d.depart_id = e.depart_id
+WHERE
+	e.depart_id IS NULL
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> d.depart_id,
+    -> d.depart_name
+    -> FROM
+    -> depart AS d
+    -> LEFT JOIN
+    -> employee AS e
+    -> ON
+    -> d.depart_id = e.depart_id
+    -> WHERE
+    -> e.depart_id IS NULL
+    -> ;
++-----------+-------------+
+| depart_id | depart_name |
++-----------+-------------+
+| E02       | 第二営業部  |
++-----------+-------------+
+1 row in set (0.035 sec)
