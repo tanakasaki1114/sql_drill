@@ -23,3 +23,28 @@ MariaDB [workbook]> SELECT
 | 歯抜けあり |
 +------------+
 1 row in set (0.001 sec)
+
+クエリ
+SELECT
+	CASE
+		WHEN COUNT(*) <> MAX(seq) THEN '歯抜けなし'
+	ELSE '歯抜けあり'
+	END AS gap
+FROM
+	SeqTbl
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> CASE
+    -> WHEN COUNT(*) <> MAX(seq) THEN '歯抜けなし'
+    -> ELSE '歯抜けあり'
+    -> END AS gap
+    -> FROM
+    -> SeqTbl;
++------------+
+| gap        |
++------------+
+| 歯抜けなし |
++------------+
+1 row in set (0.027 sec)
