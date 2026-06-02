@@ -1,0 +1,25 @@
+演習6-2
+
+①Oracle
+再構築：ALTER INDEX index_name REBUILD;
+オンライン再構築：ALTER INDEX index_name REBUILD ONLINE;
+
+②MySQL
+再構築：OPTIMIZE TABLE table_name;
+        ALTER TABLE table_name ENGINE=InnoDB;
+
+③PostgreSQL
+インデックス再構築：REINDEX INDEX index_name;
+テーブル全体：REINDEX TABLE table_name;
+DB全体：REINDEX DATABASE db_name;
+
+④SQL Server
+軽い・オンライン・少しずつ整理：
+ALTER INDEX index_name
+ON table_name
+REORGANIZE;
+
+作り直す・重い・効果大：
+ALTER INDEX index_name
+ON table_name
+REBUILD;

@@ -1,0 +1,29 @@
+クエリ
+
+DELETE FROM
+	employee
+WHERE
+	depart_id
+NOT IN
+	(
+		SELECT
+		 depart_id
+		FROM
+		 depart
+	)	
+;
+
+実行結果
+MariaDB [workbook] DELETE FROM
+    - employee
+    - WHERE
+    - depart_id
+    - NOT IN
+    - (
+    - SELECT
+    - depart_id
+    - FROM
+    - depart
+    - )
+    - ;
+Query OK, 25 rows affected (0.057 sec)

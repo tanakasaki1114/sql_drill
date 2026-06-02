@@ -1,0 +1,34 @@
+クエリ
+INSERT INTO
+	sales
+	(
+		s_id,
+		s_date,
+		s_value
+	)
+SELECT
+	s_id,
+	DATE_FORMAT(CURRENT_DATE,'%Y-%m'),
+	0
+FROM
+	shop
+;
+
+
+実行結果
+MariaDB [workbook]> INSERT INTO
+    -> sales
+    -> (
+    -> s_id,
+    -> s_date,
+    -> s_value
+    -> )
+    -> SELECT
+    -> s_id,
+    -> DATE_FORMAT(CURRENT_DATE,'%Y-%m'),
+    -> 0
+    -> FROM
+    -> shop
+    -> ;
+Query OK, 5 rows affected (0.015 sec)
+Records: 5  Duplicates: 0  Warnings: 0

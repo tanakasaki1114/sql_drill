@@ -1,0 +1,37 @@
+
+UPDATE
+	employee
+SET
+	depart_id = 'Z99(未登録)'
+WHERE
+NOT EXISTS
+	(
+		SELECT
+			*
+
+		FROM
+			depart
+		WHERE
+			employee.depart_id = depart.depart_id
+	)
+
+;
+
+実行結果
+MariaDB [workbook]> UPDATE
+    -> employee
+    -> SET
+    -> depart_id = 'Z99(未登録)'
+    -> WHERE
+    -> NOT EXISTS
+    -> (
+    -> SELECT
+    -> *
+    -> FROM
+    -> depart
+    -> WHERE
+    -> employee.depart_id = depart.depart_id
+    -> )
+    -> ;
+Query OK, 0 rows affected, 26 warnings (0.001 sec)
+Rows matched: 26  Changed: 0  Warnings: 26

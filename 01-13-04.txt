@@ -1,0 +1,44 @@
+クエリ
+
+SELECT
+	author_id AS 著者ID,
+	COUNT(*) AS カウント数,
+CASE
+	-- カウント数が4以上
+	WHEN COUNT(*) >= 4 THEN '多い'
+	-- カウント数が2以上
+	WHEN COUNT(*) >= 2 THEN '普通'
+	ELSE '少ない'
+	END AS 評価
+FROM
+	author_books
+GROUP BY
+	author_id
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> author_id AS 著者ID,
+    -> COUNT(*) AS カウント数,
+    -> CASE
+    -> WHEN COUNT(*) >= 4 THEN '多い'
+    -> WHEN COUNT(*) >= 2 THEN '普通'
+    -> ELSE '少ない'
+    -> END AS 評価
+    -> FROM
+    -> author_books
+    -> GROUP BY
+    -> author_id
+    -> ;
++-----------+----------+--------+
+|    著者ID | カウント数 | 評価   |
++-----------+----------+--------+
+| A0001     |        1    | 少ない |
+| K0001     |        1    | 少ない |
+| M0001     |        1    | 少ない |
+| S0001     |        1    | 少ない |
+| T0001     |        1    | 少ない |
+| Y0001     |        2    | 普通   |
+| Y0002     |        4    | 多い   |
++-----------+----------+--------+
+7 rows in set (0.016 sec)

@@ -1,0 +1,27 @@
+クエリ
+間違い：「SELECT DISTINCT」なのに「SELECT ALL」となっている。「depart_id」が不要。
+
+SELECT
+DISTINCT
+	class
+
+FROM
+	employee
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> DISTINCT
+    -> class
+    -> FROM
+    -> employee;
++--------------+
+| class        |
++--------------+
+| 部長         |
+| 担当         |
+| 主任         |
+| アシスタント |
+| 課長         |
++--------------+
+5 rows in set (0.001 sec)

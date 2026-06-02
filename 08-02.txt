@@ -1,0 +1,24 @@
+演習8-2
+
+・一時テーブル
+セッションごとに一時的に作成されるテーブルであり、セッションが終了すると自動的に削除されるツール
+複数のクエリで同じデータを何度も使用する場合や、大量のデータを一時的に保存する場合に適している
+
+＜作成＞
+CREATE TEMPORARY TABLE文を使用
+
+CREATE TEMPORARY TABLE temp_table_name (
+  column1 datatype,
+  column2 datatype,
+    ...
+);
+
+＜挿入＞
+INSERT文を使用
+
+＜使用するとき＞
+SELECT・FROM文
+
+＜削除＞
+手動で削除することができる
+DROP TEMPORARY TABLE ○○;

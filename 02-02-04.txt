@@ -1,0 +1,68 @@
+クエリ
+
+SELECT
+	e.l_name,
+	e.f_name,
+	AVG(t.work_time) AS 勤務平均時間
+FROM
+	employee AS e
+LEFT JOIN
+	time_card AS t
+ON
+	e.s_id = t.s_id
+GROUP BY
+	t.s_id,
+	e.l_name,
+	e.f_name
+ORDER BY
+	AVG(t.work_time) DESC
+;
+実行結果
+MariaDB [workbook]> SELECT
+    ->  e.l_name,
+    ->  e.f_name,
+    -> 	AVG(t.work_time)
+    -> FROM
+    -> 	employee AS e
+    -> LEFT JOIN
+    -> 	time_card AS t
+    -> ON
+    -> 	e.s_id = t.s_id
+    -> GROUP BY
+    -> 	t.s_id,
+    -> 	e.l_name,
+    -> 	e.f_name
+    -> ORDER BY
+    -> 	AVG(t.work_time)
+    -> ;
++--------+--------+------------------+
+| l_name | f_name | AVG(t.work_time) |
++--------+--------+------------------+
+| 上田   | 一也   |             NULL |
+| 寺岡   | 陽一   |             NULL |
+| 佐藤   | 智子   |             NULL |
+| 速水   | 和幸   |             NULL |
+| 遠山   | 真一   |             NULL |
+| 西     | 雄一   |             NULL |
+| 山田   | 奈美   |             NULL |
+| 近田   | 晃子   |             NULL |
+| 妹尾   | 春樹   |             NULL |
+| 相沢   | 聡     |             NULL |
+| 新渡戸 | 康治   |             NULL |
+| 加藤   | 昭雄   |           8.4762 |
+| 藤井   | 雄太   |           8.4762 |
+| 清水   | 春子   |           8.4762 |
+| 津村   | 知美   |           8.4762 |
+| 田辺   | 正一   |           8.4762 |
+| 戸川   | よしみ |           8.4762 |
+| 木村   | 一郎   |           8.5000 |
+| 大門   | 一郎   |           8.5000 |
+| 藤岡   | 幸太郎 |           8.5000 |
+| 中澤   | 康代   |           8.5000 |
+| 野上   | 利江   |           8.5238 |
+| 葉山   | 俊輔   |           8.5238 |
+| 田中   | 真由子 |           8.5238 |
+| 川口   | 裕子   |           8.5476 |
+| 神田   | 佐知子 |           8.5476 |
++--------+--------+------------------+
+26 rows in set (0.016 sec)

@@ -1,0 +1,30 @@
+クエリ
+
+SELECT
+	prefecture AS 都道府県,
+	AVG(age) AS 平均年齢
+FROM
+	quest
+ORDER BY
+	都道府県
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> prefecture AS 都道府県,
+    -> AVG(age) AS 平均年齢
+    -> FROM
+    -> quest
+    -> GROUP BY
+    -> 都道府県
+    -> ;
++----------+----------+
+| 都道府県 | 平均年齢 |
++----------+----------+
+| 茨城県   |  38.6667 |
+| 埼玉県   |  18.0000 |
+| 神奈川県 |  31.2500 |
+| 千葉県   |  34.5000 |
+| 東京都   |  33.3333 |
++----------+----------+
+5 rows in set (0.001 sec)
