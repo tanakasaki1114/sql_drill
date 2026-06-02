@@ -1,0 +1,56 @@
+SELECT
+	u.l_name,
+	u.f_name,
+	COUNT(r.id)
+FROM
+	usr AS u
+INNER JOIN
+	rental AS r
+ON
+	u.user_id = r.user_id
+WHERE
+	r.returned = 0
+GROUP BY
+	r.user_id,
+	u.l_name,
+	u.f_name
+HAVING
+	-- レンタル数が0のものは出力しない
+	COUNT(r.id) > 0'
+ORDER BY
+	COUNT(r.id) DESC
+;
+
+MariaDB [workbook]> SELECT
+    -> u.l_name,
+    -> u.f_name,
+    -> COUNT(r.id)
+    -> FROM
+    -> usr AS u
+    -> INNER JOIN
+    -> rental AS r
+    -> ON
+    -> u.user_id = r.user_id
+    -> WHERE
+    -> r.returned = 0
+    -> GROUP BY
+    -> r.user_id,
+    -> u.l_name,
+    -> u.f_name
+    -> HAVING
+    -> COUNT(r.id) > 0
+    -> ORDER BY
+    -> COUNT(r.id) DESC
+    -> ;
++--------+--------+-------------+
+| l_name | f_name | COUNT(r.id) |
++--------+--------+-------------+
+| 河合   | 泰治   |           2 |
+| 森本   | 絵里   |           1 |
+| 根岸   | 裕子   |           1 |
+| 松本   | 博美   |           1 |
+| 和田   | 修子   |           1 |
+| 西島   | 文子   |           1 |
+| 吉岡   | 遥     |           1 |
++--------+--------+-------------+
+7 rows in set (0.001 sec)

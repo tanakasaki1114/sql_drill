@@ -1,0 +1,23 @@
+クエリ
+CREATE TABLE
+	ind_ordar
+ON
+	 ordar_main
+	(
+	order_date,
+	delivery_date
+	)	
+;
+
+実行結果
+MariaDB [workbook]> CREATE INDEX
+    -> ind_ordar
+    -> ON
+    -> ordar_main
+    -> (
+    -> order_date,
+    -> delivery_date
+    -> )
+    -> ;
+Query OK, 0 rows affected (0.022 sec)
+Records: 0  Duplicates: 0  Warnings: 0

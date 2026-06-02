@@ -1,0 +1,22 @@
+クエリ
+CREATE TABLE
+	order_desc
+	(
+	po_id INT NOT NULL,
+	p_id CHAR(10) NOT NULL,
+	quantity INT NOT NULL,
+	PRIMARY KEY(po_id,p_id)
+	)
+;
+
+実行結果
+MariaDB [workbook]> CREATE TABLE
+    -> order_desc
+    -> (
+    -> po_id INT NOT NULL,
+    -> p_id CHAR(10) NOT NULL,
+    -> quantity INT NOT NULL,
+    -> PRIMARY KEY(po_id,p_id)
+    -> )
+    -> ;
+Query OK, 0 rows affected (0.021 sec)

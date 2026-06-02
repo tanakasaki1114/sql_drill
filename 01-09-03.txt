@@ -1,0 +1,31 @@
+クエリ
+
+SELECT
+	s_id,
+	SUM(s_value)
+FROM
+	sales
+GROUP BY
+	s_id
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> s_id,
+    -> SUM(s_value)
+    -> FROM
+    -> sales
+    -> GROUP BY
+    -> s_id
+    -> ;
++-------+--------------+
+| s_id  | SUM(s_value) |
++-------+--------------+
+| H0001 |        19836 |
+| K0001 |        21376 |
+| K0002 |        20580 |
+| M0001 |        21929 |
+| M0002 |        12032 |
+| N0001 |        20988 |
++-------+--------------+
+6 rows in set (0.011 sec)

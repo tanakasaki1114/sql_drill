@@ -1,0 +1,37 @@
+INSERT INTO
+	rental
+	(
+		user_id,
+		isbn,
+		rental_date
+	)
+VALUES
+	 (
+		-- 利用者コード
+		'B200502',
+		-- ISBNコード
+		'4-0010-0000-0',
+		-- 貸出日
+		CURRENT_DATE
+	)
+
+;
+
+実行結果
+MariaDB [workbook]> INSERT INTO
+    -> rental
+    -> (
+    -> user_id,
+    -> isbn,
+    -> rental_date
+    -> )
+    -> VALUES
+    -> (
+    -> 'B200502',
+    -> '4-0010-0000-0',
+    -> CURRENT_DATE
+    -> )
+    -> ;
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [workbook]>

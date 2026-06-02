@@ -1,0 +1,42 @@
+クエリ
+SELECT
+	CONCAT(l_name,f_name)
+FROM
+	usr
+WHERE
+NOT EXISTS
+	(
+SELECT
+	*
+FROM
+	rental
+WHERE
+	usr.user_id = rental.user_id
+	)
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> CONCAT(l_name,f_name)
+    -> FROM
+    -> usr
+    -> WHERE
+    -> NOT EXISTS
+    -> (
+    -> SELECT
+    -> *
+    -> FROM
+    -> rental
+    -> WHERE
+    -> usr.user_id = rental.user_id
+    -> )
+    -> ;
++-----------------------+
+| CONCAT(l_name,f_name) |
++-----------------------+
+| 久保田守              |
+| 児玉毅                |
+| 矢口亜由美            |
+| 村井佐知子            |
++-----------------------+
+4 rows in set (0.001 sec)

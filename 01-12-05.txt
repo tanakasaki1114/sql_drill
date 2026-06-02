@@ -1,0 +1,39 @@
+クエリ
+間違い：
+・ORDER BYではなくGRUOP BY
+・WHEREではなくHAVING
+SELECT
+	depart_id,
+	COUNT(*)
+FROM
+	employee
+WHERE
+	--女性を表す2
+	sex = 2
+GROUP BY
+	depart_id
+HAVING
+	--3人以上
+	COUNT(*) >= 3
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> depart_id,
+    -> COUNT(*)
+    -> FROM
+    -> employee
+    -> WHERE
+    -> sex = 2
+    -> GROUP BY
+    -> depart_id
+    -> HAVING
+    -> COUNT(*) >= 3
+    -> ;
++-----------+----------+
+| depart_id | COUNT(*) |
++-----------+----------+
+| S01       |        4 |
+| S02       |        5 |
++-----------+----------+
+2 rows in set (0.001 sec)

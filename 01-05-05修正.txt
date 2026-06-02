@@ -1,0 +1,28 @@
+クエリ
+間違い：
+SELECTの中は複数の列を指定していないのに、カンマが入っている。名前が「社」で終わる情報を取り出していないのに、社の前に一文字入る名前の情報を取り出している。
+
+SELECT
+	title
+
+FROM
+	books
+
+WHERE
+    publish LIKE '%社'
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> title
+    -> FROM
+    -> books
+    -> WHERE
+    -> publish LIKE '%社';
++----------+
+| title    |
++----------+
+| XML辞典  |
+| PEAR入門 |
++----------+
+2 rows in set (0.001 sec)

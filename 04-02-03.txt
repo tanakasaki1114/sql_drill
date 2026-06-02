@@ -1,0 +1,21 @@
+クエリ
+CREATE TABLE
+	ind_product
+ON
+	 product
+	(
+	p_name
+	)	
+;
+
+実行結果
+MariaDB [workbook]> CREATE INDEX
+    -> ind_product
+    -> ON
+    -> product
+    -> (
+    -> p_name
+    -> )
+    -> ;
+Query OK, 0 rows affected (0.024 sec)
+Records: 0  Duplicates: 0  Warnings: 0

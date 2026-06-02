@@ -1,0 +1,43 @@
+演習3-2
+
+①ウィンドウ関数を用いたテーブルを新しく作る
+
+MariaDB [workbook]> CREATE TABLE Product1 AS
+    -> SELECT
+    -> name,
+    -> price,
+    -> ROW_NUMBER() OVER (PARTITION BY name, price) AS nu
+    -> FROM
+    -> Product;
+Query OK, 3 rows affected (0.025 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+– 表示
+MariaDB [workbook]> SELECT * FROM Product1;
++--------+-------+----+
+| name   | price | nu |
++--------+-------+----+
+| みかん |    50 |  1 |
+| みかん |    50 |  2 |
+| りんご |   100 |  1 |
++--------+-------+----+
+3 rows in set (0.001 sec)
+
+②nuが重複があるかどうかを調べており、1より大きいものを削除する
+
+MariaDB [workbook]> DELETE FROM
+    -> Product1
+    -> WHERE
+    -> nu > 1;
+Query OK, 1 row affected (0.002 sec)
+
+– 表示
+MariaDB [workbook]> SELECT * FROM Product1;
++--------+-------+----+
+| name   | price | nu |
++--------+-------+----+
+| みかん |    50 |  1 |
+| りんご |   100 |  1 |
++--------+-------+----+
+2 rows in set (0.001 sec)
+
