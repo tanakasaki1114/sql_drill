@@ -90,6 +90,7 @@ MariaDB [workbook]> SELECT
 | 2018-11-11 |   11000 |  4400.0000 |
 +------------+---------+------------+
 7 rows in set (0.002 sec)
+<<<<<<< HEAD
 ・マテリアライズドビュー
 →SQLの結果をテーブルとして保持する仕組み
 
@@ -106,3 +107,5 @@ MariaDB [workbook]> SELECT
 「ビューとマテリアライズド・ビューの違いを理解する」（データベース開発ツール SI Object Browser）
 https://products.sint.co.jp/siob/blog/oracle-view-mview
 （2026.05.27.）
+=======
+>>>>>>> 00f893fdab55d4830c05324d3e2f88f4034c0dd6
