@@ -1,0 +1,37 @@
+演習6-2
+クエリ
+
+SELECT
+	dpt
+FROM
+	Students
+GROUP BY
+	dpt
+HAVING
+	SUM(
+		CASE
+			-- 2018年9月30日以前なら1
+			WHEN sbmt_date < '2018-09-30' THEN 1
+		-- そのほかの場合、0
+		ELSE 0
+		END
+	)
+	= COUNT(*)
+;
+
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> dpt
+    -> FROM
+    -> Students
+    -> GROUP BY
+    -> dpt
+    -> HAVING
+    -> SUM(CASE WHEN sbmt_date < '2018-09-30' THEN 1 ELSE 0 END) = COUNT(*);
++----------+
+| dpt      |
++----------+
+| 経済学部 |
++----------+
+1 row in set (0.001 sec)
