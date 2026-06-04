@@ -4,6 +4,7 @@ SELECT
 	CASE
 	WHEN COUNT(*) <> MAX(seq) THEN '歯抜けあり'
 	ELSE '歯抜けなし'
+	END AS gap
 FROM
 	SeqTbl
 ;
@@ -27,8 +28,8 @@ MariaDB [workbook]> SELECT
 クエリ
 SELECT
 	CASE
-		WHEN COUNT(*) <> MAX(seq) THEN '歯抜けなし'
-	ELSE '歯抜けあり'
+	WHEN COUNT(*) <> MAX(seq) THEN '歯抜けあり'
+	ELSE '歯抜けなし'
 	END AS gap
 FROM
 	SeqTbl
@@ -36,15 +37,16 @@ FROM
 
 実行結果
 MariaDB [workbook]> SELECT
-    -> CASE
-    -> WHEN COUNT(*) <> MAX(seq) THEN '歯抜けなし'
-    -> ELSE '歯抜けあり'
-    -> END AS gap
+    ->  CASE
+    ->  WHEN COUNT(*) <> MAX(seq) THEN '歯抜けあり'
+    ->  ELSE '歯抜けなし'
+    ->  END AS gap
     -> FROM
-    -> SeqTbl;
+    ->  SeqTbl
+    -> ;
 +------------+
 | gap        |
 +------------+
 | 歯抜けなし |
 +------------+
-1 row in set (0.027 sec)
+1 row in set (0.001 sec)
