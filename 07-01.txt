@@ -1,4 +1,46 @@
 演習7-1
+クエリ
+
+SELECT
+	A1.pre_date,
+	A1.prc_amt,
+	(
+		SELECT AVG(A2.prc_amt)
+		FROM
+		Account A2
+		-- 2日前から当日まで
+		WHERE A2.pre_date BETWEEN DATE_SUB(A1.pre_date, INTERVAL 2 DAY) AND A1.pre_date
+	) AS moovave
+FROM
+	Account A1
+ORDER BY
+	A1.pre_date
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> A1.pre_date,
+    -> A1.prc_amt,
+    -> (
+    -> SELECT AVG(A2.prc_amt)
+    -> FROM
+    -> Account A2
+    -> WHERE A2.pre_date BETWEEN DATE_SUB(A1.pre_date, INTERVAL 2 DAY) AND A1.pre_date
+    -> ) AS moovave
+    -> FROM Account A1
+    -> ORDER BY A1.pre_date;
++------------+---------+-------------+
+| pre_date   | prc_amt | moovave     |
++------------+---------+-------------+
+| 2018-10-26 |   12000 |  12000.0000 |
+| 2018-10-28 |    2500 |   7250.0000 |
+| 2018-10-31 |  -15000 | -15000.0000 |
+| 2018-11-03 |   34000 |  34000.0000 |
+| 2018-11-06 |   -5000 |  -5000.0000 |
+| 2018-11-11 |   11000 |  11000.0000 |
++------------+---------+-------------+
+6 rows in set (0.002 sec)
+<<<<<<< HEAD
 
 ①レンジパーティション
 値の範囲 (RANGE) ごとに分割する方法
@@ -50,3 +92,5 @@ WHERE句で特定の条件（例: region = 'Japan'）を指定した場合、該
 ・検索範囲・ソートに対応していない
 ・パーティション数の変更が高コスト
 ・特定のデータを探しにくい
+=======
+>>>>>>> 00f893fdab55d4830c05324d3e2f88f4034c0dd6
