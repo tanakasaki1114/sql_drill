@@ -1,0 +1,82 @@
+演習6-1
+＊歯抜けあり版のテーブル
+MariaDB [workbook]> SELECT * FROM SeqTbl;
++-----+----------+
+| seq | name     |
++-----+----------+
+|   1 | ディック |
+|   2 | アン     |
+|   3 | ライル   |
+|   5 | カー     |
+|   6 | マリー   |
+|   8 | ベン     |
++-----+----------+
+6 rows in set (0.004 sec)
+
+クエリ
+SELECT
+	CASE
+	WHEN COUNT(*) <> MAX(seq) THEN '歯抜けあり'
+	ELSE '歯抜けなし'
+	END AS gap
+FROM
+	SeqTbl
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> CASE 
+    -> WHEN COUNT(*) <> MAX(seq) THEN '歯抜けあり'
+    -> ELSE '歯抜けなし'
+    -> END AS gap
+    -> FROM
+    -> SeqTbl
+    -> ;
++------------+
+| gap        |
++------------+
+| 歯抜けあり |
++------------+
+1 row in set (0.001 sec)
+
+*歯抜けなし版のテーブル
+MariaDB [workbook]> SELECT * FROM SeqTbl;
++-----+----------+
+| seq | name     |
++-----+----------+
+|   1 | ディック |
+|   2 | アン     |
+|   3 | ライル   |
+|   4 | ディック |
+|   5 | カー     |
+|   6 | マリー   |
+|   7 | ディック |
+|   8 | ベン     |
++-----+----------+
+8 rows in set (0.001 sec)
+
+クエリ
+SELECT
+	CASE
+	WHEN COUNT(*) <> MAX(seq) THEN '歯抜けあり'
+	ELSE '歯抜けなし'
+	END AS gap
+FROM
+	SeqTbl
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    ->  CASE
+    ->  WHEN COUNT(*) <> MAX(seq) THEN '歯抜けあり'
+    ->  ELSE '歯抜けなし'
+    ->  END AS gap
+    -> FROM
+    ->  SeqTbl
+    -> ;
++------------+
+| gap        |
++------------+
+| 歯抜けなし |
++------------+
+1 row in set (0.001 sec)
