@@ -1,0 +1,91 @@
+演習10-1
+＊NOT EXISTS
+クエリ
+SELECT
+	S1.seq
+FROM
+	Sequence S1
+
+WHERE
+	-- 1から12までを表示 
+	S1.seq BETWEEN 1 AND 12
+AND NOT EXISTS
+	(
+		SELECT
+			*
+		FROM
+			SeqTbl S2
+		WHERE
+			S2.seq = S1.seq
+	)
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    ->     S1.seq
+    -> FROM
+    ->     Sequence S1
+    -> WHERE S1.seq BETWEEN 1 AND 12
+    -> AND NOT EXISTS
+    ->     (SELECT * FROM SeqTbl S2
+    ->      WHERE S2.seq = S1.seq);
++-----+
+| seq |
++-----+
+|   3 |
+|   9 |
+|  10 |
++-----+
+3 rows in set (0.002 sec)
+
+SELECT
+    S.seq 
+FROM
+    Sequence S            
+LEFT OUTER JOIN
+    SeqTbl S1             
+ON
+    S1.seq = S.seq        
+WHERE 
+    S.seq BETWEEN 1 AND 12
+AND 
+    S1.seq IS NULL;      
+
+*外部結合
+クエリ
+SELECT
+	S.seq
+FROM
+	Sequence S
+LEFT OUTER JOIN
+	SeqTbl S1
+ON
+	S1.seq = S.seq
+WHERE
+	-- 1から12までを表示
+	S.seq BETWEEN 1 AND 12
+AND
+	S1.seq IS NULL
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> S.seq
+    -> FROM
+    -> Sequence S
+    -> LEFT OUTER JOIN
+    -> SeqTbl S1
+    -> ON
+    -> S1.seq = S.seq
+    -> WHERE
+    -> S.seq BETWEEN 1 AND 12
+    -> AND
+    -> S1.seq IS NULL;
++-----+
+| seq |
++-----+
+|   3 |
+|   9 |
+|  10 |
++-----+
+3 rows in set (0.001 sec) 
