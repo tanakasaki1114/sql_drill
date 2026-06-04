@@ -1,0 +1,49 @@
+演習8-1
+クエリ
+
+SELECT
+	A.age_range,
+	S.sex_cd,
+	SUM(CASE WHEN P.pref_name IN ('青森','秋田') THEN P.population ELSE NULL END) AS 東北,
+	SUM(CASE WHEN P.pref_name IN ('東京','千葉') THEN P.population ELSE NULL END) AS 関東
+FROM
+	TblAge A
+CROSS JOIN
+	TblSex S
+LEFT OUTER JOIN
+	TblPop P
+ON
+	A.age_class = P.age_class
+AND
+	S.sex_cd = P.sex_code
+GROUP BY
+	A.age_range,
+	S.sex_cd
+;
+
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> A.age_range,
+    -> S.sex_cd,
+    -> SUM(CASE WHEN P.pref_name IN ('青森','秋田') THEN P.population ELSE NULL END) AS 東北,
+    -> SUM(CASE WHEN P.pref_name IN ('東京','千葉') THEN P.population ELSE NULL END) AS 関東
+    -> FROM TblAge A
+    -> CROSS JOIN TblSex S
+    -> LEFT OUTER JOIN TblPop P
+    -> ON  A.age_class = P.age_class
+    -> AND S.sex_cd = P.sex_code
+    -> GROUP BY
+    -> A.age_range,
+    -> S.sex_cd;
++-----------+--------+------+------+
+| age_range | sex_cd | 東北 | 関東 |
++-----------+--------+------+------+
+| 21~30歳   | f      | 1300 | 2500 |
+| 21~30歳   | m      | 1100 | 1800 |
+| 31~40歳   | f      | NULL | NULL |
+| 31~40歳   | m      | NULL | NULL |
+| 41~50歳   | f      | 1800 | 2100 |
+| 41~50歳   | m      | 1000 | NULL |
++-----------+--------+------+------+
+6 rows in set (0.002 sec)

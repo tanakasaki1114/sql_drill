@@ -1,0 +1,36 @@
+演習8-2
+クエリ
+SELECT
+	employee,
+	(COUNT(NULLIF(child_1, '')) +
+	COUNT(NULLIF(child_2, '')) +
+	COUNT(NULLIF(child_3, ''))) AS child_cnt
+FROM
+	Personnel
+GROUP BY
+	employee
+ORDER BY
+	child_cnt DESC
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    -> employee,
+    -> (COUNT(NULLIF(child_1, '')) +
+    -> COUNT(NULLIF(child_2, '')) +
+    -> COUNT(NULLIF(child_3, ''))) AS child_cnt
+    -> FROM
+    -> Personnel
+    -> GROUP BY
+    -> employee
+    -> ORDER BY
+    -> child_cnt DESC;
++----------+-----------+
+| employee | child_cnt |
++----------+-----------+
+| 赤井     |         3 |
+| 工藤     |         2 |
+| 鈴木     |         1 |
+| 吉田     |         0 |
++----------+-----------+
+4 rows in set (0.001 sec)
