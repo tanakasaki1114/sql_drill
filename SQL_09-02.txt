@@ -1,0 +1,43 @@
+演習9-2
+クエリ
+SELECT
+	ES.emp
+FROM
+	EmpSkills ES
+LEFT OUTER JOIN
+	Skills S
+ON
+	ES.skill = S.skill
+GROUP BY
+	ES.emp
+HAVING
+	COUNT(DISTINCT ES.skill) = (SELECT COUNT(skill) FROM skills)
+AND
+	COUNT(DISTINCT CASE 
+		WHEN ES.skill IN (SELECT 
+					skill 
+						FROM 
+							-- 1を返す
+							Skills) THEN 1 END) = (SELECT 
+											COUNT(skill) 
+													FROM
+														Skills)
+;
+
+実行結果	
+MariaDB [workbook]> SELECT ES.emp
+    -> FROM EmpSkills ES
+    -> LEFT OUTER JOIN Skills S
+    -> ON
+    -> ES.skill = S.skill
+    -> GROUP BY
+    -> ES.emp
+    -> HAVING COUNT(DISTINCT ES.skill) = (SELECT COUNT(skill) FROM skills)
+    -> AND
+    -> COUNT(DISTINCT CASE WHEN ES.skill IN (SELECT skill FROM Skills) THEN 1 END) = (SELECT COUNT(skill) FROM Skills);
++------+
+| emp  |
++------+
+| 神崎 |
++------+
+1 row in set (0.001 sec)
