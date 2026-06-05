@@ -13,7 +13,15 @@ GROUP BY
 HAVING
 	COUNT(ES.skill) = (SELECT COUNT(skill) FROM skills)
 AND
-	COUNT(S.skill) =  (SELECT COUNT(skill) FROM skills)
+	COUNT(CASE 
+		WHEN ES.skill IN (SELECT 
+					skill 
+						FROM 
+							-- 1を返す
+							Skills) THEN 1 END) = (SELECT 
+											COUNT(skill) 
+													FROM
+														Skills)
 ;
 
 実行結果	
@@ -25,7 +33,8 @@ MariaDB [workbook]> SELECT ES.emp
     -> GROUP BY
     -> ES.emp
     -> HAVING COUNT(ES.skill) = (SELECT COUNT(skill) FROM skills)
-    -> AND COUNT(S.skill) =  (SELECT COUNT(skill) FROM skills);
+    -> AND
+    -> COUNT(CASE WHEN ES.skill IN (SELECT skill FROM Skills) THEN 1 END) = (SELECT COUNT(skill) FROM Skills);
 +------+
 | emp  |
 +------+
