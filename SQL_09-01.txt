@@ -1,4 +1,26 @@
 演習9-1
+tbl_A
+MariaDB [workbook]> SELECT * FROM tbl_A;
++-----+-------+-------+-------+
+| key | col_1 | col_2 | col_3 |
++-----+-------+-------+-------+
+| A   |     2 |     3 |     4 |
+| B   |     0 |     7 |     9 |
+| C   |     5 |     1 |     6 |
++-----+-------+-------+-------+
+3 rows in set (0.085 sec)
+
+tbl_B
+MariaDB [workbook]> SELECT * FROM tbl_B;
++-----+-------+-------+-------+
+| key | col_1 | col_2 | col_3 |
++-----+-------+-------+-------+
+| A   |     2 |     3 |     4 |
+| B   |     0 |     7 |     9 |
+| C   |     5 |     1 |     6 |
++-----+-------+-------+-------+
+3 rows in set (0.006 sec)
+
 クエリ
 SELECT
 	CASE WHEN COUNT(*) = (SELECT COUNT(*) FROM tbl_A)
@@ -42,3 +64,74 @@ MariaDB [workbook]> SELECT
 | 等しい |
 +--------+
 1 row in set (0.002 sec)
+
+tbl_A
+MariaDB [workbook]> SELECT * FROM tbl_A;
++-----+-------+-------+-------+
+| key | col_1 | col_2 | col_3 |
++-----+-------+-------+-------+
+| A   |     2 |     3 |     4 |
+| B   |     0 |     7 |     9 |
+| C   |     5 |     1 |     6 |
++-----+-------+-------+-------+
+3 rows in set (0.085 sec)
+
+tbl_c
+MariaDB [workbook]> SELECT * FROM tbl_c;
++--------+-------+-------+-------+
+| keycol | col_1 | col_2 | col_3 |
++--------+-------+-------+-------+
+| A      |     2 |     3 |     9 |
+| B      |     0 |     7 |     9 |
+| C      |     5 |     1 |     6 |
++--------+-------+-------+-------+
+
+クエリ
+SELECT
+	CASE WHEN COUNT(*) = (SELECT COUNT(*) FROM tbl_A)
+AND 
+	COUNT(*) = (SELECT COUNT(*) FROM tbl_C)
+THEN 
+	'等しい'
+ELSE
+	'異なる'
+END AS result
+FROM
+	(SELECT
+		＊
+	FROM
+		tbl_A
+	UNION
+	SELECT
+		＊
+	FROM
+		 tbl_C)TMP
+;
+
+実行結果
+
+MariaDB [workbook]> SELECT
+    ->     CASE WHEN COUNT(*) = (SELECT COUNT(*) FROM tbl_A)
+    ->     AND
+    ->     COUNT(*) = (SELECT COUNT(*) FROM tbl_c)
+    ->     THEN
+    ->         '等しい'
+    ->     ELSE
+    ->         '異なる'
+    ->     END AS result
+    -> FROM
+    ->     (SELECT
+    ->         *
+    ->      FROM
+    ->         tbl_A
+    ->      UNION
+    ->      SELECT
+    ->         *
+    ->      FROM
+    ->         tbl_c) AS TMP;
++--------+
+| result |
++--------+
+| 異なる |
++--------+
+1 row in set (0.001 sec)
