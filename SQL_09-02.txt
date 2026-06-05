@@ -11,9 +11,9 @@ ON
 GROUP BY
 	ES.emp
 HAVING
-	COUNT(ES.skill) = (SELECT COUNT(skill) FROM skills)
+	COUNT(DISTINCT ES.skill) = (SELECT COUNT(skill) FROM skills)
 AND
-	COUNT(CASE 
+	COUNT(DISTINCT CASE 
 		WHEN ES.skill IN (SELECT 
 					skill 
 						FROM 
@@ -32,9 +32,9 @@ MariaDB [workbook]> SELECT ES.emp
     -> ES.skill = S.skill
     -> GROUP BY
     -> ES.emp
-    -> HAVING COUNT(ES.skill) = (SELECT COUNT(skill) FROM skills)
+    -> HAVING COUNT(DISTINCT ES.skill) = (SELECT COUNT(skill) FROM skills)
     -> AND
-    -> COUNT(CASE WHEN ES.skill IN (SELECT skill FROM Skills) THEN 1 END) = (SELECT COUNT(skill) FROM Skills);
+    -> COUNT(DISTINCT CASE WHEN ES.skill IN (SELECT skill FROM Skills) THEN 1 END) = (SELECT COUNT(skill) FROM Skills);
 +------+
 | emp  |
 +------+
