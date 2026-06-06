@@ -51,9 +51,9 @@ SELECT
 	'~', 
 	S2.seat AS end_seat
 FROM
-	Seats S1, 
-	Seats S2, 
-	Seats S3
+	Seats2 S1, 
+	Seats2 S2, 
+	Seats2 S3
 WHERE
 	-- 3つ連続する
 	S2.seat = S1.seat + (3 - 1) 
