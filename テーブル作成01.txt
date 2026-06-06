@@ -1,0 +1,78 @@
+問1
+-- 主キーを「受付番号」とし、受付番号のテーブル作成
+CREATE TABLE 
+	reception
+	(
+	reception_key INT AUTO_INCREMENT PRIMARY KEY,
+	pref_code INT NOT NULL,
+	pref_name CHAR(30) NOT NULL,
+	dealer_key INT NOT NULL
+	)
+;
+Query OK, 0 rows affected (0.013 sec)
+
+-- ディーラーに関するテーブル作成
+CREATE TABLE 
+	dealerTbl
+	(
+	dealer_key INT NOT NULL,
+	dealer     CHAR(10) NOT NULL,
+	maker_id   INT NOT NULL,
+	FOREIGN KEY (dealer_key)
+	REFERENCES reception(dealer_key)
+	)
+;
+Query OK, 0 rows affected (0.041 sec)
+
+-- メーカーに関するテーブル作成
+CREATE TABLE 
+	maker
+	(
+	maker_id INT NOT NULL,
+	maker_name CHAR(10) NOT NULL,
+	type_id INT NOT NULL,
+	FOREIGN KEY (maker_id) 
+	REFERENCES dealerTbl(maker_id)
+	)
+;
+
+ALTER TABLE maker ADD INDEX (type_id);
+
+-- タイプに関するテーブル作成
+CREATE TABLE 
+	typeTbl
+	( 
+	type_id INT NOT NULL,
+	type_name CHAR(10),
+	car_id INT NOT NULL,
+	FOREIGN KEY (type_id)
+	REFERENCES maker(type_id)
+	)
+;
+
+-- 車種に関するテーブル作成
+CREATE TABLE 
+	carTbl
+	(
+	car_id INT NOT NULL,
+	car_name CHAR(10),
+	price INT NOT NULL,
+	used_price INT NOT NULL,
+	user_id INT NOT NULL,
+	FOREIGN KEY (car_id)
+	REFERENCES typeTbl(car_id)
+	)
+;
+
+-- 元所有者に関するテーブル作成
+CREATE TABLE 
+	userTbl
+	(
+	user_id INT NOT NULL,
+	user_name CHAR(10),
+	gender CHAR(3),
+	age INT NOT NULL,
+	FOREIGN KEY (user_id)
+	REFERENCES carTbl(user_id)
+	)
+;
