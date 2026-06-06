@@ -63,7 +63,7 @@ GROUP BY
 	S1.seat, 
 	S2.seat
 HAVING
-	COUNT(CASE WHEN S3.status = '空'  AND S3.line_id = S1.line_id THEN 1 ELSE 0 END) 
+	COUNT(*) = SUM(CASE WHEN S3.status = '空'  AND S3.line_id = S1.line_id THEN 1 ELSE 0 END) 
 ;
 
 実行結果
@@ -85,22 +85,12 @@ MariaDB [workbook]> SELECT
     ->  S1.seat,
     ->  S2.seat
     -> HAVING
-    -> SUM(CASE WHEN S3.status = '空' AND S3.line_id = S1.line_id THEN 1 ELSE 0 END);
+    -> COUNT(*) = SUM(CASE WHEN S3.status = '空'  AND S3.line_id = S1.line_id THEN 1 ELSE 0 END);
 +------------+---+----------+
 | start_seat | ~ | end_seat |
 +------------+---+----------+
-|          1 | ~ |        3 |
-|          2 | ~ |        4 |
 |          3 | ~ |        5 |
-|          4 | ~ |        6 |
-|          5 | ~ |        7 |
-|          6 | ~ |        8 |
-|          7 | ~ |        9 |
 |          8 | ~ |       10 |
-|          9 | ~ |       11 |
-|         10 | ~ |       12 |
 |         11 | ~ |       13 |
-|         12 | ~ |       14 |
-|         13 | ~ |       15 |
 +------------+---+----------+
-13 rows in set (0.015 sec)
+3 rows in set (0.001 sec)
