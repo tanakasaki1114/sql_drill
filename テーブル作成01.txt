@@ -4,12 +4,24 @@ CREATE TABLE
 	reception
 	(
 	reception_key INT AUTO_INCREMENT PRIMARY KEY,
-	pref_code INT NOT NULL,
-	pref_name CHAR(30) NOT NULL,
-	dealer_key INT NOT NULL
+	pref_code INT NOT NULL
 	)
 ;
-Query OK, 0 rows affected (0.013 sec)
+
+ALTER TABLE receptionl ADD INDEX(pref_code);
+
+-- 都道府県コードに関するテーブル作成
+CREATE TABLE prefTbl
+	(
+	pref_code INT NOT NULL,
+	pref_name CHAR(30) NOT NULL,
+    	dealer_key INT NOT NULL,
+	FOREIGN KEY (pref_code)
+	REFERENCES reception(pref_code)
+	)
+;
+
+ALTER TABLE prefTbl ADD INDEX(dealer_key);
 
 -- ディーラーに関するテーブル作成
 CREATE TABLE 
@@ -19,10 +31,11 @@ CREATE TABLE
 	dealer     CHAR(10) NOT NULL,
 	maker_id   INT NOT NULL,
 	FOREIGN KEY (dealer_key)
-	REFERENCES reception(dealer_key)
+	REFERENCES prefTbl(dealer_key)
 	)
 ;
-Query OK, 0 rows affected (0.041 sec)
+
+ALTER TABLE dealerTbl ADD INDEX(maker_id);
 
 -- メーカーに関するテーブル作成
 CREATE TABLE 
@@ -50,6 +63,8 @@ CREATE TABLE
 	)
 ;
 
+ALTER TABLE typeTbl ADD INDEX (car_id);
+
 -- 車種に関するテーブル作成
 CREATE TABLE 
 	carTbl
@@ -63,6 +78,8 @@ CREATE TABLE
 	REFERENCES typeTbl(car_id)
 	)
 ;
+
+ALTER TABLE carTbl ADD INDEX(user_id);
 
 -- 元所有者に関するテーブル作成
 CREATE TABLE 
