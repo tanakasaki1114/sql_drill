@@ -4,92 +4,83 @@ CREATE TABLE
 	reception
 	(
 	reception_key INT AUTO_INCREMENT PRIMARY KEY,
-	pref_code INT NOT NULL
+	pref_code INT NOT NULL,
+	dealer_key INT NOT NULL,
+	maker_id INT NOT NULL,
+	type_id INT NOT NULL,
+	car_id INT NOT NULL,
+	used_price INT NOT NULL,
+	user_id INT NOT NULL,
+	FOREIGN KEY (pref_code)
+	REFERENCES prefTbl(pref_code),
+	FOREIGN KEY  (dealer_key)
+	REFERENCES dealerTbl(dealer_key),
+	FOREIGN KEY  (maker_id)
+	REFERENCES maker(maker_id),
+	FOREIGN KEY  (type_id)
+	REFERENCES typeTbl(type_id),
+	FOREIGN KEY  (car_id)
+	REFERENCES carTbl(car_id),
+	FOREIGN KEY (user_id)
+	REFERENCES userTbl(user_id)
 	)
 ;
-
-ALTER TABLE receptionl ADD INDEX(pref_code);
 
 -- 都道府県コードに関するテーブル作成
 CREATE TABLE prefTbl
 	(
-	pref_code INT NOT NULL,
-	pref_name CHAR(30) NOT NULL,
-    	dealer_key INT NOT NULL,
-	FOREIGN KEY (pref_code)
-	REFERENCES reception(pref_code)
-	)
+	pref_code INT NOT NULL PRIMARY KEY,
+	pref_name VARCHAR(30) NOT NULL
+    	)
 ;
 
-ALTER TABLE prefTbl ADD INDEX(dealer_key);
 
 -- ディーラーに関するテーブル作成
 CREATE TABLE 
 	dealerTbl
 	(
-	dealer_key INT NOT NULL,
-	dealer     CHAR(10) NOT NULL,
-	maker_id   INT NOT NULL,
-	FOREIGN KEY (dealer_key)
-	REFERENCES prefTbl(dealer_key)
+	dealer_key INT NOT NULL PRIMARY KEY,
+	dealer     VARCHAR(10) NOT NULL
 	)
 ;
 
-ALTER TABLE dealerTbl ADD INDEX(maker_id);
 
 -- メーカーに関するテーブル作成
 CREATE TABLE 
 	maker
 	(
-	maker_id INT NOT NULL,
-	maker_name CHAR(10) NOT NULL,
-	type_id INT NOT NULL,
-	FOREIGN KEY (maker_id) 
-	REFERENCES dealerTbl(maker_id)
+	maker_id INT NOT NULL PRIMARY KEY,
+	maker_name VARCHAR(10) NOT NULL
 	)
 ;
 
-ALTER TABLE maker ADD INDEX (type_id);
 
 -- タイプに関するテーブル作成
 CREATE TABLE 
 	typeTbl
 	( 
-	type_id INT NOT NULL,
-	type_name CHAR(10),
-	car_id INT NOT NULL,
-	FOREIGN KEY (type_id)
-	REFERENCES maker(type_id)
+	type_id INT NOT NULL PRIMARY KEY,
+	type_name VARCHAR(10)
 	)
 ;
-
-ALTER TABLE typeTbl ADD INDEX (car_id);
 
 -- 車種に関するテーブル作成
 CREATE TABLE 
 	carTbl
 	(
-	car_id INT NOT NULL,
-	car_name CHAR(10),
-	price INT NOT NULL,
-	used_price INT NOT NULL,
-	user_id INT NOT NULL,
-	FOREIGN KEY (car_id)
-	REFERENCES typeTbl(car_id)
+	car_id INT NOT NULL PRIMARY KEY,
+	car_name VARCHAR(10),
+	price INT NOT NULL
 	)
 ;
-
-ALTER TABLE carTbl ADD INDEX(user_id);
 
 -- 元所有者に関するテーブル作成
 CREATE TABLE 
 	userTbl
 	(
-	user_id INT NOT NULL,
-	user_name CHAR(10),
-	gender CHAR(3),
-	age INT NOT NULL,
-	FOREIGN KEY (user_id)
-	REFERENCES carTbl(user_id)
+	user_id INT NOT NULL PRIMARY KEY,
+	user_name VARCHAR(10),
+	gender VARCHAR(3),
+	age INT NOT NULL
 	)
 ;
