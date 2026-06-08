@@ -1,109 +1,156 @@
 問2
 
--- 車種に関するテーブル作成
-CREATE TABLE 
-	carTbl
-	(
-	car_id INT NOT NULL,
-	car_name CHAR(10),
-	price INT NOT NULL,
-	used_price INT NOT NULL,
-	user_id INT NOT NULL,
-	FOREIGN KEY (car_id)
-	REFERENCES typeTbl(car_id)
-	)
-;
-
--- 元所有者に関するテーブル作成
-CREATE TABLE 
-	userTbl
-	(
-	user_id INT NOT NULL,
-	user_name CHAR(10),
-	gender CHAR(3),
-	age INT NOT NULL,
-	FOREIGN KEY (user_id)
-	REFERENCES carTbl(user_id)
-	)
-;
-
-問2
-
 -- 受付番号のテーブルに要素を追加
-INSERT INTO reception VALUES(NULL,1,01,北海道,1);
-INSERT INTO reception VALUES(NULL,2,01,北海道,2);
-INSERT INTO reception VALUES(NULL,3,01,北海道,2);
-INSERT INTO reception VALUES(NULL,4,01,北海道,2);
-INSERT INTO reception VALUES(NULL,5,01,北海道,2);
-INSERT INTO reception VALUES(NULL,6,10,群馬県,2);
-INSERT INTO reception VALUES(NULL,7,10,群馬県,2);
-INSERT INTO reception VALUES(NULL,8,11,埼玉県,1);
-INSERT INTO reception VALUES(NULL,9,11,埼玉県,1);
-INSERT INTO reception VALUES(NULL,10,11,埼玉県,2);
-INSERT INTO reception VALUES(NULL,11,11,埼玉県,2);
-INSERT INTO reception VALUES(NULL,12,11,埼玉県,2);
-INSERT INTO reception VALUES(NULL,13,11,埼玉県,2);
-INSERT INTO reception VALUES(NULL,14,11,埼玉県,3);
-INSERT INTO reception VALUES(NULL,15,11,埼玉県,3);
-INSERT INTO reception VALUES(NULL,16,11,埼玉県,3);
-INSERT INTO reception VALUES(NULL,12,'千葉',1);
-INSERT INTO reception VALUES(NULL,12,'千葉',1);
-INSERT INTO reception VALUES(NULL,12,'千葉',1);
-INSERT INTO reception VALUES(NULL,12,'千葉',1);
-INSERT INTO reception VALUES(NULL,12,'千葉',1);
-INSERT INTO reception VALUES(NULL,12,'千葉',1);
-INSERT INTO reception VALUES(NULL,12,'千葉',1);
-INSERT INTO reception VALUES(NULL,12,'千葉',1);
-INSERT INTO reception VALUES(NULL,12,'千葉',2);
-INSERT INTO reception VALUES(NULL,12,'千葉',2);
-INSERT INTO reception VALUES(NULL,12,'千葉',2);
-INSERT INTO reception VALUES(NULL,12,'千葉',2);
-INSERT INTO reception VALUES(NULL,12,'千葉',3);
-INSERT INTO reception VALUES(NULL,12,'千葉',3);
-INSERT INTO reception VALUES(NULL,12,'千葉',3);
-INSERT INTO reception VALUES(NULL,12,'千葉',3);
-INSERT INTO reception VALUES(NULL,13,'東京都',1);
-INSERT INTO reception VALUES(NULL,13,'東京都',1);
-INSERT INTO reception VALUES(NULL,13,'東京都',1);
-INSERT INTO reception VALUES(NULL,13,'東京都',1);
-INSERT INTO reception VALUES(NULL,13,'東京都',1);
-INSERT INTO reception VALUES(NULL,13,'東京都',2);
-INSERT INTO reception VALUES(NULL,13,'東京都',2);
-INSERT INTO reception VALUES(NULL,13,'東京都',2);
-INSERT INTO reception VALUES(NULL,13,'東京都',2);
-INSERT INTO reception VALUES(NULL,13,'東京都',2);
-INSERT INTO reception VALUES(NULL,13,'東京都',3);
-INSERT INTO reception VALUES(NULL,13,'東京都',3);
-INSERT INTO reception VALUES(NULL,13,'東京都',3);
-INSERT INTO reception VALUES(NULL,13,'東京都',3);
-INSERT INTO reception VALUES(NULL,13,'東京都',3);
-INSERT INTO reception VALUES(NULL,13,'東京都',3);
-INSERT INTO reception VALUES(NULL,13,'東京都',3);
-INSERT INTO reception VALUES(NULL,13,'東京都',3);
-INSERT INTO reception VALUES(NULL,14,'神奈川県',1);
-INSERT INTO reception VALUES(NULL,14,'神奈川県',1);
-INSERT INTO reception VALUES(NULL,14,'神奈川県',1);
-INSERT INTO reception VALUES(NULL,14,'神奈川県',1);
-INSERT INTO reception VALUES(NULL,14,'神奈川県',1);
-INSERT INTO reception VALUES(NULL,14,'神奈川県',1);
-INSERT INTO reception VALUES(NULL,14,'神奈川県',2);
-INSERT INTO reception VALUES(NULL,14,'神奈川県',2);
-INSERT INTO reception VALUES(NULL,14,'神奈川県',2);
-INSERT INTO reception VALUES(NULL,14,'神奈川県',3);
-INSERT INTO reception VALUES(NULL,14,'神奈川県',3);
-INSERT INTO reception VALUES(NULL,14,'神奈川県',3);
-INSERT INTO reception VALUES(NULL,27,'大阪府',1);
-INSERT INTO reception VALUES(NULL,27,'大阪府',1);
-INSERT INTO reception VALUES(NULL,27,'大阪府',1);
-INSERT INTO reception VALUES(NULL,27,'大阪府',1);
-INSERT INTO reception VALUES(NULL,27,'大阪府',2);
-INSERT INTO reception VALUES(NULL,27,'大阪府',2);
-INSERT INTO reception VALUES(NULL,27,'大阪府',2);
-INSERT INTO reception VALUES(NULL,27,'大阪府',3);
-INSERT INTO reception VALUES(NULL,27,'大阪府',3);
-INSERT INTO reception VALUES(NULL,27,'大阪府',3);
-INSERT INTO reception VALUES(NULL,27,'大阪府',3);
-INSERT INTO reception VALUES(NULL,27,'大阪府',3);
+INSERT INTO reception VALUES(NULL,01);
+INSERT INTO reception VALUES(NULL,01);
+INSERT INTO reception VALUES(NULL,01);
+INSERT INTO reception VALUES(NULL,01);
+INSERT INTO reception VALUES(NULL,01);
+INSERT INTO reception VALUES(NULL,10);
+INSERT INTO reception VALUES(NULL,10);
+INSERT INTO reception VALUES(NULL,11);
+INSERT INTO reception VALUES(NULL,11);
+INSERT INTO reception VALUES(NULL,11);
+INSERT INTO reception VALUES(NULL,11);
+INSERT INTO reception VALUES(NULL,11);
+INSERT INTO reception VALUES(NULL,11);
+INSERT INTO reception VALUES(NULL,11);
+INSERT INTO reception VALUES(NULL,11);
+INSERT INTO reception VALUES(NULL,11);
+INSERT INTO reception VALUES(NULL,12);
+INSERT INTO reception VALUES(NULL,12);
+INSERT INTO reception VALUES(NULL,12);
+INSERT INTO reception VALUES(NULL,12);
+INSERT INTO reception VALUES(NULL,12);
+INSERT INTO reception VALUES(NULL,12);
+INSERT INTO reception VALUES(NULL,12);
+INSERT INTO reception VALUES(NULL,12);
+INSERT INTO reception VALUES(NULL,12);
+INSERT INTO reception VALUES(NULL,12);
+INSERT INTO reception VALUES(NULL,12);
+INSERT INTO reception VALUES(NULL,12);
+INSERT INTO reception VALUES(NULL,12);
+INSERT INTO reception VALUES(NULL,12);
+INSERT INTO reception VALUES(NULL,12);
+INSERT INTO reception VALUES(NULL,12);
+INSERT INTO reception VALUES(NULL,13);
+INSERT INTO reception VALUES(NULL,13);
+INSERT INTO reception VALUES(NULL,13);
+INSERT INTO reception VALUES(NULL,13);
+INSERT INTO reception VALUES(NULL,13);
+INSERT INTO reception VALUES(NULL,13);
+INSERT INTO reception VALUES(NULL,13);
+INSERT INTO reception VALUES(NULL,13);
+INSERT INTO reception VALUES(NULL,13);
+INSERT INTO reception VALUES(NULL,13);
+INSERT INTO reception VALUES(NULL,13);
+INSERT INTO reception VALUES(NULL,13);
+INSERT INTO reception VALUES(NULL,13);
+INSERT INTO reception VALUES(NULL,13);
+INSERT INTO reception VALUES(NULL,13);
+INSERT INTO reception VALUES(NULL,13);
+INSERT INTO reception VALUES(NULL,13);
+INSERT INTO reception VALUES(NULL,13);
+INSERT INTO reception VALUES(NULL,14);
+INSERT INTO reception VALUES(NULL,14);
+INSERT INTO reception VALUES(NULL,14);
+INSERT INTO reception VALUES(NULL,14);
+INSERT INTO reception VALUES(NULL,14);
+INSERT INTO reception VALUES(NULL,14);
+INSERT INTO reception VALUES(NULL,14);
+INSERT INTO reception VALUES(NULL,14);
+INSERT INTO reception VALUES(NULL,14);
+INSERT INTO reception VALUES(NULL,14);
+INSERT INTO reception VALUES(NULL,14);
+INSERT INTO reception VALUES(NULL,14);
+INSERT INTO reception VALUES(NULL,27);
+INSERT INTO reception VALUES(NULL,27);
+INSERT INTO reception VALUES(NULL,27);
+INSERT INTO reception VALUES(NULL,27);
+INSERT INTO reception VALUES(NULL,27);
+INSERT INTO reception VALUES(NULL,27);
+INSERT INTO reception VALUES(NULL,27);
+INSERT INTO reception VALUES(NULL,27);
+INSERT INTO reception VALUES(NULL,27);
+INSERT INTO reception VALUES(NULL,27);
+INSERT INTO reception VALUES(NULL,27);
+INSERT INTO reception VALUES(NULL,27);
+
+-- 都道府県コードに関するテーブルに要素を追加
+INSERT INTO prefTbl VALUES(01,'北海道',1);
+INSERT INTO prefTbl VALUES(01,'北海道',2);
+INSERT INTO prefTbl VALUES(01,'北海道',2);
+INSERT INTO prefTbl VALUES(01,'北海道',2);
+INSERT INTO prefTbl VALUES(01,'北海道',2);
+INSERT INTO prefTbl VALUES(10,'群馬県',2);
+INSERT INTO prefTbl VALUES(10,'群馬県',2);
+INSERT INTO prefTbl VALUES(11,'埼玉県',1);
+INSERT INTO prefTbl VALUES(11,'埼玉県',1);
+INSERT INTO prefTbl VALUES(11,'埼玉県',2);
+INSERT INTO prefTbl VALUES(11,'埼玉県',2);
+INSERT INTO prefTbl VALUES(11,'埼玉県',2);
+INSERT INTO prefTbl VALUES(11,'埼玉県',2);
+INSERT INTO prefTbl VALUES(11,'埼玉県',3);
+INSERT INTO prefTbl VALUES(11,'埼玉県',3);
+INSERT INTO prefTbl VALUES(11,'埼玉県',3);
+INSERT INTO prefTbl VALUES(12,'千葉県',1);
+INSERT INTO prefTbl VALUES(12,'千葉県',1);
+INSERT INTO prefTbl VALUES(12,'千葉県',1);
+INSERT INTO prefTbl VALUES(12,'千葉県',1);
+INSERT INTO prefTbl VALUES(12,'千葉県',1);
+INSERT INTO prefTbl VALUES(12,'千葉県',1);
+INSERT INTO prefTbl VALUES(12,'千葉県',1);
+INSERT INTO prefTbl VALUES(12,'千葉県',1);
+INSERT INTO prefTbl VALUES(12,'千葉県',2);
+INSERT INTO prefTbl VALUES(12,'千葉県',2);
+INSERT INTO prefTbl VALUES(12,'千葉県',2);
+INSERT INTO prefTbl VALUES(12,'千葉県',2);
+INSERT INTO prefTbl VALUES(12,'千葉県',3);
+INSERT INTO prefTbl VALUES(12,'千葉県',3);
+INSERT INTO prefTbl VALUES(12,'千葉県',3);
+INSERT INTO prefTbl VALUES(12,'千葉県',3);
+INSERT INTO prefTbl VALUES(13,'東京都',1);
+INSERT INTO prefTbl VALUES(13,'東京都',1);
+INSERT INTO prefTbl VALUES(13,'東京都',1);
+INSERT INTO prefTbl VALUES(13,'東京都',1);
+INSERT INTO prefTbl VALUES(13,'東京都',1);
+INSERT INTO prefTbl VALUES(13,'東京都',2);
+INSERT INTO prefTbl VALUES(13,'東京都',2);
+INSERT INTO prefTbl VALUES(13,'東京都',2);
+INSERT INTO prefTbl VALUES(13,'東京都',2);
+INSERT INTO prefTbl VALUES(13,'東京都',2);
+INSERT INTO prefTbl VALUES(13,'東京都',3);
+INSERT INTO prefTbl VALUES(13,'東京都',3);
+INSERT INTO prefTbl VALUES(13,'東京都',3);
+INSERT INTO prefTbl VALUES(13,'東京都',3);
+INSERT INTO prefTbl VALUES(13,'東京都',3);
+INSERT INTO prefTbl VALUES(13,'東京都',3);
+INSERT INTO prefTbl VALUES(13,'東京都',3);
+INSERT INTO prefTbl VALUES(13,'東京都',3);
+INSERT INTO prefTbl VALUES(14,'神奈川県',1);
+INSERT INTO prefTbl VALUES(14,'神奈川県',1);
+INSERT INTO prefTbl VALUES(14,'神奈川県',1);
+INSERT INTO prefTbl VALUES(14,'神奈川県',1);
+INSERT INTO prefTbl VALUES(14,'神奈川県',1);
+INSERT INTO prefTbl VALUES(14,'神奈川県',1);
+INSERT INTO prefTbl VALUES(14,'神奈川県',2);
+INSERT INTO prefTbl VALUES(14,'神奈川県',2);
+INSERT INTO prefTbl VALUES(14,'神奈川県',2);
+INSERT INTO prefTbl VALUES(14,'神奈川県',3);
+INSERT INTO prefTbl VALUES(14,'神奈川県',3);
+INSERT INTO prefTbl VALUES(14,'神奈川県',3);
+INSERT INTO prefTbl VALUES(27,'大阪府',1);
+INSERT INTO prefTbl VALUES(27,'大阪府',1);
+INSERT INTO prefTbl VALUES(27,'大阪府',1);
+INSERT INTO prefTbl VALUES(27,'大阪府',1);
+INSERT INTO prefTbl VALUES(27,'大阪府',2);
+INSERT INTO prefTbl VALUES(27,'大阪府',2);
+INSERT INTO prefTbl VALUES(27,'大阪府',2);
+INSERT INTO prefTbl VALUES(27,'大阪府',3);
+INSERT INTO prefTbl VALUES(27,'大阪府',3);
+INSERT INTO prefTbl VALUES(27,'大阪府',3);
+INSERT INTO prefTbl VALUES(27,'大阪府',3);
+INSERT INTO prefTbl VALUES(27,'大阪府',3);
 
 -- ディーラーに関するテーブルに要素を追加
 INSERT INTO dealerTbl VALUES(1,'A中古車店',1);
