@@ -1,0 +1,53 @@
+クエリ
+SELECT
+	P.pref_name,
+	D.dealer
+FROM
+	(
+	reception R
+	LEFT OUTER JOIN
+	prefTbl P
+	ON
+	R.pref_code = P.pref_code
+	)
+LEFT OUTER JOIN
+	dealerTbl D
+ON
+	R.dealer_key = D.dealer_key
+WHERE
+	P.pref_name = '埼玉県'
+GROUP BY
+	P.pref_name,
+	D.dealer
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    ->  P.pref_name,
+    ->  D.dealer
+    -> FROM
+    ->  (
+    ->  reception R
+    -> LEFT OUTER JOIN
+    ->  prefTbl P
+    -> ON
+    ->  R.pref_code = P.pref_code
+    ->  )
+    -> LEFT OUTER JOIN
+    ->  dealerTbl D
+    -> ON
+    ->  R.dealer_key = D.dealer_key
+    -> WHERE
+    ->  P.pref_name = '埼玉県'
+    -> GROUP BY
+    ->  P.pref_name,
+    ->  D.dealer
+    -> ;
++-----------+-------------+
+| pref_name | dealer      |
++-----------+-------------+
+| 埼玉県    | A中古車店   |
+| 埼玉県    | 中古社販売C |
+| 埼玉県    | 車のB店     |
++-----------+-------------+
+3 rows in set (0.004 sec)
