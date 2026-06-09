@@ -69,8 +69,18 @@ CREATE TABLE
 	carTbl
 	(
 	car_id INT NOT NULL PRIMARY KEY,
-	car_name VARCHAR(10),
-	price INT NOT NULL
+	car_name VARCHAR(10)
+	)
+;
+
+-- 定価に関するテーブル作成
+CREATE TABLE 
+	moneyTbl
+	(
+	type_id INT NOT NULL ,
+	car_id INT NOT NULL ,
+	price INT,
+	PRIMARY KEY(type_id,car_id)
 	)
 ;
 
