@@ -5,12 +5,12 @@ CREATE TABLE
 	(
 	reception_key INT AUTO_INCREMENT PRIMARY KEY,
 	pref_code CHAR(3) NOT NULL,
-	dealer_key INT AUTO_INCREMENT,
-	maker_id INT AUTO_INCREMENT,
-	type_id INT AUTO_INCREMENT,
-	car_id INT AUTO_INCREMENT,
+	dealer_key CHAR(3) NOT NULL,
+	maker_id CHAR(3) NOT NULL,
+	type_id CHAR(3) NOT NULL,
+	car_id CHAR(3) NOT NULL,
 	used_price INT NOT NULL,
-	user_id INT AUTO_INCREMENT,
+	user_id CHAR(3) NOT NULL,
 	FOREIGN KEY (pref_code)
 	REFERENCES prefTbl(pref_code),
 	FOREIGN KEY  (dealer_key)
@@ -39,7 +39,7 @@ CREATE TABLE prefTbl
 CREATE TABLE 
 	dealerTbl
 	(
-	dealer_key INT AUTO_INCREMENT PRIMARY KEY,
+	dealer_key CHAR(3) PRIMARY KEY,
 	dealer     VARCHAR(10) NOT NULL
 	)
 ;
@@ -49,7 +49,7 @@ CREATE TABLE
 CREATE TABLE 
 	maker
 	(
-	maker_id INT AUTO_INCREMENT PRIMARY KEY,
+	maker_id CHAR(3) PRIMARY KEY,
 	maker_name VARCHAR(10) NOT NULL
 	)
 ;
@@ -59,7 +59,7 @@ CREATE TABLE
 CREATE TABLE 
 	typeTbl
 	( 
-	type_id INT AUTO_INCREMENT PRIMARY KEY,
+	type_id CHAR(3) NOT NULL PRIMARY KEY,
 	type_name VARCHAR(10)
 	)
 ;
@@ -68,7 +68,7 @@ CREATE TABLE
 CREATE TABLE 
 	carTbl
 	(
-	car_id INT AUTO_INCREMENT PRIMARY KEY,
+	car_id CHAR(3) NOT NULL PRIMARY KEY,
 	car_name VARCHAR(10)
 	)
 ;
@@ -77,9 +77,9 @@ CREATE TABLE
 CREATE TABLE 
 	moneyTbl
 	(
-	type_id INT AUTO_INCREMENT,
-	car_id INT AUTO_INCREMENT,
-	price INT,
+	type_id CHAR(3) NOT NULL,
+	car_id CHAR(3) NOT NULL,
+	price INT NOT NULL,
 	PRIMARY KEY(type_id,car_id)
 	)
 ;
@@ -88,7 +88,7 @@ CREATE TABLE
 CREATE TABLE 
 	userTbl
 	(
-	user_id INT AUTO_INCREMENT PRIMARY KEY,
+	user_id CHAR(3) PRIMARY KEY,
 	user_name VARCHAR(10),
 	gender VARCHAR(3),
 	age INT NOT NULL
