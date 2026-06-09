@@ -3,7 +3,7 @@
 CREATE TABLE 
 	reception
 	(
-	reception_key INT AUTO_INCREMENT PRIMARY KEY,
+	reception_key CHAR(3) PRIMARY KEY,
 	pref_code CHAR(3) NOT NULL,
 	dealer_key CHAR(3) NOT NULL,
 	maker_id CHAR(3) NOT NULL,
