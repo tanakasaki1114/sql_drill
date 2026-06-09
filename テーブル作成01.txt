@@ -1,0 +1,96 @@
+問1
+-- 主キーを「受付番号」とし、受付番号のテーブル作成
+CREATE TABLE 
+	reception
+	(
+	reception_key CHAR(3) PRIMARY KEY,
+	pref_code CHAR(3) NOT NULL,
+	dealer_key CHAR(3) NOT NULL,
+	maker_id CHAR(3) NOT NULL,
+	type_id CHAR(3) NOT NULL,
+	car_id CHAR(3) NOT NULL,
+	used_price INT NOT NULL,
+	user_id CHAR(3) NOT NULL,
+	FOREIGN KEY (pref_code)
+	REFERENCES prefTbl(pref_code),
+	FOREIGN KEY  (dealer_key)
+	REFERENCES dealerTbl(dealer_key),
+	FOREIGN KEY  (maker_id)
+	REFERENCES maker(maker_id),
+	FOREIGN KEY  (type_id)
+	REFERENCES typeTbl(type_id),
+	FOREIGN KEY  (car_id)
+	REFERENCES carTbl(car_id),
+	FOREIGN KEY (user_id)
+	REFERENCES userTbl(user_id)
+	)
+;
+
+-- 都道府県コードに関するテーブル作成
+CREATE TABLE prefTbl
+	(
+	pref_code CHAR(3) PRIMARY KEY,
+	pref_name VARCHAR(30) NOT NULL
+    	)
+;
+
+
+-- ディーラーに関するテーブル作成
+CREATE TABLE 
+	dealerTbl
+	(
+	dealer_key CHAR(3) PRIMARY KEY,
+	dealer     VARCHAR(10) NOT NULL
+	)
+;
+
+
+-- メーカーに関するテーブル作成
+CREATE TABLE 
+	maker
+	(
+	maker_id CHAR(3) PRIMARY KEY,
+	maker_name VARCHAR(10) NOT NULL
+	)
+;
+
+
+-- タイプに関するテーブル作成
+CREATE TABLE 
+	typeTbl
+	( 
+	type_id CHAR(3) NOT NULL PRIMARY KEY,
+	type_name VARCHAR(10)
+	)
+;
+
+-- 車種に関するテーブル作成
+CREATE TABLE 
+	carTbl
+	(
+	car_id CHAR(3) NOT NULL PRIMARY KEY,
+	car_name VARCHAR(10)
+	)
+;
+
+-- 定価に関するテーブル作成
+CREATE TABLE 
+	moneyTbl
+	(
+	type_id CHAR(3) NOT NULL,
+	car_id CHAR(3) NOT NULL,
+	price INT NOT NULL,
+	PRIMARY KEY(type_id,car_id)
+	)
+;
+
+-- 元所有者に関するテーブル作成
+CREATE TABLE 
+	userTbl
+	(
+	user_id CHAR(3) PRIMARY KEY,
+	user_name VARCHAR(10),
+	gender VARCHAR(3),
+	age INT NOT NULL
+	)
+;
