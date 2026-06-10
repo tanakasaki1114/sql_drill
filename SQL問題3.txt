@@ -2,22 +2,22 @@
 SELECT
 	D.dealer,
 	T.type_name,
-	AVG(P.price) AS 平均価格
+	AVG(R.used_price) AS 平均価格
 FROM
 	reception R
-LEFT OUTER JOIN
+INNER JOIN
 	dealerTbl D
 ON
 	R.dealer_key = D.dealer_key
-LEFT OUTER JOIN
+INNER JOIN
 	typeTbl T
 ON
 	R.type_id = T.type_id
-LEFT OUTER JOIN
+INNER JOIN
 	carTbl C
 ON
 	R.car_id = C.car_id
-LEFT OUTER JOIN
+INNER JOIN
 	moneyTbl P
 ON
 	R.car_id = P.car_id
@@ -30,22 +30,22 @@ GROUP BY
 MariaDB [workbook]> SELECT
     ->  D.dealer,
     ->  T.type_name,
-    ->  AVG(P.price) AS 平均価格
+    ->  AVG(R.used_price) AS 平均価格
     -> FROM
     ->  reception R
-    -> LEFT OUTER JOIN
+    -> INNER JOIN
     ->  dealerTbl D
     -> ON
     ->  R.dealer_key = D.dealer_key
-    -> LEFT OUTER JOIN
+    -> INNER JOIN
     ->  typeTbl T
     -> ON
     ->  R.type_id = T.type_id
-    -> LEFT OUTER JOIN
+    -> INNER JOIN
     ->  carTbl C
     -> ON
     ->  R.car_id = C.car_id
-    -> LEFT OUTER JOIN
+    -> INNER JOIN
     ->  moneyTbl P
     -> ON
     ->  R.car_id = P.car_id
@@ -56,24 +56,24 @@ MariaDB [workbook]> SELECT
 +-------------+------------+--------------+
 | dealer      | type_name  | 平均価格     |
 +-------------+------------+--------------+
-| A中古車店   | SUV        | 4524000.0000 |
-| A中古車店   | コンパクト | 2450000.0000 |
-| A中古車店   | スポーツ   | 3456250.0000 |
-| A中古車店   | セダン     | 4559000.0000 |
-| A中古車店   | ワゴン     | 4080000.0000 |
-| A中古車店   | 軽自動車   | 1526000.0000 |
-| A中古車店   | 電気自動車 | 4185833.3333 |
-| 中古社販売C | SUV        | 3032000.0000 |
-| 中古社販売C | コンパクト | 2558571.4286 |
-| 中古社販売C | スポーツ   | 5677500.0000 |
-| 中古社販売C | セダン     | 3350000.0000 |
-| 中古社販売C | ワゴン     | 2975000.0000 |
-| 中古社販売C | 軽自動車   | 2135000.0000 |
-| 車のB店     | SUV        | 4122272.7273 |
-| 車のB店     | コンパクト | 2946666.6667 |
-| 車のB店     | スポーツ   | 2934285.7143 |
-| 車のB店     | セダン     | 3854444.4444 |
-| 車のB店     | ワゴン     | 3108000.0000 |
-| 車のB店     | 電気自動車 | 2618333.3333 |
+| A中古車店   | SUV        |  988200.0000 |
+| A中古車店   | コンパクト | 2368900.0000 |
+| A中古車店   | スポーツ   |  841225.0000 |
+| A中古車店   | セダン     | 1640330.0000 |
+| A中古車店   | ワゴン     | 1080000.0000 |
+| A中古車店   | 軽自動車   | 1101060.0000 |
+| A中古車店   | 電気自動車 | 1439450.0000 |
+| 中古社販売C | SUV        | 1259980.0000 |
+| 中古社販売C | コンパクト |  887128.5714 |
+| 中古社販売C | スポーツ   | 1083737.5000 |
+| 中古社販売C | セダン     | 1132800.0000 |
+| 中古社販売C | ワゴン     |  926300.0000 |
+| 中古社販売C | 軽自動車   | 1008175.0000 |
+| 車のB店     | SUV        | 1093018.1818 |
+| 車のB店     | コンパクト |  968880.0000 |
+| 車のB店     | スポーツ   | 1874771.4286 |
+| 車のB店     | セダン     |  558133.3333 |
+| 車のB店     | ワゴン     |  900000.0000 |
+| 車のB店     | 電気自動車 |  863300.0000 |
 +-------------+------------+--------------+
-19 rows in set (0.002 sec)
+19 rows in set (0.075 sec)

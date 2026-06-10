@@ -2,7 +2,7 @@
 SELECT
 	D.dealer,
 	M.maker_name,
-	COUNT(M.maker_id) AS 販売台数
+	COUNT(R.reception_key) AS 販売台数
 FROM
 	(
 	reception R
@@ -24,7 +24,7 @@ GROUP BY
 MariaDB [workbook]> SELECT
     ->  D.dealer,
     ->  M.maker_name,
-    ->  COUNT(M.maker_id) AS 販売台数
+    ->  COUNT(R.reception_key) AS 販売台数
     -> FROM
     ->  (
     ->  reception R
@@ -49,9 +49,9 @@ MariaDB [workbook]> SELECT
 | A中古車店   | 日産       |       12 |
 | 中古社販売C | トヨタ     |        8 |
 | 中古社販売C | ホンダ     |        6 |
-| 中古社販売C | 日産       |        8 |
+| 中古社販売C | 日産       |        9 |
 | 車のB店     | トヨタ     |       21 |
 | 車のB店     | ホンダ     |        1 |
 | 車のB店     | 日産       |        3 |
 +-------------+------------+----------+
-9 rows in set (0.002 sec)
+9 rows in set (0.084 sec)
