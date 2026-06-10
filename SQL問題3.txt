@@ -1,0 +1,79 @@
+クエリ
+SELECT
+	D.dealer,
+	T.type_name,
+	AVG(R.used_price) AS 平均価格
+FROM
+	reception R
+INNER JOIN
+	dealerTbl D
+ON
+	R.dealer_key = D.dealer_key
+INNER JOIN
+	typeTbl T
+ON
+	R.type_id = T.type_id
+INNER JOIN
+	carTbl C
+ON
+	R.car_id = C.car_id
+INNER JOIN
+	moneyTbl P
+ON
+	R.car_id = P.car_id
+GROUP BY
+	D.dealer,
+	T.type_name
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    ->  D.dealer,
+    ->  T.type_name,
+    ->  AVG(R.used_price) AS 平均価格
+    -> FROM
+    ->  reception R
+    -> INNER JOIN
+    ->  dealerTbl D
+    -> ON
+    ->  R.dealer_key = D.dealer_key
+    -> INNER JOIN
+    ->  typeTbl T
+    -> ON
+    ->  R.type_id = T.type_id
+    -> INNER JOIN
+    ->  carTbl C
+    -> ON
+    ->  R.car_id = C.car_id
+    -> INNER JOIN
+    ->  moneyTbl P
+    -> ON
+    ->  R.car_id = P.car_id
+    -> GROUP BY
+    ->  D.dealer,
+    ->  T.type_name
+    -> ;
++-------------+------------+--------------+
+| dealer      | type_name  | 平均価格     |
++-------------+------------+--------------+
+| A中古車店   | SUV        |  988200.0000 |
+| A中古車店   | コンパクト | 2368900.0000 |
+| A中古車店   | スポーツ   |  841225.0000 |
+| A中古車店   | セダン     | 1640330.0000 |
+| A中古車店   | ワゴン     | 1080000.0000 |
+| A中古車店   | 軽自動車   | 1101060.0000 |
+| A中古車店   | 電気自動車 | 1439450.0000 |
+| 中古社販売C | SUV        | 1259980.0000 |
+| 中古社販売C | コンパクト |  887128.5714 |
+| 中古社販売C | スポーツ   | 1083737.5000 |
+| 中古社販売C | セダン     | 1132800.0000 |
+| 中古社販売C | ワゴン     |  926300.0000 |
+| 中古社販売C | 軽自動車   | 1008175.0000 |
+| 車のB店     | SUV        | 1093018.1818 |
+| 車のB店     | コンパクト |  968880.0000 |
+| 車のB店     | スポーツ   | 1874771.4286 |
+| 車のB店     | セダン     |  558133.3333 |
+| 車のB店     | ワゴン     |  900000.0000 |
+| 車のB店     | 電気自動車 |  863300.0000 |
++-------------+------------+--------------+
+19 rows in set (0.075 sec)

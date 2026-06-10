@@ -1,0 +1,57 @@
+クエリ
+SELECT
+	D.dealer,
+	M.maker_name,
+	COUNT(R.reception_key) AS 販売台数
+FROM
+	(
+	reception R
+	LEFT OUTER JOIN
+	dealerTbl D
+	ON
+	R.dealer_key = D.dealer_key
+	)
+LEFT OUTER JOIN
+	maker M
+ON
+	R.maker_id = M.maker_id
+GROUP BY
+	D.dealer,
+	M.maker_name
+;
+
+実行結果
+MariaDB [workbook]> SELECT
+    ->  D.dealer,
+    ->  M.maker_name,
+    ->  COUNT(R.reception_key) AS 販売台数
+    -> FROM
+    ->  (
+    ->  reception R
+    ->  LEFT OUTER JOIN
+    ->  dealerTbl D
+    ->  ON
+    ->  R.dealer_key = D.dealer_key
+    ->  )
+    -> LEFT OUTER JOIN
+    ->  maker M
+    -> ON
+    ->  R.maker_id = M.maker_id
+    -> GROUP BY
+    ->  D.dealer,
+    ->  M.maker_name
+    -> ;
++-------------+------------+----------+
+| dealer      | maker_name | 販売台数 |
++-------------+------------+----------+
+| A中古車店   | トヨタ     |        7 |
+| A中古車店   | ホンダ     |        7 |
+| A中古車店   | 日産       |       12 |
+| 中古社販売C | トヨタ     |        8 |
+| 中古社販売C | ホンダ     |        6 |
+| 中古社販売C | 日産       |        9 |
+| 車のB店     | トヨタ     |       21 |
+| 車のB店     | ホンダ     |        1 |
+| 車のB店     | 日産       |        3 |
++-------------+------------+----------+
+9 rows in set (0.084 sec)
