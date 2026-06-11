@@ -1,5 +1,10 @@
 package Work4_1;
-
+/**
+ * クラス名:JudgeObject
+ * 概要:ジャンケンの審判を表す
+ * @author 田中 沙樹
+ * 作成日:2026.06.11
+ */
 public class JudgeObject {
 	/**
 	 * 関数名:startJanken
