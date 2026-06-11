@@ -59,8 +59,6 @@ public class PlayerObject {
 	public void notifyResult(boolean resultNumber) {
 		//もし勝ったら
 		if(resultNumber == true) {
-			//名前を表示し、勝ちと表示
-			System.out.println(playerName + "の勝ちです!");
 			//カウントする
 			winCount++;
 		}
