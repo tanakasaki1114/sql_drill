@@ -1,0 +1,2 @@
+Work7_3
+HandObjectクラスのカードを引く処理をFantanhandクラスに書く
