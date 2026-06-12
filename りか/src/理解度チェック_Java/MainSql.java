@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class MainSql {
 	//キーボードに入力された値を読み込むための変数を作る
-	private static final Scanner standardInput = new Scanner(System.in);
+	private static final Scanner STANDARD_INPUT = new Scanner(System.in);
 	/**
 	 * クラス名:main
 	 * 概要:mainを処理
@@ -129,14 +129,23 @@ public class MainSql {
 				}
 				//もしYesなら
 				if (priceChoice.equalsIgnoreCase("Yes")) {
-					//「下限額」の案内
-					System.out.print("下限額：");
-					//下限額を入力
-					searchMin = standardInput.nextInt();
-					//「上限額」の案内
-					System.out.print("上限額：");
-					//上限額を入力
-					searchMax = standardInput.nextInt();
+					//範囲外の間は繰り返す
+					do {
+						//「下限額」の案内
+						System.out.print("下限額（100万～）：");
+						//下限額の入力
+						searchMin = standardInput.nextInt();	
+						//「上限額」の案内
+						System.out.print("上限額（～150万）：");
+						//上限額の入力
+						searchMax = standardInput.nextInt();	
+						// もし範囲外だったら
+						if ((searchMin < 1000000) || (searchMax > 1500000)) {
+							//もう一度案内を出すというメッセージ
+							System.out.println("100万～150万の間で入力し直してください。");
+						}
+						// 範囲外の間は繰り返す
+					} while((searchMin < 1000000) || (searchMax > 1500000));
 					//条件があったら
 					if (!searchKey.equals("")) {
 						//つなぐ
@@ -259,10 +268,16 @@ private static void insertQuerySample(MariaDBManager managerObject) throws SQLEx
 	System.out.print("車種コード：");
 	//車種コードを入力
 	String carId = standardInput.next();
+	//変数を初期化
+	int usedPrice = 0;
 	//「中古販売額：」と表示
 	System.out.print("中古販売額：");
-	//中古販売額を入力
-	int usedPrice = standardInput.nextInt();
+	//0円未満の場合は繰り返す
+	do {
+		//中古販売額を入力
+		usedPrice = standardInput.nextInt();
+		//0円未満の場合は繰り返す	
+	}while(usedPrice < 0);
 	//「元所有者コード」と表示
 	System.out.print("元所有者コード：");
 	//元所有者コードを入力
@@ -298,10 +313,16 @@ private static void updateQuerySample(MariaDBManager managerObject) throws SQLEx
 	System.out.print("修正後の車種コード：");
 	//修正後の車種コードを入力
 	String carId = standardInput.next();
+	//変数を初期化
+	int usedPrice = 0;
 	//「修正後の中古販売額：」と表示
 	System.out.print("修正後の中古販売額：");
-	//修正後の中古販売額を入力
-	int usedPrice = standardInput.nextInt();
+	//0円未満の場合は繰り返す
+	do {
+		//修正後の中古販売額を入力
+		usedPrice = standardInput.nextInt();
+		//0円未満の場合は繰り返す	
+	}while(usedPrice < 0);
 	// クエリ(SQL文)を作成する
 	String sqlQuery = "UPDATE reception SET maker_id = " + makerId + "," + "type_id = " + typeId + "," + "car_id = " + carId + "," + "used_price =  "+ usedPrice + 
 			" WHERE reception_key = " + receptionKey;
