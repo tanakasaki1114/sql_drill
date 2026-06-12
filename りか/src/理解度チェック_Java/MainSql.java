@@ -134,15 +134,29 @@ public class MainSql {
 						//「下限額」の案内
 						System.out.print("下限額（100万～）：");
 						//下限額の入力
-						searchMin = standardInput.nextInt();	
+						String searchMinWord = standardInput.next();	
 						//「上限額」の案内
 						System.out.print("上限額（～150万）：");
 						//上限額の入力
-						searchMax = standardInput.nextInt();	
-						// もし範囲外だったら
-						if ((searchMin < 1000000) || (searchMax > 1500000)) {
-							//もう一度案内を出すというメッセージ
-							System.out.println("100万～150万の間で入力し直してください。");
+						String searchMaxWord = standardInput.next();
+						try {
+							//下限額を数字に変換
+							searchMin = Integer.parseInt(searchMinWord);
+							//上限額を数字に変換
+							searchMax = Integer.parseInt(searchMaxWord);
+							// もし範囲外だったら
+							if ((searchMin < 1000000) || (searchMax > 1500000)) {
+								//もう一度案内を出すというメッセージ
+								System.out.println("100万～150万の間で入力し直してください。");
+							}
+							//変換できなかったら
+						}catch(NumberFormatException e) {
+							//整数以外の数字を入力するように案内
+							System.out.println("整数以外の文字列は入力できません。数字で入力してください。");
+							//もう一度ループを回す
+							searchMin = -1;
+							//もう一度ループを回す
+							searchMax = -1;
 						}
 						// 範囲外の間は繰り返す
 					} while((searchMin < 1000000) || (searchMax > 1500000));
@@ -270,14 +284,30 @@ private static void insertQuerySample(MariaDBManager managerObject) throws SQLEx
 	String carId = standardInput.next();
 	//変数を初期化
 	int usedPrice = 0;
-	//「中古販売額：」と表示
-	System.out.print("中古販売額：");
-	//0円未満の場合は繰り返す
+	//0未満の場合は繰り返す	
 	do {
-		//中古販売額を入力
-		usedPrice = standardInput.nextInt();
-		//0円未満の場合は繰り返す	
-	}while(usedPrice < 0);
+		//「中古販売額：」と表示
+		System.out.print("中古販売額：");
+		//中古販売額を文字列として受け取る
+		String inputPrice = standardInput.next();
+		//例外処理を行う
+		try {
+			// 数字に変換
+			usedPrice = Integer.parseInt(inputPrice);
+			// 0円未満だったらエラーにする
+			if (usedPrice < 0) {
+				//0円以上の金額を入力するように案内
+				System.out.println("0円以上の金額を入力してください。");
+			}
+			//文字が入力されたとき
+		} catch (NumberFormatException e) {
+			//整数以外の数字を入力するように案内
+			System.out.println("整数以外の文字列は入力できません。数字で入力してください。");
+			//もう一度ループを回す
+			usedPrice = -1;
+		}
+		//0未満の場合は繰り返す
+	} while(usedPrice < 0);
 	//「元所有者コード」と表示
 	System.out.print("元所有者コード：");
 	//元所有者コードを入力
@@ -315,14 +345,30 @@ private static void updateQuerySample(MariaDBManager managerObject) throws SQLEx
 	String carId = standardInput.next();
 	//変数を初期化
 	int usedPrice = 0;
-	//「修正後の中古販売額：」と表示
-	System.out.print("修正後の中古販売額：");
-	//0円未満の場合は繰り返す
+	//0未満の場合は繰り返す	
 	do {
-		//修正後の中古販売額を入力
-		usedPrice = standardInput.nextInt();
-		//0円未満の場合は繰り返す	
-	}while(usedPrice < 0);
+		//「修正後の中古販売額：」と表示
+		System.out.print("修正後の中古販売額：");
+		//中古販売額を文字列として受け取る
+		String inputPrice = standardInput.next();
+		//例外処理を行う
+		try {
+			// 数字に変換
+			usedPrice = Integer.parseInt(inputPrice);
+			// 0円未満だったらエラーにする
+			if (usedPrice < 0) {
+				//0円以上の金額を入力するように案内
+				System.out.println("0円以上の金額を入力してください。");
+			}
+			//文字が入力されたとき
+		} catch (NumberFormatException e) {
+			//整数以外の数字を入力するように案内
+			System.out.println("整数以外の文字列は入力できません。数字で入力してください。");
+			//もう一度ループを回す
+			usedPrice = -1;
+		}
+		//0未満の場合は繰り返す
+	} while(usedPrice < 0);
 	// クエリ(SQL文)を作成する
 	String sqlQuery = "UPDATE reception SET maker_id = " + makerId + "," + "type_id = " + typeId + "," + "car_id = " + carId + "," + "used_price =  "+ usedPrice + 
 			" WHERE reception_key = " + receptionKey;
