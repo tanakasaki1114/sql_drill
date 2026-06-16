@@ -53,7 +53,7 @@ public class FantanPlayer extends PlayerObject{
 			//パスの回数を数える
 			passNumber++;
 			//パスをする
-			((FantanMaster)MasterObject).passObject(this);
+			FantanMaster.passObject(this);
 			//パス回数が制限回数以上ならば
 			if(passNumber > FantanMaster.PASS_LIMIT) {
 				//カードの情報を得る
@@ -77,8 +77,10 @@ public class FantanPlayer extends PlayerObject{
 	public void receiveCard(CardObject cardObject) {
 		//カードの情報を得る
 		int receiveCard = cardObject.getNumber();
+		//7を定数化
+		public static final int FIRST_CARD = 7;
 		//もし7なら
-		if(receiveCard == 7) {
+		if(receiveCard == FIRST_CARD) {
 			//7を置いた案内
 			System.out.println("7を置きました。");
 			//テーブルにカードを置く

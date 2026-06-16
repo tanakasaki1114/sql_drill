@@ -33,8 +33,10 @@ public class FantanRule implements RulesObject{
 			int cardNumber = lookingCard.getNumber();
 			//手札のカードのスートの情報をとる
 			int suitNumber = lookingCard.getSuit();
+			//1を定数化
+			public static final int ONE_CARD = 1;
 			//左の数が、1のときは13、1以外のときは1を引く
-			int leftNumber = (cardNumber != 1) ? cardNumber - 1 : CardObject.CARD_NUMBER;
+			int leftNumber = (cardNumber != ONE_CARD) ? cardNumber - 1 : CardObject.CARD_NUMBER;
 			//右の数が、1のときは13、1以外のときは1を引く
 			int rightNumber = (cardNumber != CardObject.CARD_NUMBER) ? cardNumber + 1 : 1;
 			//指定したカードがあれば
