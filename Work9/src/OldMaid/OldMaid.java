@@ -42,12 +42,12 @@ public class OldMaid {
 	}
 	/**
 	 * 関数名:HandObject
-	 * メソッドの説明:52枚のトランプを生成
+	 * メソッドの説明:53枚のトランプを生成
 	 * @return trumpObject トランプを格納したDeal
 	 * 作成日:2026.06.16
 	 */
 	private static HandObject createTrump() {
-		//各ソート52枚のカードを生成
+		//各ソート53枚のカードを生成
 		HandObject trumpObject = new HandObject();
 		//繰り返す
 		for(int cardNumber = 1;cardNumber <= CardObject.CARD_NUMBER;cardNumber++) {
