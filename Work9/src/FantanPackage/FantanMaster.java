@@ -23,7 +23,7 @@ public class FantanMaster extends MasterObject{
 		if(playerObject.getPass() > PASS_LIMIT) {
 			//負けであることを案内
 			System.out.println(playerObject + "さんは負けです。");
-			//
+			//プレイヤーを削除
 			deregisterPlayer(playerObject);
 		}
 	}
