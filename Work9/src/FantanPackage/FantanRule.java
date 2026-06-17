@@ -36,9 +36,9 @@ public class FantanRule implements RulesObject{
 			//1を定数化
 			public static final int ONE_CARD = 1;
 			//左の数が、1のときは13、1以外のときは1を引く
-			int leftNumber = (cardNumber != ONE_CARD) ? cardNumber - 1 : CardObject.CARD_NUMBER;
+			int leftNumber = (cardNumber != ONE_CARD) ? cardNumber - ONE_CARD : CardObject.CARD_NUMBER;
 			//右の数が、1のときは13、1以外のときは1を引く
-			int rightNumber = (cardNumber != CardObject.CARD_NUMBER) ? cardNumber + 1 : 1;
+			int rightNumber = (cardNumber != CARD_NUMBER) ? cardNumber + 1 : ONE_CARD;
 			//指定したカードがあれば
 			if((true == isThereCard(tableNumber,suitNumber,leftNumber)) || (true == isThereCard(tableNumber,suitNumber,rightNumber))) {
 				//置くためのカードの準備

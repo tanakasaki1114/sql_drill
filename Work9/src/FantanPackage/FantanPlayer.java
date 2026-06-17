@@ -21,7 +21,7 @@ public class FantanPlayer extends PlayerObject{
 	 * @param nameObject 名前、tableNumber テーブル、masterObject 進行役、rules ルール
 	 * 作成日:2026.06.15
 	 */
-	public FantanPlayer(String nameObject, TableObject tableNumber, MasterObject masterObject,
+	public FantanPlayer(String nameObject, TableObject tableNumber, FantanMaster masterObject,
 			RulesObject rulesObject) {
 		//親クラスから呼ぶ
 		super(nameObject, tableNumber, masterObject, rulesObject);
@@ -59,7 +59,7 @@ public class FantanPlayer extends PlayerObject{
 				//カードの情報を得る
 				int numberOfHand = myHand.getNumberOfCards();
 				//繰り返す
-				for(int countNumber = 0;counterNumber < numberOfHand;countNumber++) {
+				for(int countNumber = 0;countNumber < numberOfHand;countNumber++) {
 					//手札を全てテーブルに置く
 					tableNumber.putCard(new CardObject[]){
 						myHand.pickCard(countNumber0);
