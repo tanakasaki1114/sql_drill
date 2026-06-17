@@ -60,6 +60,8 @@ public class OldMaid {
 			//カードを生成し、追加する
 			trumpObject.addCard(new CardObject(CardObject.SUIT_SPADE,cardNumber));
 		}
+		//ジョーカーの生成
+		trumpObject.addCard(new CardObject(JokerObject()));
 		//カードの返却
 		return trumpObject;
 	}
